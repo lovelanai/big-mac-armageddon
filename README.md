@@ -1,3 +1,11 @@
+# Välkommen till BigMac Armageddon
+
+BigMac Armageddon är en 2D platformer utvecklad av Simon Eriksson, Love Lanai, Adrian Rydin, Isaaq Guleed, Josef Karlsson & Philip Risberg.
+
+Målet med spelet är att gå från höger till vänster och överleva en hel bana utan att bli dödad av olika hinder.
+
+Spela spelet genom GitHub Pages här: https://lovelanai.github.io/big-mac-armageddon/
+
 # Slutprojektet
 Välkommen till den förinställda kodbasen för slutprojektet.
 Se filen `./src/sketch.ts` för hur ni ska börja skriva er kod!
