@@ -1,6 +1,11 @@
 //---- GLOBAL VARIABLES ----//
-// let game: Game;
+let game: Game;
 // let sound: p5.SoundFile
+
+interface Visual {
+    update(): void;
+    draw(): void;
+}
 
 /**
  * Built in preload function in P5
@@ -22,7 +27,7 @@ function setup() {
     frameRate(60);
     // noCursor();
     
-    // game = new Game();
+    game = new Game(new StartMenu());
 }
 
 /**

@@ -13,7 +13,7 @@ Se filen `./src/sketch.ts` för hur ni ska börja skriva er kod!
 Kom ihåg att använda git!
 
 ## Dokument & Artifakter
-All dokument skall finnas i projektet som faktiska filer vid inlämningen. Det finns en mapp `./documents` som alla dokumenten skall sparas i.
+Alla dokument skall finnas i projektet som faktiska filer vid inlämningen. Det finns en mapp `./documents` som alla dokumenten skall sparas i.
 
 Gå in i mappen och läs vidare där!
 
@@ -30,7 +30,7 @@ Det är starkt rekomenderat att ni använder debug-verktyget i VSCode för att h
 Debuggern låter er stanna programmet och stega rad för rad samtidigt som ni kan titta på vad variablerna innehåller. Det är speciellt användbart när ni arbetar med funktioner som anropas 60 gånger per sekund - console overload otherwise... 🤯
 
 #### Starta Debuggern
-För att starta debuggern måste du första ladda hem tilläget "Debugger for Chrome" som finns under "Extensions" här i VSCode.
+För att starta debuggern måste du först ladda hem tillägget "Debugger for Chrome" som finns under "Extensions" här i VSCode.
 Därefter tycker du `F5` för att starta debuggern, se dock till att du har startat projektet innan (`npm start`)!
 
 Ett nytt fönster kommer att öppnas som behöver användas för att få koden att stanna vid utsatta debugg-punkter.
