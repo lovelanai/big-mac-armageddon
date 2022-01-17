@@ -2,10 +2,6 @@
 let game: Game;
 // let sound: p5.SoundFile
 
-interface Visual {
-    update(): void;
-    draw(): void;
-}
 
 /**
  * Built in preload function in P5
@@ -27,7 +23,7 @@ function setup() {
     frameRate(60);
     // noCursor();
     
-    game = new Game(new StartMenu());
+    game = new Game(new Entity(1,1,3,3,'blue',true));
 }
 
 /**
