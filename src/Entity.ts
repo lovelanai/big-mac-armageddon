@@ -1,11 +1,11 @@
 class Entity implements Visual {
-    position: Vector;
-    bounds: Vector;
+    position: p5.Vector;
+    bounds: p5.Vector;
     private fill: p5.Image | string;
     private damage: boolean;
     private collisions: { left: Set<Entity>, right: Set<Entity>, up: Set<Entity>, down: Set<Entity> };
 
-    constructor(position: Vector, bounds: Vector, fill: p5.Image | string, isSolid:boolean, damage: boolean,) {
+    constructor(position: p5.Vector, bounds: p5.Vector, fill: p5.Image | string, isSolid: boolean, damage: boolean) {
         this.position = position;
         this.bounds = bounds;
         this.fill = fill;
@@ -23,7 +23,7 @@ class Entity implements Visual {
     draw(): void {
 
     }
-    getCorners(): Vector[] {
+    getCorners(): p5.Vector[] {
         return [this.position];
     }
     getDamage(): boolean {
