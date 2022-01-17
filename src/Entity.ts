@@ -5,7 +5,7 @@ class Entity implements Visual {
     private damage: boolean;
     private collisions: { left: Set<Entity>, right: Set<Entity>, up: Set<Entity>, down: Set<Entity> };
 
-    constructor(position: Vector, bounds: Vector, fill: p5.Image | string, damage: boolean,) {
+    constructor(position: Vector, bounds: Vector, fill: p5.Image | string, isSolid:boolean, damage: boolean,) {
         this.position = position;
         this.bounds = bounds;
         this.fill = fill;
