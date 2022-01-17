@@ -23,6 +23,9 @@ class Entity implements Visual {
     draw(): void {
 
     }
+    handleCollision(entity: Entity){
+        entity;
+    }
     getCorners(): p5.Vector[] {
         return [this.position];
     }
