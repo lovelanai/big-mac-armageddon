@@ -4,9 +4,7 @@ const gravity = .8;
 
 
 class Player {
-    static update() {
-        throw new Error("Method not implemented.");
-    }
+
     position: { x: number; y: number; };
     velocity: { x: number; y: number; };
     width: number;
@@ -15,7 +13,7 @@ class Player {
 
         this.position = {
             x: 1100,
-            y: 600
+            y: 0
         }
         this.velocity = {
             x: 0,
@@ -38,8 +36,9 @@ class Player {
         this.position.y += this.velocity.y;
 
         if (this.position.y + this.height +
-            this.velocity.y <= Game.height)
+            this.velocity.y <= height)
             this.velocity.y += gravity;
+            else this.velocity.y = 0;
 
     }
 }
@@ -59,13 +58,14 @@ class Player {
         requestAnimationFrame(animate);
         let scrollOffset = 0;
 
-    if ((keys.right.pressed && player.position.x < 1100) || keys.right.pressed && scrollOffset === 0 && player.position.x > 0){
-        player.velocity.x = 8
-    } else if (keys.left.pressed && player.position.x > 650) {
-        player.velocity.x = -8
-    } else {
-        player.velocity.x = 0}
-
+        /** Gör att "player" rör sig vid knapptryck och stannar vid knapplyft */
+        if ((keys.right.pressed && player.position.x < 1100) || keys.right.pressed && scrollOffset === 0 && player.position.x > 0){
+            player.velocity.x = 8
+        } else if (keys.left.pressed && player.position.x > 650) {
+            player.velocity.x = -8
+        } else {
+            player.velocity.x = 0
+        }
 }
 
 animate()
@@ -88,7 +88,7 @@ animate()
 
             case 87:
                 console.log('up')
-                if (player.velocity.y === 0) player.velocity.y -= 5
+                if (player.velocity.y === 0) player.velocity.y -= 20
                 break
         }
 
@@ -116,4 +116,4 @@ animate()
     })
 
 
-
+ 
