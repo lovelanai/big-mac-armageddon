@@ -38,7 +38,6 @@ function setup() {
 
 function draw() {
     background('white');
-    console.log('sketch.ts');
     player.draw();
     
 
@@ -47,9 +46,5 @@ function draw() {
 }
 
 
-/**
- *  Built in windowResize listener function in P5
- */
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
+
+

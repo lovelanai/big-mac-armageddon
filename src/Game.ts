@@ -10,6 +10,7 @@ class Game implements Visual {
         this.currentState.update();
         player.update();
         
+        
     }
     draw() {
         this.currentState.draw();
