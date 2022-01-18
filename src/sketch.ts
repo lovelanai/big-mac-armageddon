@@ -1,4 +1,6 @@
+/// <reference path="Game.ts" />
 /// <reference path="Player.ts" />
+
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 // let sound: p5.SoundFile
@@ -32,21 +34,15 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
-const dummyPlayer = new Player(new p5.Vector(0, 0), new p5.Vector(), 'blue', true, true);
 function draw() {
     background('white');
-    console.log('sketch.ts');
-    dummyPlayer.draw();
+    player.draw();
     
 
-    // game.update();
+    game.update();
     // game.draw();
 }
 
 
-/**
- *  Built in windowResize listener function in P5
- */
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
+
+
