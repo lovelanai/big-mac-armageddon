@@ -21,6 +21,7 @@ class Entity implements Visual {
 
     }
     draw(): void {
+        console.log('entity.ts')
 
     }
     getCorners(): p5.Vector[] {

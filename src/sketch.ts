@@ -23,7 +23,7 @@ function setup() {
     frameRate(60);
     // noCursor();
     
-    game = new Game(new Entity(1,1,3,3,'blue',true));
+    game = new Game(new Entity([1],1,3,3,'blue',true));
 }
 
 /**
@@ -32,11 +32,9 @@ function setup() {
  * you created in the setup function above
  */
 function draw() {
-    background('blue');
-    fill('green');
-    stroke('white');
-    strokeWeight(10);
-    circle(width * .5, height * .5, width * 0.2);
+    background('white');
+    console.log('sketch.ts')
+
 
     // game.update();
     // game.draw();
