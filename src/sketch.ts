@@ -1,4 +1,6 @@
+/// <reference path="Game.ts" />
 /// <reference path="Player.ts" />
+
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 // let sound: p5.SoundFile
