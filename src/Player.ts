@@ -9,4 +9,3 @@ class Player extends Entity {
     }
 }
 
-const p = new Player([100],[100], 1, 1, 1)

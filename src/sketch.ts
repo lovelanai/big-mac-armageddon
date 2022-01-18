@@ -1,3 +1,4 @@
+/// <reference path="Player.ts" />
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 // let sound: p5.SoundFile
@@ -22,8 +23,8 @@ function setup() {
     createCanvas(1280, 720);
     frameRate(60);
     // noCursor();
-    
-    game = new Game(new Entity([1],1,3,3,'blue',true));
+
+    game = new Game(new Entity(new p5.Vector(), new p5.Vector(), 'blue', true, true));
 }
 
 /**
@@ -31,10 +32,11 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
+const dummyPlayer = new Player(new p5.Vector(), new p5.Vector(), 'blue', true, true);
 function draw() {
     background('white');
-    console.log('sketch.ts')
-
+    console.log('sketch.ts');
+    dummyPlayer.draw();
 
     // game.update();
     // game.draw();
