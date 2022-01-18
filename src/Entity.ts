@@ -3,7 +3,7 @@ class Entity implements Visual {
     size: p5.Vector;
     private fill: p5.Image | string;
     private damage: boolean;
-    
+
 
     constructor(position: p5.Vector, size: p5.Vector, fill: p5.Image | string, isSolid: boolean, damage: boolean) {
         this.position = position;
@@ -17,8 +17,8 @@ class Entity implements Visual {
     draw(): void {
         console.log('entity.ts')
     }
-    getCorners(): p5.Vector[] {
-        return [this.position];
+    handleCollision(entity: Entity, directions: {left:boolean,right:boolean,top:boolean,bottom:boolean}) {
+        
     }
     getDamage(): boolean {
         return this.damage;
