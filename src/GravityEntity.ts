@@ -5,6 +5,7 @@ class GravityEntity extends AnimatedEntity{
         super(position, bounds, fill, isSolid, damage);
     }
     update(): void {
+        super.update();
         this.velocity.add(0,1);
     }
 }
