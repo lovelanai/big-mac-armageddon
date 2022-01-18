@@ -1,8 +1,13 @@
 /// <reference path ="AnimatedEntity.ts"/>
+
+
+
+
+
 class Player extends AnimatedEntity{
 
     constructor() {
-        super(createVector(100, 0), createVector(50, 50), createVector(0, 0), createVector(0, 0.8), 'red', true, false )        
+        super(new p5.Vector(1100, 0), new p5.Vector(50, 50), new p5.Vector(0, 0), new p5.Vector(0, 0.8), 'red', true, false )        
 
     }
 
@@ -11,7 +16,10 @@ class Player extends AnimatedEntity{
         fill('red')
     }
 
+
 }
+    const player = new Player();
+
 
     /** Stoppar rörelse till höger & vänster */
     const keys = {
@@ -23,7 +31,7 @@ class Player extends AnimatedEntity{
         },
     }
 
-    const player = new Player();
+
 //     function animate() {
 //         requestAnimationFrame(animate);
 //         let scrollOffset = 0;

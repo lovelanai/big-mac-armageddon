@@ -12,6 +12,7 @@ class AnimatedEntity extends Entity {
     update(): void {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
+        
     }
 
 }
