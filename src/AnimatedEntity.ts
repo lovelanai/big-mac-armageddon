@@ -14,5 +14,9 @@ class AnimatedEntity extends Entity {
         this.position.add(this.velocity);
         
     }
+    handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
+        super.handleCollision(entity, directions);
+    }
+
 
 }

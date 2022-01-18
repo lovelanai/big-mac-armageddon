@@ -34,8 +34,6 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
-
-
 function draw() {
     background('white');
     player.draw();

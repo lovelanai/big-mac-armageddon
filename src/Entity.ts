@@ -26,12 +26,10 @@ class Entity implements Visual {
             
         }
     }
-    getCorners(): p5.Vector[] {
-        return [this.position];
+    handleCollision(entity: Entity, directions: {left:boolean,right:boolean,top:boolean,bottom:boolean}) {
+        
     }
     getDamage(): boolean {
         return this.damage;
-    }
-    setCollisions(): void {
     }
 }
