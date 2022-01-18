@@ -1,4 +1,5 @@
 /// <reference path="Game.ts" />
+/// <reference path="Player.ts" />
 
 //---- GLOBAL VARIABLES ----//
 let game: Game;
@@ -33,12 +34,12 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
+const dummyPlayer = new Player(new p5.Vector(1100, 0), new p5.Vector(), 'blue', true, true);
 function draw() {
-    background('blue');
-    fill('green');
-    stroke('white');
-    strokeWeight(10);
-    circle(width * .5, height * .5, width * 0.2);
+    background('white');
+    console.log('sketch.ts');
+    dummyPlayer.draw();
+    
 
     // game.update();
     // game.draw();

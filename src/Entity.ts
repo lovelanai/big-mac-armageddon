@@ -16,7 +16,7 @@ class Entity implements Visual {
 
     }
     draw(): void {
-
+        console.log('entity.ts')
     }
     handleCollision(entity: Entity) {
         if (this.isSolid){
