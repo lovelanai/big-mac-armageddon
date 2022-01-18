@@ -12,11 +12,14 @@ class Entity implements Visual {
         this.isSolid = isSolid;
         this.damage = damage;
     }
-    update(): void {
 
+
+
+    update(): void {
+        
     }
     draw(): void {
-        console.log('entity.ts')
+
     }
     handleCollision(entity: Entity) {
         if (this.isSolid){
