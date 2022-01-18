@@ -13,5 +13,6 @@ class AnimatedEntity extends Entity {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
     }
+    
 
 }

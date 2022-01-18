@@ -32,7 +32,7 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
-const dummyPlayer = new Player(new p5.Vector(1100, 0), new p5.Vector(), 'blue', true, true);
+const dummyPlayer = new Player(new p5.Vector(0, 0), new p5.Vector(), 'blue', true, true);
 function draw() {
     background('white');
     console.log('sketch.ts');
