@@ -7,8 +7,9 @@
 
 class Player extends AnimatedEntity {
 
+
     constructor() {
-        super(new p5.Vector(1100, 0), new p5.Vector(50, 50), new p5.Vector(0, 0), new p5.Vector(0, 0.8), 'red', true, false)
+        super(new p5.Vector(0, 0), new p5.Vector(170, 500), new p5.Vector(0, 0), new p5.Vector(0, 0), new p5.Image, true, false)
 
     }
 
@@ -17,8 +18,15 @@ class Player extends AnimatedEntity {
 
     }
 
+    update(): void {
+        
+    }
+
 
 }
+
+const player = new Player
+
 
 
 /** Stoppar rörelse till höger & vänster */

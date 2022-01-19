@@ -16,13 +16,19 @@ class Entity implements Visual {
 
 
     update(): void {
+        player.update()
         
     }
     draw(): void {
         if(typeof this.fill==='string'){
             fill(this.fill)
+            
+            rect(this.position.x, this.position.y, this.size.x, this.size.y)
         }
-        rect(this.position.x, this.position.y, this.size.x, this.size.y)
+
+        else if (this.fill.constructor === p5.Image){
+            image(runLeft, 1050, 0, 80 , 160, this.position.x, this.position.y, this.size.x, this.size.y)
+        }
     }
     handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
         if (this.isSolid){
