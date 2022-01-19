@@ -122,10 +122,12 @@ class Generator {
 
     const entities = new Set<Entity>();
 
+
     for (let y in this.worldGrid) {
       for (let x in this.worldGrid) {
-        const size = createVector(50,50);
-        const position = createVector(50,50);
+        const size = createVector(50,50); //behöver fixas
+        const position = createVector(50,50); //behöver fixas
+
 
         switch (this.worldGrid[x][y]) {
           case 1 /* new x(position, fill, isSolid, damage,) (SPIKE)*/:

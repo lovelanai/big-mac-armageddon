@@ -1,15 +1,10 @@
 class Block extends Entity {
-    constructor() {
-        const position = createVector([x][y]) ;
 
-        const size = createVector(50, 50);
+    constructor(position:p5.Vector, fill:string, isSolid:boolean, damage:boolean) {
 
-        const fill = green;
+        super(position, createVector(50,50), fill, isSolid, damage)
 
-        const isSolid = true;
-
-        const damage = false;
-
-        super(position, size, fill, isSolid, damage)
-    }
+    
 }
+}
+       
