@@ -4,6 +4,7 @@
 
 
 
+
 class Player extends AnimatedEntity {
 
     constructor() {
@@ -13,6 +14,7 @@ class Player extends AnimatedEntity {
 
     draw(): void {
         super.draw();
+
     }
 
 
@@ -28,6 +30,8 @@ const keys = {
         pressed: false
     },
 }
+
+    
 
 
 //     function animate() {
