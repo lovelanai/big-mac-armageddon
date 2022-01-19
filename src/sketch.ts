@@ -26,11 +26,8 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    const dummyBlock = new Entity(new p5.Vector(1060, 300), new p5.Vector(100, 50), 'blue', true, false);
-    debugger;
+    
     const dummyEngine = new GameEngine(5);
-    dummyEngine.entities.add(player);
-    dummyEngine.entities.add(dummyBlock);
     game = new Game(dummyEngine);
 }
 
@@ -43,7 +40,6 @@ function setup() {
 function draw() {
     background('white');
     game.update();
-    player.draw();
 
 
     // game.draw();
