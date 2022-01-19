@@ -1,9 +1,9 @@
 class Entity implements Visual {
     position: p5.Vector;
     size: p5.Vector;
-    private fill: p5.Image | string;
-    private isSolid: boolean;
-    private damage: boolean;
+    protected fill: p5.Image | string;
+    isSolid: boolean;
+    protected damage: boolean;
 
     constructor(position: p5.Vector, size: p5.Vector, fill: p5.Image | string, isSolid: boolean, damage: boolean) {
         this.position = position;
