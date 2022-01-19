@@ -4,22 +4,26 @@
 
 
 
+
 class Player extends AnimatedEntity {
 
+
     constructor() {
-        super(new p5.Vector(1100, 0), new p5.Vector(50, 50), new p5.Vector(0, 0), new p5.Vector(0, 0.8), 'red', true, false)
+        super(new p5.Vector(0, 0), new p5.Vector(170, 500), new p5.Vector(0, 0), new p5.Vector(0, 0), new p5.Image, true, false)
 
     }
 
     draw(): void {
-        super.draw();
+        background('white')
+        rect(this.position.x, this.position.y, 50, 50)
+        fill('red')
     }
-
-
 }
 
+const player = new Player
 
-/** Stoppar rörelse till höger & vänster */
+
+
 const keys = {
     right: {
         pressed: false
@@ -29,37 +33,17 @@ const keys = {
     },
 }
 
-
-//     function animate() {
-//         requestAnimationFrame(animate);
-//         let scrollOffset = 0;
-
-//         /** Gör att "player" rör sig vid knapptryck och stannar vid knapplyft */
-//         if ((keys.right.pressed && player.position.x < 1100) || keys.right.pressed && scrollOffset === 0 && player.position.x > 0){
-//             player.velocity.x = 8
-//         } else if (keys.left.pressed && player.position.x > 650) {
-//             player.velocity.x = -8
-//         } else {
-//             player.velocity.x = 0
-//         }
-// }
-
-// animate()
-
-
-
 window.addEventListener('keydown', ({ keyCode }) => {
 
     switch (keyCode) {
         case 65:
-            keys.left.pressed = true
             console.log('left')
+            keys.left.pressed = true
             break
 
         case 68:
             console.log('right')
             keys.right.pressed = true
-
             break
 
         case 87:
@@ -69,9 +53,6 @@ window.addEventListener('keydown', ({ keyCode }) => {
 
 })
 
-
-
-/** Lägger till eventlyssnare för knapplyft */
 window.addEventListener('keyup', ({ keyCode }) => {
 
     switch (keyCode) {
@@ -89,6 +70,5 @@ window.addEventListener('keyup', ({ keyCode }) => {
     }
 
 })
-
 
 
