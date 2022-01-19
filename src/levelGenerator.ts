@@ -6,6 +6,13 @@ class Generator{
 
     constructor(){
 
+<<<<<<< Updated upstream
+=======
+    for (let y in this.worldGrid) {
+      for (let x in this.worldGrid) {
+        const size = createVector(50,50); //behöver fixas
+        const position = createVector(50,50); //behöver fixas
+>>>>>>> Stashed changes
 
 
         // 1 = spik + deadly
