@@ -5,15 +5,16 @@
 
 
 class Player extends AnimatedEntity{
+    frames: number;
+    image: any;
 
     constructor() {
-        super(new p5.Vector(1100, 0), new p5.Vector(50, 50), new p5.Vector(0, 0), new p5.Vector(0, 0.8), 'red', true, false )        
-
+        super(createVector/**(1100, 0)*/(800, 450), createVector(250, 150), createVector(0, 0), createVector(0, 0/**0.1*/), 'red', true, false )
+        this.frames = 0;
     }
 
     draw(): void {
-        rect(this.position.x, this.position.y, this.size.x, this.size.y)
-        fill('red')
+        image(idleLeft, 0, 0, 0, 0)
     }
 
 
@@ -30,6 +31,8 @@ class Player extends AnimatedEntity{
             pressed: false
         },
     }
+
+    
 
 
 //     function animate() {
@@ -94,3 +97,4 @@ class Player extends AnimatedEntity{
 
 
  
+

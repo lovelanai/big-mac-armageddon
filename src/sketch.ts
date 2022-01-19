@@ -3,6 +3,13 @@
 
 //---- GLOBAL VARIABLES ----//
 let game: Game;
+//sprite-sheet (player)
+let idleLeft: p5.Image;
+let idleRight: p5.Image;
+let runLeft: p5.Image;
+let runRight: p5.Image;
+let jumpLeft: p5.Image;
+let jumpRight: p5.Image;
 // let sound: p5.SoundFile
 
 
@@ -12,6 +19,15 @@ let game: Game;
  * sound files, images etc...
  */
 function preload() {
+    /** sprite sheet (player) */
+    idleLeft = loadImage('./assets/images/ronald/idle-left.png')
+    idleRight = loadImage('./assets/images/ronald/idle-right.png')
+    runLeft = loadImage('./assets/images/ronald/run-left.png')
+    runRight = loadImage('./assets/images/ronald/run-right.png')
+    jumpLeft = loadImage('./assets/images/ronald/jump-left.png')
+    jumpRight = loadImage('./assets/images/ronald/jump-right.png')
+
+
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
 

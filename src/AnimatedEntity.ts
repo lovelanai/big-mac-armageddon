@@ -20,3 +20,4 @@ class AnimatedEntity extends Entity {
 
 
 }
+
