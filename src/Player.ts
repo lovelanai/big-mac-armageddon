@@ -12,8 +12,7 @@ class Player extends AnimatedEntity{
     }
 
     draw(): void {
-        rect(this.position.x, this.position.y, this.size.x, this.size.y)
-        fill('red')
+        super.draw();
     }
 
 
