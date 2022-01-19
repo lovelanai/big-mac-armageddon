@@ -16,12 +16,20 @@ class Entity implements Visual {
 
     /** Uppdaterar spelet */
     update(): void {
-
     }
 
     /** Ritar ut entities */
     draw(): void {
         console.log('entity.ts')
+        if(typeof this.fill==='string'){
+            fill(this.fill)
+            
+            rect(this.position.x, this.position.y, this.size.x, this.size.y)
+        }
+
+        else if (this.fill.constructor === p5.Image){
+            image(runLeft, 1050, 0, 80 , 160, this.position.x, this.position.y, this.size.x, this.size.y)
+        }
     }
 
     /** Hanterar kollisionen av entities */
