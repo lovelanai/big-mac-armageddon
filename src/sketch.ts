@@ -10,6 +10,8 @@ let runLeft: p5.Image;
 let runRight: p5.Image;
 let jumpLeft: p5.Image;
 let jumpRight: p5.Image;
+// Assets for enemy
+let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
 
 
@@ -26,7 +28,7 @@ function preload() {
     runRight = loadImage('./assets/images/ronald/run-right.png')
     jumpLeft = loadImage('./assets/images/ronald/jump-left.png')
     jumpRight = loadImage('./assets/images/ronald/jump-right.png')
-
+    enemyAsset = loadImage('./assets/images/enemy/bk-hat.png')
 
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
