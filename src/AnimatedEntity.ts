@@ -37,4 +37,3 @@ class AnimatedEntity extends Entity {
         }
     }
 }
-}
