@@ -6,18 +6,18 @@ class GameEngine implements Visual {
         this.livesNumber = livesNumber;
         this.entities = new Set<Entity>();
         this.entities.add(new Entity(new p5.Vector(1060, 600), new p5.Vector(100, 50), 'green', true, false));
-        this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0,16), new p5.Vector(0,.8), 'blue', true, false));
+        this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false));
         this.entities.add(new Player());
     }
 
     update(): void {
-        for(const e of this.entities){
+        for (const e of this.entities) {
             e.update();
         }
         this.detectCollisions();
     }
     draw(): void {
-        for(const e of this.entities){
+        for (const e of this.entities) {
             e.draw();
         }
     }
@@ -52,12 +52,12 @@ class GameEngine implements Visual {
                 }
 
                 //If there's both horizontal and vertical overlap (Otherwise there's no intersection)
-                if ((col0.left || col0.right) && (col0.top || col0.bottom)){
+                if ((col0.left || col0.right) && (col0.top || col0.bottom)) {
                     const col1 = {
-                        left:col0.right,
-                        right:col0.left,
-                        top:col0.bottom,
-                        bottom:col0.top
+                        left: col0.right,
+                        right: col0.left,
+                        top: col0.bottom,
+                        bottom: col0.top
                     }
                     e0.handleCollision(e1, col0);
                     e1.handleCollision(e0, col1);
