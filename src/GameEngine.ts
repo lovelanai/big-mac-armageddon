@@ -6,7 +6,7 @@ class GameEngine implements Visual {
         this.livesNumber = livesNumber;
         this.entities = new Set<Entity>();
         this.entities.add(new Entity(new p5.Vector(1060, 300), new p5.Vector(100, 50), 'green', true, false));
-        this.entities.add(new Player())
+        this.entities.add(new Player());
     }
 
     update(): void {
