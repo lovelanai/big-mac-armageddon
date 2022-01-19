@@ -4,32 +4,30 @@
 
 
 
-class Player extends AnimatedEntity{
+class Player extends AnimatedEntity {
 
     constructor() {
-        super(new p5.Vector(1100, 0), new p5.Vector(50, 50), new p5.Vector(0, 0), new p5.Vector(0, 0.8), 'red', true, false )        
+        super(new p5.Vector(1100, 0), new p5.Vector(50, 50), new p5.Vector(0, 0), new p5.Vector(0, 0.8), 'red', true, false)
 
     }
 
     draw(): void {
-        rect(this.position.x, this.position.y, this.size.x, this.size.y)
-        fill('red')
+        super.draw();
     }
 
 
 }
-    const player = new Player();
 
 
-    /** Stoppar rörelse till höger & vänster */
-    const keys = {
-        right: {
-            pressed: false
-        },
-        left: {
-            pressed: false
-        },
-    }
+/** Stoppar rörelse till höger & vänster */
+const keys = {
+    right: {
+        pressed: false
+    },
+    left: {
+        pressed: false
+    },
+}
 
 
 //     function animate() {
@@ -50,47 +48,47 @@ class Player extends AnimatedEntity{
 
 
 
-    window.addEventListener('keydown', ({ keyCode }) => {
+window.addEventListener('keydown', ({ keyCode }) => {
 
-        switch (keyCode) {
-            case 65:
-                keys.left.pressed = true
-                console.log('left')
-                break
+    switch (keyCode) {
+        case 65:
+            keys.left.pressed = true
+            console.log('left')
+            break
 
-            case 68:
-                console.log('right')
-                keys.right.pressed = true
-                
-                break
+        case 68:
+            console.log('right')
+            keys.right.pressed = true
 
-            case 87:
-                console.log('up')
-                break
-        }
+            break
 
-    })
+        case 87:
+            console.log('up')
+            break
+    }
 
-
-
-    /** Lägger till eventlyssnare för knapplyft */
-    window.addEventListener('keyup', ({ keyCode }) => {
-
-        switch (keyCode) {
-            case 65:
-                keys.left.pressed = false
-                console.log('left-up')
-                break
-
-            case 68:
-                keys.right.pressed = false
-                console.log('right-up')
-                break
+})
 
 
-        }
 
-    })
+/** Lägger till eventlyssnare för knapplyft */
+window.addEventListener('keyup', ({ keyCode }) => {
+
+    switch (keyCode) {
+        case 65:
+            keys.left.pressed = false
+            console.log('left-up')
+            break
+
+        case 68:
+            keys.right.pressed = false
+            console.log('right-up')
+            break
 
 
- 
+    }
+
+})
+
+
+

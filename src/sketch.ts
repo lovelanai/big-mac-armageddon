@@ -26,8 +26,11 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    game = new Game(new Entity(new p5.Vector(), new p5.Vector(), 'blue', true, true));
+    
+    const dummyEngine = new GameEngine(5);
+    game = new Game(dummyEngine);
 }
+
 
 /**
  * Built in draw function in P5
@@ -36,10 +39,9 @@ function setup() {
  */
 function draw() {
     background('white');
-    player.draw();
-    
-
     game.update();
+
+
     // game.draw();
 }
 
