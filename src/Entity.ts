@@ -19,10 +19,10 @@ class Entity implements Visual {
         
     }
     draw(): void {
-        rect(this.position.x, this.position.y, this.size.x, this.size.y)
         if(typeof this.fill==='string'){
             fill(this.fill)
         }
+        rect(this.position.x, this.position.y, this.size.x, this.size.y)
     }
     handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
         if (this.isSolid){

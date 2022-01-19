@@ -16,11 +16,13 @@ class AnimatedEntity extends Entity {
     }
     handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
         super.handleCollision(entity, directions);
-        console.log('collision thing');
 
         if (directions.bottom) {
             this.position.y = entity.position.y - this.size.y;
             this.acceleration.y = 0;
+        }
+        else if(directions.top){
+            //this.position.y=entity.position.
         }
     }
 
