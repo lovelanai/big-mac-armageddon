@@ -8,8 +8,7 @@ class Game implements Visual {
     }
     update() {
         this.currentState.update();
-        player.update();
-        
+        //player.update();
         
     }
     draw() {
