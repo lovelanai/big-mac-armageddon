@@ -40,6 +40,7 @@ function setup() {
 function draw() {
     background('white');
     game.update();
+    game.draw();
 
 
     // game.draw();

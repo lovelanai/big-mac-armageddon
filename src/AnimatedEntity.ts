@@ -16,7 +16,7 @@ class AnimatedEntity extends Entity {
     }
     handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
         super.handleCollision(entity, directions);
-        alert('collision thing');
+        console.log('collision thing');
     }
 
 
