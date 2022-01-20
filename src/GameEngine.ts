@@ -1,6 +1,8 @@
 class GameEngine implements Visual {
     livesNumber: number;
     entities: Set<Entity>;
+    speed = 0;
+    player: Player;
 
     constructor(livesNumber: number) {
         this.livesNumber = livesNumber;
@@ -16,14 +18,37 @@ class GameEngine implements Visual {
             e.update();
         }
         this.detectCollisions();
+        if (keyIsPressed) {
+            switch (keyCode) {
+                case 65: //A
+                    this.speed-=Math.random();
+                    break;
+                case 76://L
+                    this.speed+=Math.random();
+                    break;
+                case 71://G
+                    this.player.jump();
+                    break;
+                default:
+                    this.die();
+            }
+        }
+        this.walk();
     }
     draw(): void {
         for (const e of this.entities) {
             e.draw();
         }
     }
+    walk(): void {
+        for (const e of this.entities) {
+            if (e !== this.player) {
+                e.position.x += this.speed;
+            }
+        }
+    }
     die(): void {
-        console.log('You died');
+        alert('You died');
     }
 
     private detectCollisions() {
