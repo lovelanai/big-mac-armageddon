@@ -171,7 +171,7 @@ class Generator {
             break;
         }
       }
+      return entities;
     }
-    return entities;
   }
 }
