@@ -18,7 +18,6 @@ class AnimatedEntity extends Entity {
     }
     handleCollision(entity: Entity, direction: string): void {
         super.handleCollision(entity, direction);
-        console.log('aaa')
         if (this.isSolid && entity.isSolid) {
             switch (direction) {
                 case 'bottom':

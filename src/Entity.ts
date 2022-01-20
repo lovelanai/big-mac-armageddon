@@ -20,7 +20,6 @@ class Entity implements Visual {
 
     /** Ritar ut entities */
     draw(): void {
-        console.log('entity.ts')
         if (typeof this.fill === 'string') {
             fill(this.fill)
 

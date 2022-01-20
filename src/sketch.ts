@@ -40,7 +40,7 @@ function preload() {
  * in the draw function below
  */
 function setup() {
-    createCanvas(1280, 720);
+    createCanvas(1280, 550);
     frameRate(60);
     // noCursor();
 
