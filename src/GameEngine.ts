@@ -21,11 +21,12 @@ class GameEngine implements Visual {
             e.draw();
         }
     }
-    die(): void { }
+    die(): void {
+        console.log('You died');
+    }
 
     private detectCollisions() {
         const entities = Array.from(this.entities);
-
         while (entities.length >= 2) {
             const e0 = entities.pop(); //Remove from entities so it won't be checked more than once
             if (e0?.position === undefined) throw new ReferenceError('Undefined entity position. You\'ve screwed up pretty bad.'); //Apparently TS needs this in order to not freak out

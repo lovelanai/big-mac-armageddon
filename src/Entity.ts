@@ -39,18 +39,8 @@ class Entity implements Visual {
         }
     }
 
-    /** Får hörnen på entities */
-
-    getCorners(): p5.Vector[] {
-        return [this.position];
-    }
-
-    /** Får hur mycket skada en entity gör och tar */
+    /** Får hur mycket skada en entity gör */
     getDamage(): boolean {
         return this.damage;
-    }
-
-    /** Sätter kollision data på en entity */
-    setCollisions(): void {
     }
 }
