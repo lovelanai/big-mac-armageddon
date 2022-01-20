@@ -6,13 +6,14 @@ class GameEngine implements Visual {
 
     constructor(livesNumber: number) {
         this.livesNumber = livesNumber;
-/*         this.entities = new Set<Entity>();
- */        /* this.entities.add(new Entity(new p5.Vector(1060, 600), new p5.Vector(100, 50), 'green', true, false));
-        this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false));
-        this.entities.add(new Player()); */
+        /*         this.entities = new Set<Entity>();
+         */        /* this.entities.add(new Entity(new p5.Vector(1060, 600), new p5.Vector(100, 50), 'green', true, false));
+              this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false));*/
         const generator = new Generator();
         this.entities = generator.getNextLevelEntities()
 
+        this.player = new Player();
+        this.entities.add(this.player);
     }
 
     update(): void {
@@ -23,10 +24,10 @@ class GameEngine implements Visual {
         if (keyIsPressed) {
             switch (keyCode) {
                 case 65: //A
-                    this.speed-=Math.random();
+                    this.speed -= Math.random();
                     break;
                 case 76://L
-                    this.speed+=Math.random();
+                    this.speed += Math.random();
                     break;
                 case 71://G
                     this.player.jump();
@@ -50,7 +51,7 @@ class GameEngine implements Visual {
         }
     }
     die(): void {
-        alert('You died');
+        console.log('You died');
     }
 
     private detectCollisions() {
