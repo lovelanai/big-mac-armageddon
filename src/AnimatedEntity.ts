@@ -16,7 +16,6 @@ class AnimatedEntity extends Entity {
     }
     handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
         super.handleCollision(entity, directions);
-        console.log('aaa')
         if (this.isSolid && entity.isSolid) {
 
             if (directions.bottom) {
