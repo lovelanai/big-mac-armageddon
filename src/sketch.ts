@@ -27,8 +27,12 @@ function preload() {
     jumpLeft = loadImage('./assets/images/ronald/jump-left.png')
     jumpRight = loadImage('./assets/images/ronald/jump-right.png')
 
-
-    // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', '..\audioFiles\soundtrack.mp3');
+    audioElement.load();
+    audioElement.addEventListener("load", function(){
+        audioElement.play();
+    }, true);
 }
 
 /**
