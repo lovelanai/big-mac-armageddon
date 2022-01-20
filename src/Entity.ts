@@ -28,7 +28,7 @@ class Entity implements Visual {
         }
 
         else if (this.fill.constructor === p5.Image) {
-            image(runLeft, this.position.x, this.position.y, this.size.x, this.size.y, 0, 0, 160, 320)
+            image(runLeft, this.position.x, this.position.y, this.size.x, this.size.y, 0, 0, this.size.x * 2, this.size.y * 2)
         }
     }
 
