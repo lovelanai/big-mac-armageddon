@@ -1,13 +1,16 @@
 class GameEngine implements Visual {
     livesNumber: number;
     entities: Set<Entity>;
+    speed = 0;
+    player: Player;
 
     constructor(livesNumber: number) {
         this.livesNumber = livesNumber;
         this.entities = new Set<Entity>();
         this.entities.add(new Entity(new p5.Vector(1060, 600), new p5.Vector(100, 50), 'green', true, false));
         this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false));
-        this.entities.add(new Player());
+        this.player = new Player();
+        this.entities.add(this.player);
     }
 
     update(): void {
@@ -15,14 +18,38 @@ class GameEngine implements Visual {
             e.update();
         }
         this.detectCollisions();
+        if (keyIsPressed) {
+            switch (keyCode) {
+                case 65: //A
+                    this.speed--;
+                    
+                    break;
+                case 76://L
+                    this.speed++;
+                    break;
+                case 71://G
+                    this.player.jump();
+                    break;
+                default:
+                    this.die();
+            }
+        }
+        this.walk();
     }
     draw(): void {
         for (const e of this.entities) {
             e.draw();
         }
     }
+    walk(): void {
+        for (const e of this.entities) {
+            if (e !== this.player) {
+                e.position.x += this.speed;
+            }
+        }
+    }
     die(): void {
-        console.log('You died');
+        alert('You died');
     }
 
     private detectCollisions() {
