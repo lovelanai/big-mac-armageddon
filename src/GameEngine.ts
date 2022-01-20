@@ -9,7 +9,7 @@ class GameEngine implements Visual {
         this.entities = new Set<Entity>();
         this.entities.add(new Entity(new p5.Vector(100, 600), new p5.Vector(1000, 50), 'green', true, false));
         this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false));
-        this.entities.add(new Enemy(new p5.Vector(100,0), "horizontal"));
+        this.entities.add(new Enemy(new p5.Vector(100, 0), "horizontal"));
         this.player = new Player();
         this.entities.add(this.player);
     }
@@ -22,10 +22,10 @@ class GameEngine implements Visual {
         if (keyIsPressed) {
             switch (keyCode) {
                 case 65: //A
-                    this.speed-=Math.random();
+                    this.speed -= Math.random();
                     break;
                 case 76://L
-                    this.speed+=Math.random();
+                    this.speed += Math.random();
                     break;
                 case 71://G
                     this.player.jump();
@@ -49,7 +49,7 @@ class GameEngine implements Visual {
         }
     }
     die(): void {
-        alert('You died');
+        console.log('You died');
     }
 
     private detectCollisions() {
@@ -72,23 +72,33 @@ class GameEngine implements Visual {
                 };
 
 
-                const col0 = {
-                    left: Tools.isBetween(box0.left, box1.left, box1.right),
-                    right: Tools.isBetween(box0.right, box1.left, box1.right),
-                    top: Tools.isBetween(box0.top, box1.top, box1.bottom),
-                    bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom)
+                const overlap0: Overlap = {
+                    left: Tools.isBetween(box0.left, box1.left, box1.right) ? box1.right - box0.left : Infinity,
+                    right: Tools.isBetween(box0.right, box1.left, box1.right) ? box0.right - box1.left : Infinity,
+                    top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom : Infinity,
+                    bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box1.top - box0.bottom : Infinity
                 }
 
-                //If there's both horizontal and vertical overlap (Otherwise there's no intersection)
-                if ((col0.left || col0.right) && (col0.top || col0.bottom)) {
-                    const col1 = {
-                        left: col0.right,
-                        right: col0.left,
-                        top: col0.bottom,
-                        bottom: col0.top
-                    }
-                    e0.handleCollision(e1, col0);
-                    e1.handleCollision(e0, col1);
+                let minOverlap = overlap0.bottom;
+                let direction0 = 'bottom';
+                if (overlap0.left < minOverlap) {
+                    minOverlap = overlap0.left;
+                    direction0 = 'left';
+                }
+                if (overlap0.right < minOverlap) {
+                    minOverlap = overlap0.right;
+                    direction0 = 'right';
+                }
+                if (overlap0.top < minOverlap) {
+                    minOverlap = overlap0.top;
+                    direction0 = 'top';
+                }
+
+                if (minOverlap < Infinity) {
+                    e0.handleCollision(e1, direction0);
+                    let direction1 = Tools.swap(direction0, 'left','right');
+                    direction1 = Tools.swap(direction1,'top','bottom');
+                    e1.handleCollision(e0, direction1);
                 }
 
             }

@@ -20,28 +20,29 @@ class Enemy extends AnimatedEntity {
         this.direction = direction;
     }
 
-    handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
-        super.handleCollision(entity, directions)
+    handleCollision(entity: Entity, direction: string): void {
+        super.handleCollision(entity, direction)
         if (this.direction === "horizontal") {
-            if(!directions.bottom){
-
-                if (directions.left) {
+            switch (direction) {
+                case 'left':
                     this.velocity.x = Math.abs(this.velocity.x)
                     this.acceleration.x = Math.abs(this.acceleration.x)
-                }
-                else if (directions.right) {
+                    break;
+                case 'right':
                     this.velocity.x = -Math.abs(this.velocity.x)
                     this.acceleration.x = -Math.abs(this.acceleration.x)
-                }
+                    break;
             }
         } else {
-            if (directions.top) {
-                this.velocity.y = Math.abs(this.velocity.y)
-                this.acceleration.y = Math.abs(this.acceleration.y)
-            }
-            else if (directions.bottom) {
-                this.velocity.y = -Math.abs(this.velocity.y)
-                this.acceleration.y = -Math.abs(this.acceleration.y)
+            switch (direction) {
+                case 'top':
+                    this.velocity.y = Math.abs(this.velocity.y)
+                    this.acceleration.y = Math.abs(this.acceleration.y)
+                    break;
+                case 'bottom':
+                    this.velocity.y = -Math.abs(this.velocity.y)
+                    this.acceleration.y = -Math.abs(this.acceleration.y)
+                    break;
             }
         }
 
