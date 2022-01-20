@@ -7,13 +7,16 @@
 
 class Player extends AnimatedEntity {
 
-
+    
     constructor() {
         super(new p5.Vector(1050, 0), new p5.Vector(80, 160), new p5.Vector(0, 0), new p5.Vector(0, .8), runLeft, true, false)
 
     }
+
     jump(): void {
-        this.velocity.y = -30;
+        if(this.isOnGround){
+            this.velocity.y = -20;
+        }
     }
 }
 
