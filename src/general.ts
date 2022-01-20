@@ -2,12 +2,6 @@ interface Visual {
     update(): void;
     draw(): void;
 }
-interface Overlap {
-    'left': number,
-    'right': number,
-    'top': number,
-    'bottom': number
-}
 
 class Border {
     p0: p5.Vector;
