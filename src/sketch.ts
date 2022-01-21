@@ -1,15 +1,7 @@
-/// <reference path="Game.ts" />
-/// <reference path="Player.ts" />
-
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 //sprite-sheet (player)
-let idleLeft: p5.Image;
-let idleRight: p5.Image;
-let runLeft: p5.Image;
-let runRight: p5.Image;
-let jumpLeft: p5.Image;
-let jumpRight: p5.Image;
+let images: Images;
 // Assets for enemy
 let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
@@ -22,13 +14,16 @@ let enemyAsset: p5.Image;
  */
 function preload() {
     /** sprite sheet (player) */
-    idleLeft = loadImage('./assets/images/ronald/idle-left.gif')
-    idleRight = loadImage('./assets/images/ronald/idle-right.gif')
-    runLeft = loadImage('./assets/images/ronald/walk-left.gif')
-    runRight = loadImage('./assets/images/ronald/walk-right.gif')
-    jumpLeft = loadImage('./assets/images/ronald/jump-left.gif')
-    jumpRight = loadImage('./assets/images/ronald/jump-right.gif')
-    enemyAsset = loadImage('./assets/images/enemy/bk-hat.png')
+    images = {
+        idleLeft: loadImage('./assets/images/ronald/idle-left.gif'),
+        idleRight: loadImage('./assets/images/ronald/idle-right.gif'),
+        runLeft: loadImage('./assets/images/ronald/walk-left.png'),
+        runRight: loadImage('./assets/images/ronald/walk-right.gif'),
+        jumpLeft: loadImage('./assets/images/ronald/jump-left.gif'),
+        jumpRight: loadImage('./assets/images/ronald/jump-right.gif'),
+        enemyAsset: loadImage('./assets/images/enemy/bk-hat.png'),
+    }
+   
 
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
