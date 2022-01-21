@@ -18,4 +18,10 @@ class Tools {
     static isBetween(value: number, min: number, max: number): boolean {
         return value > min && value < max;
     }
+
+    static swap(value: any, match0: any, match1: any): any {
+        if (value === match0) return match1;
+        if (value === match1) return match0;
+        return value;
+    }
 }

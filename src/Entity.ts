@@ -32,7 +32,7 @@ class Entity implements Visual {
     }
 
     /** Hanterar kollisionen av entities */
-    handleCollision(entity: Entity, directions: { left: boolean, right: boolean, top: boolean, bottom: boolean }) {
+    handleCollision(entity: Entity, direction: string) {
         if (this.isSolid) {
 
         }

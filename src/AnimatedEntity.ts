@@ -16,26 +16,27 @@ class AnimatedEntity extends Entity {
         this.position.add(this.velocity);
         this.isOnGround = false;
     }
-    handleCollision(entity: Entity, directions: { left: boolean; right: boolean; top: boolean; bottom: boolean; }): void {
-        super.handleCollision(entity, directions);
+    handleCollision(entity: Entity, direction: string): void {
+        super.handleCollision(entity, direction);
         if (this.isSolid && entity.isSolid) {
+            switch (direction) {
+                case 'bottom':
+                    this.position.y = entity.position.y - this.size.y;
+                    this.velocity.y = Math.min(0, this.velocity.y);
+                    this.isOnGround = true;
+                    break;
+                case 'top':
+                    this.position.y = entity.position.y + entity.size.y;
+                    this.velocity.y = Math.max(0, this.velocity.y);
+                    break;
+                case 'left':
+                    this.position.x = entity.position.x + entity.size.x;
+                    this.velocity.x = Math.max(0, this.velocity.x);
+                    break;
+                case 'right':
+                    this.position.x = entity.position.x - this.size.x;
+                    this.velocity.x = Math.min(0, this.velocity.x);
 
-            if (directions.bottom) {
-                this.position.y = entity.position.y - this.size.y;
-                this.velocity.y = Math.min(0, this.velocity.y);
-                this.isOnGround = true;
-            }
-            else if (directions.top) {
-                this.position.y = entity.position.y + entity.size.y;
-                this.velocity.y = Math.max(0, this.velocity.y);
-            }
-            else if (directions.left) {
-                this.position.x = entity.position.x + entity.size.x;
-                this.velocity.x = Math.max(0, this.velocity.x);
-            }
-            else if (directions.right) {
-                this.position.x = entity.position.x - this.size.x;
-                this.velocity.x = Math.min(0, this.velocity.x);
             }
         }
     }
