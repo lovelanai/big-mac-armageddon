@@ -1,11 +1,17 @@
+
+
 interface Images {
-  idleLeft: p5.Image;
-  idleRight: p5.Image;
-  runLeft: p5.Image;
-  runRight: p5.Image;
-  jumpLeft: p5.Image;
-  jumpRight: p5.Image;
   enemyAsset: p5.Image;
 }
 
+interface Sequences {
+  idleLeft: p5.Image[];
+  idleRight: p5.Image[];
+  walkLeft: p5.Image[];
+  walkRight: p5.Image[];
+  jumpLeft: p5.Image[];
+  jumpRight: p5.Image[];
+  dieLeft: p5.Image[];
+  dieRight: p5.Image[];
+}
 
