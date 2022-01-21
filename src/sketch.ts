@@ -2,9 +2,12 @@
 let game: Game;
 //sprite-sheet (player)
 let images: Images;
+
+let sequences: Sequences;
 // Assets for enemy
 let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
+
 
 
 /**
@@ -15,15 +18,103 @@ let enemyAsset: p5.Image;
 function preload() {
     /** sprite sheet (player) */
     images = {
-        idleLeft: loadImage('./assets/images/ronald/idle-left.gif'),
-        idleRight: loadImage('./assets/images/ronald/idle-right.gif'),
-        runLeft: loadImage('./assets/images/ronald/walk-left.png'),
-        runRight: loadImage('./assets/images/ronald/walk-right.gif'),
-        jumpLeft: loadImage('./assets/images/ronald/jump-left.gif'),
-        jumpRight: loadImage('./assets/images/ronald/jump-right.gif'),
+
         enemyAsset: loadImage('./assets/images/enemy/bk-hat.png'),
     }
-   
+
+    sequences = {
+
+        idleLeft: [
+            loadImage('./assets/images/ronald/idle-left/0.png'),
+            loadImage('./assets/images/ronald/idle-left/1.png'),
+            loadImage('./assets/images/ronald/idle-left/2.png'),
+            loadImage('./assets/images/ronald/idle-left/3.png'),
+            loadImage('./assets/images/ronald/idle-left/4.png'),
+            loadImage('./assets/images/ronald/idle-left/5.png'),
+            loadImage('./assets/images/ronald/idle-left/6.png'),
+            loadImage('./assets/images/ronald/idle-left/7.png'),
+            loadImage('./assets/images/ronald/idle-left/8.png')
+        ],
+
+        idleRight: [
+            loadImage('./assets/images/ronald/idle-right/0.png'),
+            loadImage('./assets/images/ronald/idle-right/1.png'),
+            loadImage('./assets/images/ronald/idle-right/2.png'),
+            loadImage('./assets/images/ronald/idle-right/3.png'),
+            loadImage('./assets/images/ronald/idle-right/4.png'),
+            loadImage('./assets/images/ronald/idle-right/5.png'),
+            loadImage('./assets/images/ronald/idle-right/6.png'),
+            loadImage('./assets/images/ronald/idle-right/7.png'),
+            loadImage('./assets/images/ronald/idle-right/8.png')
+        ],
+
+
+        walkLeft: [
+            loadImage('./assets/images/ronald/walk-left/0.png'),
+            loadImage('./assets/images/ronald/walk-left/1.png'),
+            loadImage('./assets/images/ronald/walk-left/2.png'),
+            loadImage('./assets/images/ronald/walk-left/3.png'),
+            loadImage('./assets/images/ronald/walk-left/4.png'),
+            loadImage('./assets/images/ronald/walk-left/5.png')
+        ],
+
+        walkRight: [
+            loadImage('./assets/images/ronald/walk-right/0.png'),
+            loadImage('./assets/images/ronald/walk-right/1.png'),
+            loadImage('./assets/images/ronald/walk-right/2.png'),
+            loadImage('./assets/images/ronald/walk-right/3.png'),
+            loadImage('./assets/images/ronald/walk-right/4.png'),
+            loadImage('./assets/images/ronald/walk-right/5.png')
+        ],
+
+        jumpLeft: [
+            loadImage('./assets/images/ronald/jump-left/0.png'),
+            loadImage('./assets/images/ronald/jump-left/1.png'),
+            loadImage('./assets/images/ronald/jump-left/2.png'),
+            loadImage('./assets/images/ronald/jump-left/3.png'),
+            loadImage('./assets/images/ronald/jump-left/4.png'),
+            loadImage('./assets/images/ronald/jump-left/5.png'),
+            loadImage('./assets/images/ronald/jump-left/6.png'),
+            loadImage('./assets/images/ronald/jump-left/7.png')
+        ],
+
+        jumpRight: [
+            loadImage('./assets/images/ronald/jump-right/0.png'),
+            loadImage('./assets/images/ronald/jump-right/1.png'),
+            loadImage('./assets/images/ronald/jump-right/2.png'),
+            loadImage('./assets/images/ronald/jump-right/3.png'),
+            loadImage('./assets/images/ronald/jump-right/4.png'),
+            loadImage('./assets/images/ronald/jump-right/5.png'),
+            loadImage('./assets/images/ronald/jump-right/6.png'),
+            loadImage('./assets/images/ronald/jump-right/7.png')
+        ],
+
+        dieLeft: [
+            loadImage('./assets/images/ronald/die-left/0.png'),
+            loadImage('./assets/images/ronald/die-left/1.png'),
+            loadImage('./assets/images/ronald/die-left/2.png'),
+            loadImage('./assets/images/ronald/die-left/3.png'),
+            loadImage('./assets/images/ronald/die-left/4.png'),
+            loadImage('./assets/images/ronald/die-left/5.png'),
+            loadImage('./assets/images/ronald/die-left/6.png'),
+            loadImage('./assets/images/ronald/die-left/7.png')
+        ],
+
+        dieRight: [
+            loadImage('./assets/images/ronald/die-right/0.png'),
+            loadImage('./assets/images/ronald/die-right/1.png'),
+            loadImage('./assets/images/ronald/die-right/2.png'),
+            loadImage('./assets/images/ronald/die-right/3.png'),
+            loadImage('./assets/images/ronald/die-right/4.png'),
+            loadImage('./assets/images/ronald/die-right/5.png'),
+            loadImage('./assets/images/ronald/die-right/6.png'),
+            loadImage('./assets/images/ronald/die-right/7.png')
+        ],
+
+
+    }
+
+
 
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
@@ -39,7 +130,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    
+
     const dummyEngine = new GameEngine(5);
     game = new Game(dummyEngine);
 }

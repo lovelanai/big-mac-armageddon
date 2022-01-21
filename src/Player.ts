@@ -9,7 +9,7 @@ class Player extends AnimatedEntity {
     private timeToChangeFrame = 100;
 
     constructor() {
-        super(createVector(1050,0), createVector(80, 160), createVector(0, 5), createVector(0, 0.8), images.runLeft, true, false)
+        super(createVector(1050,0), createVector(80, 160), createVector(0, 5), createVector(0, 0.8), sequences.walkLeft[0], true, false)
 
     }
 
@@ -23,12 +23,6 @@ class Player extends AnimatedEntity {
         }
     }
 
-    public draw() {
-        push()
-        scale(-1)
-        pop()
-        
-    }
 
     jump(): void {
         if(this.isOnGround){

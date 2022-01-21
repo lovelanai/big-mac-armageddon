@@ -1,4 +1,4 @@
-/// <reference path ="AnimatedEntity.ts"/>
+/// <reference path ="../AnimatedEntity.ts"/>
 
 class Enemy extends AnimatedEntity {
     private direction: string;
