@@ -6,13 +6,28 @@
 
 
 class Player extends AnimatedEntity {
+    private timeToChangeFrame = 100;
 
-    
     constructor() {
+        super(createVector(1050,0), createVector(80, 160), createVector(0, 5), createVector(0, 0.8), images.runLeft, true, false)
 
-        super(new p5.Vector(1050, 0), new p5.Vector(80, 160), new p5.Vector(0, 0), new p5.Vector(0, .8), runLeft, true, false)
+    }
 
+    public update(): void {
+        super.update();
 
+        this.timeToChangeFrame -= deltaTime;
+        if (this.timeToChangeFrame < 0) {
+            // byt bild
+            this.timeToChangeFrame = 100;
+        }
+    }
+
+    public draw() {
+        push()
+        scale(-1)
+        pop()
+        
     }
 
     jump(): void {
