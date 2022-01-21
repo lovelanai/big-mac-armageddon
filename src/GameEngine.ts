@@ -7,11 +7,11 @@ class GameEngine implements Visual {
     constructor(livesNumber: number) {
         this.livesNumber = livesNumber;
 
-        this.entities = new Set<Entity>();
+        /* this.entities = new Set<Entity>();
         this.entities.add(new Entity(new p5.Vector(160, 400), new p5.Vector(1100, 50), 'green', true, false));
-        this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false));
+        this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false)); */
         const generator = new Generator();
-        //this.entities = generator.getNextLevelEntities()
+        this.entities = generator.getNextLevelEntities()
 
         this.player = new Player();
         this.entities.add(this.player);
@@ -82,7 +82,7 @@ class GameEngine implements Visual {
                     bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top : Infinity
                 }
                 //There must be overlap in both x and y
-                if ((overlap0.left < Infinity || overlap0.right < Infinity) && (overlap0.top < Infinity || overlap0.bottom)) {
+                if ((overlap0.left < Infinity || overlap0.right < Infinity) && (overlap0.top < Infinity || overlap0.bottom < Infinity)) {
 
                     //Look for the smallest overlap since that's probably the direction of the collision
                     let minOverlap = overlap0.bottom;
@@ -100,7 +100,7 @@ class GameEngine implements Visual {
                         direction0 = 'top';
                     }
 
-                    if (minOverlap === Infinity) throw new Error('This should be impossible');
+                    if (minOverlap === Infinity) throw new Error('This should be logically impossible');
                     e0.handleCollision(e1, direction0);
                     let direction1 = Tools.swap(direction0, 'left', 'right');
                     direction1 = Tools.swap(direction1, 'top', 'bottom');
