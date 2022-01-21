@@ -145,7 +145,7 @@ function draw() {
     background('white');
     game.update();
     game.draw();
-
+    text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 
     // game.draw();
 }
