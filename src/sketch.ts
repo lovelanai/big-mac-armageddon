@@ -22,12 +22,12 @@ let enemyAsset: p5.Image;
  */
 function preload() {
     /** sprite sheet (player) */
-    idleLeft = loadImage('./assets/images/ronald/idle-left.png')
-    idleRight = loadImage('./assets/images/ronald/idle-right.png')
-    runLeft = loadImage('./assets/images/ronald/run-left.png')
-    runRight = loadImage('./assets/images/ronald/run-right.png')
-    jumpLeft = loadImage('./assets/images/ronald/jump-left.png')
-    jumpRight = loadImage('./assets/images/ronald/jump-right.png')
+    idleLeft = loadImage('./assets/images/ronald/idle-left.gif')
+    idleRight = loadImage('./assets/images/ronald/idle-right.gif')
+    runLeft = loadImage('./assets/images/ronald/walk-left.gif')
+    runRight = loadImage('./assets/images/ronald/walk-right.gif')
+    jumpLeft = loadImage('./assets/images/ronald/jump-left.gif')
+    jumpRight = loadImage('./assets/images/ronald/jump-right.gif')
     enemyAsset = loadImage('./assets/images/enemy/bk-hat.png')
 
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
