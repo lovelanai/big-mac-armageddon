@@ -26,10 +26,10 @@ class GameEngine implements Visual {
         if (keyIsPressed) {
 
             if (keyIsDown(65)) {//A
-                this.speed ++//= Math.random();
+                this.speed++//= Math.random();
             }
             if (keyIsDown(68)) {//D
-                this.speed --//= Math.random();
+                this.speed--//= Math.random();
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
@@ -62,6 +62,8 @@ class GameEngine implements Visual {
             const e0 = entities.pop(); //Remove from entities so it won't be checked more than once
             if (e0?.position === undefined) throw new ReferenceError('Undefined entity position. You\'ve screwed up pretty bad.'); //Apparently TS needs this in order to not freak out
             for (const e1 of entities) {
+                let relVel = p5.Vector.sub(e0.getVelocity(), e1.getVelocity())
+
                 let box0 = {
                     left: e0.position.x,
                     right: e0.position.x + e0.size.x,
@@ -77,10 +79,10 @@ class GameEngine implements Visual {
 
 
                 const overlap0 = {
-                    left: Tools.isBetween(box0.left, box1.left, box1.right) ? box1.right - box0.left : Infinity,
-                    right: Tools.isBetween(box0.right, box1.left, box1.right) ? box0.right - box1.left : Infinity,
-                    top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom : Infinity,
-                    bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top : Infinity
+                    left: Tools.isBetween(box0.left, box1.left, box1.right) ? (box1.right - box0.left) - relVel.x : Infinity,
+                    right: Tools.isBetween(box0.right, box1.left, box1.right) ? box0.right - box1.left - relVel.x : Infinity,
+                    top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom - relVel.y : Infinity,
+                    bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top - relVel.y : Infinity
                 }
                 //There must be overlap in both x and y
                 if ((overlap0.left < Infinity || overlap0.right < Infinity) && (overlap0.top < Infinity || overlap0.bottom < Infinity)) {

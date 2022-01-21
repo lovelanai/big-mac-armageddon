@@ -42,4 +42,7 @@ class Entity implements Visual {
     getDamage(): boolean {
         return this.damage;
     }
+    getVelocity():p5.Vector{
+        return createVector();
+    }
 }
