@@ -44,7 +44,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    
+
     const dummyEngine = new GameEngine(5);
     game = new Game(dummyEngine);
 }
@@ -59,7 +59,7 @@ function draw() {
     background('white');
     game.update();
     game.draw();
-
+    text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 
     // game.draw();
 }
