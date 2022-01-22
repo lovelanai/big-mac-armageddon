@@ -1,5 +1,3 @@
-
-
 interface Images {
   enemyAsset: p5.Image;
 }
@@ -15,3 +13,8 @@ interface Sequences {
   dieRight: p5.Image[];
 }
 
+interface Fonts {
+  roboto: p5.Font;
+  mcLawsuit: p5.Font;
+  pressStart2p : p5.Font
+}

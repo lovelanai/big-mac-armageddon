@@ -8,6 +8,9 @@ let sequences: Sequences;
 let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
 
+//Fonts
+let fonts: Fonts;
+
 
 
 /**
@@ -16,6 +19,14 @@ let enemyAsset: p5.Image;
  * sound files, images etc...
  */
 function preload() {
+
+    /** Fonts */
+    fonts = {
+        roboto: loadFont('./assets/fonts/Roboto-Bold.ttf'),
+        mcLawsuit: loadFont('./assets/fonts/mclawsui.ttf'),
+        pressStart2p: loadFont('./assets/fonts/PressStart2P-Regular.ttf')
+    }
+
     /** sprite sheet (player) */
     images = {
 
