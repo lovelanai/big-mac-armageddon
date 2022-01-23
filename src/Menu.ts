@@ -16,7 +16,7 @@ class Menu implements Visual {
                 console.log('Enter pressed');
 
                 if (whichMenu === 'Press Enter to start!') {
-                    //initialize game, fill lives. Tror startmenu blir kallat i sketch.ts > update vilket gör att startmenyn ritas igen. Tror knapplyssnaren registrerar fler än ett knapptryck vilket gör att spelet kommer döda en så fort man kommer in.
+                    //initialize game, fill lives. StartMenu fortsätter att kallas i sketch.ts > update vilket gör att startmenyn ritas igen? Eventuellt registrerar även KeyIsPressed här ovanför fler än ett knapptryck vilket gör att spelet kommer döda en så fort man kommer in.
 
                     console.log('game initialized')
                     const dummyEngine = new GameEngine(5);
