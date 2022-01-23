@@ -1,4 +1,4 @@
-//Menu class that is used to create the start menu and game over menu.
+//Menu class used to create the start menu and game over menu.
 
 class Menu implements Visual {
     //insert parameters necessary for both menus
@@ -8,32 +8,34 @@ class Menu implements Visual {
         this.message = message
     }
     update(): void {
-        let determinator = this.message
-        
+        let whichMenu = this.message
 
         if (keyIsPressed) {
 
             if (keyCode === ENTER) {
                 console.log('Enter pressed');
 
-                if (determinator === 'Press Enter to start!') {
-                    console.log('game initialized')
-                    
-                    //initialize game, fill lives
+                if (whichMenu === 'Press Enter to start!') {
+                    //initialize game, fill lives. Tror startmenu blir kallat i sketch.ts > update vilket gör att startmenyn ritas igen. Tror knapplyssnaren registrerar fler än ett knapptryck vilket gör att spelet kommer döda en så fort man kommer in.
 
+                    console.log('game initialized')
+                    const dummyEngine = new GameEngine(5);
+                    game = new Game(dummyEngine);
+                    game.draw();
+                    game.update();
+                    
+
+                } else if (whichMenu === 'Press Enter to retry!') {
+                    //restart game
+
+                    console.log('gameOverMenu')
 
                 } else {
-                    console.log('gameOverMenu')
+                    return;
                 }
-            }}
-
-/*          if (determinator === 'Press Enter to start!') {
-                //initialize game, fill lives
-            } else {
-                //console.log('gameOverMenu')
-            } */
-        
-}
+            }
+        }
+    }
 
     draw(): void {
 

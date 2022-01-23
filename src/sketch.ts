@@ -143,9 +143,9 @@ function setup() {
     // noCursor();
 
 
-    const dummyEngine = new GameEngine(5);
+    
     startMenu = new Menu('Press Enter to start!')
-    game = new Game(dummyEngine);
+    
 }
 
 
@@ -160,8 +160,7 @@ function draw() {
     startMenu.draw();
     startMenu.update();
     
-    game.update();
-    game.draw();
+
     text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 
     // game.draw();
