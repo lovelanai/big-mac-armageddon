@@ -2,6 +2,7 @@ class Generator {
   private worldGrid: Number[][];
 
   constructor() {
+
     // 1 = spik + deadly
     // 2 = spik + safe
     // 3 = solid + safe
@@ -28,6 +29,11 @@ class Generator {
     ];
   }
 
+  public getWorldLength(){
+    const worldLength = this.worldGrid[0].length
+    return worldLength
+  }
+
   public getNextLevelEntities(): Set<Entity> {
     //1 kollar på vår grid
     //2 och skapar alla entiter som behövs
@@ -44,11 +50,7 @@ class Generator {
         let xpos = parseInt(x)*50
         let ypos = parseInt(y)*50
 
-        console.log(xpos,ypos)
-
-
         const position = createVector(xpos,ypos); //behöver fixas
-
 
         switch (this.worldGrid[y][x]) {
           case 1 /* new x(position, fill, isSolid, damage,) (SPIKE)*/:
