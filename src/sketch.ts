@@ -158,6 +158,7 @@ function draw() {
     background('white');
     
     startMenu.draw();
+    startMenu.update();
     
     game.update();
     game.draw();

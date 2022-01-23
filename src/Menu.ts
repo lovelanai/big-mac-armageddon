@@ -6,21 +6,37 @@ class Menu implements Visual {
 
     constructor(message: string) {
         this.message = message
-        if (this.message === 'Press Enter to start!') {
-            //initialize game, fill lives
-            this.update
-            console.log('startmenu')
-        } else {
-            
-        console.log('gameOverMenu')
-        }
-
     }
     update(): void {
-    }
+        let determinator = this.message
+        
+
+        if (keyIsPressed) {
+
+            if (keyCode === ENTER) {
+                console.log('Enter pressed');
+
+                if (determinator === 'Press Enter to start!') {
+                    console.log('game initialized')
+                    
+                    //initialize game, fill lives
+
+
+                } else {
+                    console.log('gameOverMenu')
+                }
+            }}
+
+/*          if (determinator === 'Press Enter to start!') {
+                //initialize game, fill lives
+            } else {
+                //console.log('gameOverMenu')
+            } */
+        
+}
 
     draw(): void {
-        
+
         //Menu text
         background(222, 6, 18)
         fill(241, 163, 10)
@@ -38,7 +54,7 @@ class Menu implements Visual {
         fill(241, 163, 10)
         text('Armageddon', 640, 240)
 
-        if (frameCount % 100 < 50) {
+        if (frameCount % 100 < 30) {
             fill(241, 163, 10, 0)
         } else {
             fill(241, 163, 10)
