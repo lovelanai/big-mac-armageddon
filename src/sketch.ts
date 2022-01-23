@@ -8,7 +8,8 @@ let sequences: Sequences;
 let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
 
-//Fonts
+//Menus
+let startMenu: Menu;
 let fonts: Fonts;
 
 
@@ -22,7 +23,7 @@ function preload() {
 
     /** Fonts */
     fonts = {
-        roboto: loadFont('./assets/fonts/Roboto-Bold.ttf'),
+        roboto: loadFont('./assets/fonts/Roboto-Regular.ttf'),
         mcLawsuit: loadFont('./assets/fonts/mclawsui.ttf'),
         pressStart2p: loadFont('./assets/fonts/PressStart2P-Regular.ttf')
     }
@@ -143,6 +144,7 @@ function setup() {
 
 
     const dummyEngine = new GameEngine(5);
+    startMenu = new Menu('Press Enter to start!')
     game = new Game(dummyEngine);
 }
 
@@ -154,6 +156,9 @@ function setup() {
  */
 function draw() {
     background('white');
+    
+    startMenu.draw();
+    
     game.update();
     game.draw();
     text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);

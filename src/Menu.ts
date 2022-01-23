@@ -8,6 +8,7 @@ class Menu implements Visual {
         this.message = message
         if (this.message === 'Press Enter to start!') {
             //initialize game, fill lives
+            this.update
             console.log('startmenu')
         } else {
             
@@ -24,11 +25,12 @@ class Menu implements Visual {
         background(222, 6, 18)
         fill(241, 163, 10)
         textAlign(CENTER)
-        textSize(100)
+        textSize(110)
         textFont(fonts.mcLawsuit)
-        text('M', 685, 160)
+        text('M', 680, 150)
+        textSize(100)
         textFont(fonts.roboto)
-        text('Big      ac', 640, 160)
+        text('Big      ac', 640, 150)
         textSize(70)
         textFont(fonts.pressStart2p)
         fill(43, 69, 147)
