@@ -9,8 +9,14 @@ class Player extends AnimatedEntity {
     private timeToChangeFrame = 100;
 
     constructor() {
-        super(createVector(1050,0), createVector(80, 160), createVector(0, 5), createVector(0, 0.8), sequences.walkLeft[0], true, false)
-
+        super(createVector(1050,0), createVector(80,180), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        this.imageTransform = {
+            sx:0,
+            sy:0,
+            dWidth:0,
+            dHeight:0,
+        }
+    //image(this.fill, this.position.x, this.position.y, this.size.x, this.size.y, this.imageTransform.sx, this.imageTransform.sy, this.imageTransform.sWidth, this.imageTransform.sHeight)
     }
 
     public update(): void {
@@ -18,7 +24,9 @@ class Player extends AnimatedEntity {
 
         this.timeToChangeFrame -= deltaTime;
         if (this.timeToChangeFrame < 0) {
-            // byt bild
+            
+            
+
             this.timeToChangeFrame = 100;
         }
     }
@@ -32,53 +40,5 @@ class Player extends AnimatedEntity {
 }
 
 
-
-
-const keys = {
-    right: {
-        pressed: false
-    },
-    left: {
-        pressed: false
-    },
-}
-
-window.addEventListener('keydown', ({ keyCode }) => {
-
-    switch (keyCode) {
-        case 65:
-            console.log('left')
-            keys.left.pressed = true
-            break
-
-        case 68:
-            console.log('right')
-            keys.right.pressed = true
-            break
-
-        case 87:
-            console.log('up')
-            break
-    }
-
-})
-
-window.addEventListener('keyup', ({ keyCode }) => {
-
-    switch (keyCode) {
-        case 65:
-            keys.left.pressed = false
-            console.log('left-up')
-            break
-
-        case 68:
-            keys.right.pressed = false
-            console.log('right-up')
-            break
-
-
-    }
-
-})
 
 

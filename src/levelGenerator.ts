@@ -44,7 +44,7 @@ class Generator {
         let xpos = parseInt(x)*50
         let ypos = parseInt(y)*50
 
-        console.log(xpos,ypos)
+        // console.log(xpos,ypos)
 
 
         const position = createVector(xpos,ypos); //behöver fixas
