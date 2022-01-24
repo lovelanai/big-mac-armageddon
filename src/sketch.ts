@@ -24,7 +24,7 @@ function preload() {
 
     sequences = {
 
-        idleLeft: [
+        idle: [
             loadImage('./assets/images/ronald/idle-left/0.png'),
             loadImage('./assets/images/ronald/idle-left/1.png'),
             loadImage('./assets/images/ronald/idle-left/2.png'),
@@ -36,17 +36,17 @@ function preload() {
             loadImage('./assets/images/ronald/idle-left/8.png')
         ],
 
-        idleRight: [
-            loadImage('./assets/images/ronald/idle-right/0.png'),
-            loadImage('./assets/images/ronald/idle-right/1.png'),
-            loadImage('./assets/images/ronald/idle-right/2.png'),
-            loadImage('./assets/images/ronald/idle-right/3.png'),
-            loadImage('./assets/images/ronald/idle-right/4.png'),
-            loadImage('./assets/images/ronald/idle-right/5.png'),
-            loadImage('./assets/images/ronald/idle-right/6.png'),
-            loadImage('./assets/images/ronald/idle-right/7.png'),
-            loadImage('./assets/images/ronald/idle-right/8.png')
-        ],
+        // idleRight: [
+        //     loadImage('./assets/images/ronald/idle-right/0.png'),
+        //     loadImage('./assets/images/ronald/idle-right/1.png'),
+        //     loadImage('./assets/images/ronald/idle-right/2.png'),
+        //     loadImage('./assets/images/ronald/idle-right/3.png'),
+        //     loadImage('./assets/images/ronald/idle-right/4.png'),
+        //     loadImage('./assets/images/ronald/idle-right/5.png'),
+        //     loadImage('./assets/images/ronald/idle-right/6.png'),
+        //     loadImage('./assets/images/ronald/idle-right/7.png'),
+        //     loadImage('./assets/images/ronald/idle-right/8.png')
+        // ],
 
 
         walkLeft: [
@@ -72,10 +72,6 @@ function preload() {
             loadImage('./assets/images/ronald/jump-left/1.png'),
             loadImage('./assets/images/ronald/jump-left/2.png'),
             loadImage('./assets/images/ronald/jump-left/3.png'),
-            loadImage('./assets/images/ronald/jump-left/4.png'),
-            loadImage('./assets/images/ronald/jump-left/5.png'),
-            loadImage('./assets/images/ronald/jump-left/6.png'),
-            loadImage('./assets/images/ronald/jump-left/7.png')
         ],
 
         jumpRight: [
@@ -83,13 +79,9 @@ function preload() {
             loadImage('./assets/images/ronald/jump-right/1.png'),
             loadImage('./assets/images/ronald/jump-right/2.png'),
             loadImage('./assets/images/ronald/jump-right/3.png'),
-            loadImage('./assets/images/ronald/jump-right/4.png'),
-            loadImage('./assets/images/ronald/jump-right/5.png'),
-            loadImage('./assets/images/ronald/jump-right/6.png'),
-            loadImage('./assets/images/ronald/jump-right/7.png')
         ],
 
-        dieLeft: [
+        die: [
             loadImage('./assets/images/ronald/die-left/0.png'),
             loadImage('./assets/images/ronald/die-left/1.png'),
             loadImage('./assets/images/ronald/die-left/2.png'),
@@ -100,16 +92,16 @@ function preload() {
             loadImage('./assets/images/ronald/die-left/7.png')
         ],
 
-        dieRight: [
-            loadImage('./assets/images/ronald/die-right/0.png'),
-            loadImage('./assets/images/ronald/die-right/1.png'),
-            loadImage('./assets/images/ronald/die-right/2.png'),
-            loadImage('./assets/images/ronald/die-right/3.png'),
-            loadImage('./assets/images/ronald/die-right/4.png'),
-            loadImage('./assets/images/ronald/die-right/5.png'),
-            loadImage('./assets/images/ronald/die-right/6.png'),
-            loadImage('./assets/images/ronald/die-right/7.png')
-        ],
+        // dieRight: [
+        //     loadImage('./assets/images/ronald/die-right/0.png'),
+        //     loadImage('./assets/images/ronald/die-right/1.png'),
+        //     loadImage('./assets/images/ronald/die-right/2.png'),
+        //     loadImage('./assets/images/ronald/die-right/3.png'),
+        //     loadImage('./assets/images/ronald/die-right/4.png'),
+        //     loadImage('./assets/images/ronald/die-right/5.png'),
+        //     loadImage('./assets/images/ronald/die-right/6.png'),
+        //     loadImage('./assets/images/ronald/die-right/7.png')
+        // ],
 
 
     }
