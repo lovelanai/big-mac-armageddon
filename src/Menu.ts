@@ -11,15 +11,20 @@ class Menu implements Visual {
         game = new Game(dummyEngine);
         let whichMenu = this;
 
-        window.addEventListener('keyup', function () {
-            if (keyCode === ENTER) {
-                console.log('Game initialized')
-                whichMenu.init = true;
-            }
-        })
+        window.addEventListener('keyup', initFunction)
 
-        //remove windowlistener
+        function initFunction() {
+            if (whichMenu.init === false) {
+                if (keyCode === ENTER) {
+                    console.log('game init')
+                    whichMenu.init = true
+                } else {
+                    return;
+                }
+            }
+        }
     }
+
     update(): void {
         if (this.init) {
             game.update();
