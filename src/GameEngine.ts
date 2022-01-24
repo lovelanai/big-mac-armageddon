@@ -18,18 +18,13 @@ class GameEngine implements Visual {
     }
 
     update(): void {
-        for (const e of this.entities) {
-            e.update();
-        }
-        this.detectCollisions();
-
         if (keyIsPressed) {
 
             if (keyIsDown(65)) {//A
-                this.speed++//= Math.random();
+                this.speed = -15//-= Math.random();
             }
             if (keyIsDown(68)) {//D
-                this.speed--//= Math.random();
+                this.speed = 15//+= Math.random();
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
@@ -38,18 +33,27 @@ class GameEngine implements Visual {
                 this.die();
             }
         }
-        this.walk();
+        else {
+            this.speed = 0;
+        }
+
+        this.player.setSpeed(this.speed);
+        for (const e of this.entities) {
+            e.update();
+        }
+        this.detectCollisions();
+
+        this.pan();
     }
     draw(): void {
         for (const e of this.entities) {
             e.draw();
         }
     }
-    walk(): void {
+    pan(): void {
+        const offset = width / 2 - this.player.position.x;
         for (const e of this.entities) {
-            if (e !== this.player) {
-                e.position.x += this.speed;
-            }
+            e.position.x += offset;
         }
     }
     die(): void {
