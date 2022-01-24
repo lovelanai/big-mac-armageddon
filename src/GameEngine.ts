@@ -82,9 +82,13 @@ class GameEngine implements Visual {
                     top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom : Infinity,
                     bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top : Infinity
                 }
-                //There must be overlap in both x and y
-                if ((overlap0.left < Infinity || overlap0.right < Infinity) && (overlap0.top < Infinity || overlap0.bottom < Infinity)) {
 
+                if (
+                    box0.left < box1.right &&
+                    box0.right > box1.left &&
+                    box0.top < box1.bottom &&
+                    box0.bottom > box1.top
+                ){
                     //Look for the smallest overlap since that's probably the direction of the collision
                     let minOverlap = overlap0.bottom;
                     let direction0 = 'bottom';
