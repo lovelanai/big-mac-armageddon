@@ -10,6 +10,7 @@ let enemyAsset: p5.Image;
 
 //Menus
 let startMenu: Menu;
+let gameOverMenu: Menu;
 let fonts: Fonts;
 
 
@@ -142,10 +143,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-
-    
-    startMenu = new Menu('Press Enter to start!')
-    
+    startMenu = new Menu('Press Enter to start!')    
 }
 
 

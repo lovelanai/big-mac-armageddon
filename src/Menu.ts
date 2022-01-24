@@ -8,8 +8,8 @@ class Menu implements Visual {
     constructor(message: string) {
         this.message = message;
         const dummyEngine = new GameEngine(5);
-        game = new Game(dummyEngine);
         let whichMenu = this;
+        game = new Game(dummyEngine);
 
         window.addEventListener('keyup', initFunction)
 
