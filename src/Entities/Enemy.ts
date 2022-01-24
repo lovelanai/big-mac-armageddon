@@ -16,7 +16,7 @@ class Enemy extends AnimatedEntity {
             acceleration = createVector(0, 0.8)
         }
 
-        super(position, createVector(50, 50), velocity, acceleration, images.enemyAsset, isSolid, true);
+        super(position, createVector(80, 80), velocity, acceleration, images.enemyAsset, isSolid, true);
         this.direction = direction;
     }
 
