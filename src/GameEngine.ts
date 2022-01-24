@@ -33,7 +33,6 @@ class GameEngine implements Visual {
             if ([65, 68, 87].indexOf(keyCode) === -1) {
                 this.die();
             }
-            this.walk();
         }
 
         else {
@@ -68,7 +67,7 @@ class GameEngine implements Visual {
             const e0 = entities.pop(); //Remove from entities so it won't be checked more than once
             if (e0?.position === undefined) throw new ReferenceError('Undefined entity position. You\'ve screwed up pretty bad.'); //Apparently TS needs this in order to not freak out
             for (const e1 of entities) {
-                let relVel = p5.Vector.sub(e0.getVelocity(), e1.getVelocity())
+                let relVel = p5.Vector.sub(e0.getVelocity(), e1.getVelocity());
 
                 let box0 = {
                     left: e0.position.x,
@@ -91,12 +90,12 @@ class GameEngine implements Visual {
                     bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top - relVel.y : Infinity
                 }
 
+                //There must be overlap in both x and y
                 if (
-                    box0.left < box1.right &&
-                    box0.right > box1.left &&
-                    box0.top < box1.bottom &&
-                    box0.bottom > box1.top
-                ){
+                    (overlap0.left < Infinity ||
+                        overlap0.right < Infinity) &&
+                    (overlap0.top < Infinity ||
+                        overlap0.bottom < Infinity)) {
                     //Look for the smallest overlap since that's probably the direction of the collision
                     let minOverlap = overlap0.bottom;
                     let direction0 = 'bottom';
