@@ -6,14 +6,45 @@
 
 
 class Player extends AnimatedEntity {
-
+    private timeToChangeFrame: number;
+    private sequenceIndex: number;
+    private activeSequence: p5.Image[];
 
     constructor() {
-
-        super(new p5.Vector(1050, 0), new p5.Vector(80, 160), new p5.Vector(0, 0), new p5.Vector(0, .8), runLeft, true, false)
-
-
+        super(createVector(1050,0), createVector(80,180), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        this.imageTransform = {
+            sx:0,
+            sy:0,
+            dWidth:0,
+            dHeight:0,
+        }
+        this.timeToChangeFrame = 100;
+        this.sequenceIndex = 0;
+        this.activeSequence = sequences.walkLeft;
+    //image(this.fill, this.position.x, this.position.y, this.size.x, this.size.y, this.imageTransform.sx, this.imageTransform.sy, this.imageTransform.sWidth, this.imageTransform.sHeight)
     }
+
+    public update(): void {
+        super.update();
+        if (this.velocity.x > 0) {
+            this.activeSequence = sequences.walkRight;
+        } else {
+            this.activeSequence = sequences.walkLeft;
+        }
+
+        this.timeToChangeFrame -= deltaTime;
+        if (this.timeToChangeFrame < 0) {
+            this.sequenceIndex++;
+            
+            if (this.sequenceIndex >= this.activeSequence.length) {
+                this.sequenceIndex = 0;
+            }
+
+            this.fill = this.activeSequence[this.sequenceIndex];
+            this.timeToChangeFrame = 100;
+        }
+    }
+
 
     jump(): void {
         if (this.isOnGround) {
@@ -26,53 +57,5 @@ class Player extends AnimatedEntity {
 }
 
 
-
-
-const keys = {
-    right: {
-        pressed: false
-    },
-    left: {
-        pressed: false
-    },
-}
-
-window.addEventListener('keydown', ({ keyCode }) => {
-
-    switch (keyCode) {
-        case 65:
-            console.log('left')
-            keys.left.pressed = true
-            break
-
-        case 68:
-            console.log('right')
-            keys.right.pressed = true
-            break
-
-        case 87:
-            console.log('up')
-            break
-    }
-
-})
-
-window.addEventListener('keyup', ({ keyCode }) => {
-
-    switch (keyCode) {
-        case 65:
-            keys.left.pressed = false
-            console.log('left-up')
-            break
-
-        case 68:
-            keys.right.pressed = false
-            console.log('right-up')
-            break
-
-
-    }
-
-})
 
 

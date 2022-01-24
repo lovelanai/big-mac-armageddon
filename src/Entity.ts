@@ -4,6 +4,12 @@ class Entity implements Visual {
     protected fill: p5.Image | string;
     isSolid: boolean;
     protected damage: boolean;
+    protected imageTransform: undefined | {
+        sx: number,
+        sy:number,
+        dWidth:number,
+        dHeight:number
+    }
 
     /** Skapar en entity / placeras sedan ut i LevelGenerator.ts */
     constructor(position: p5.Vector, size: p5.Vector, fill: p5.Image | string, isSolid: boolean, damage: boolean) {
@@ -26,8 +32,9 @@ class Entity implements Visual {
             rect(this.position.x, this.position.y, this.size.x, this.size.y)
         }
 
-        else if (this.fill.constructor === p5.Image) {
-            image(this.fill, this.position.x, this.position.y, this.size.x, this.size.y, 0, 0, this.size.x * 2, this.size.y * 2)
+        else if (this.fill.constructor === p5.Image && this.imageTransform !== undefined) {
+            image(this.fill,  this.position.x, this.position.y, this.imageTransform.dWidth, this.imageTransform.dHeight, this.imageTransform.sx, this.imageTransform.sy)
+            
         }
     }
 

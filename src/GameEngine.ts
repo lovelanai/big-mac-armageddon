@@ -25,6 +25,7 @@ class GameEngine implements Visual {
             }
             if (keyIsDown(68)) {//D
                 this.speed = 15//+= Math.random();
+
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
@@ -32,7 +33,9 @@ class GameEngine implements Visual {
             if ([65, 68, 87].indexOf(keyCode) === -1) {
                 this.die();
             }
+            this.walk();
         }
+
         else {
             this.speed = 0;
         }
@@ -42,7 +45,6 @@ class GameEngine implements Visual {
             e.update();
         }
         this.detectCollisions();
-
         this.pan();
     }
     draw(): void {
@@ -88,9 +90,13 @@ class GameEngine implements Visual {
                     top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom - relVel.y : Infinity,
                     bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top - relVel.y : Infinity
                 }
-                //There must be overlap in both x and y
-                if ((overlap0.left < Infinity || overlap0.right < Infinity) && (overlap0.top < Infinity || overlap0.bottom < Infinity)) {
 
+                if (
+                    box0.left < box1.right &&
+                    box0.right > box1.left &&
+                    box0.top < box1.bottom &&
+                    box0.bottom > box1.top
+                ){
                     //Look for the smallest overlap since that's probably the direction of the collision
                     let minOverlap = overlap0.bottom;
                     let direction0 = 'bottom';

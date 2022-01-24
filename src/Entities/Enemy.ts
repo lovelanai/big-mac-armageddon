@@ -1,4 +1,4 @@
-/// <reference path ="AnimatedEntity.ts"/>
+/// <reference path ="../AnimatedEntity.ts"/>
 
 class Enemy extends AnimatedEntity {
     private direction: string;
@@ -8,15 +8,15 @@ class Enemy extends AnimatedEntity {
         let acceleration: p5.Vector;
         if (direction === "horizontal") {
             isSolid = true
-            velocity = new p5.Vector(3, 0)
-            acceleration = new p5.Vector(0, 0.8)
+            velocity = createVector(3, 0)
+            acceleration = createVector(0, 0.8)
         } else {
             isSolid = false
-            velocity = new p5.Vector(0, 3)
-            acceleration = new p5.Vector(0, 0.8)
+            velocity = createVector(0, 3)
+            acceleration = createVector(0, 0.8)
         }
 
-        super(position, new p5.Vector(50, 50), velocity, acceleration, enemyAsset, isSolid, true);
+        super(position, createVector(50, 50), velocity, acceleration, images.enemyAsset, isSolid, true);
         this.direction = direction;
     }
 
