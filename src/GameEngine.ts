@@ -33,7 +33,6 @@ class GameEngine implements Visual {
             if ([65, 68, 87].indexOf(keyCode) === -1) {
                 this.die();
             }
-            this.walk();
         }
 
         else {
