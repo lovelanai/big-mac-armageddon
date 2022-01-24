@@ -50,6 +50,7 @@ class Generator {
         let xpos = parseInt(x)*50
         let ypos = parseInt(y)*50
 
+
         const position = createVector(xpos,ypos); //behöver fixas
 
         switch (this.worldGrid[y][x]) {
