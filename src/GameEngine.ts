@@ -26,10 +26,10 @@ class GameEngine implements Visual {
         if (keyIsPressed) {
 
             if (keyIsDown(65)) {//A
-                this.speed ++//= Math.random();
+                this.speed =10//+= Math.random();
             }
             if (keyIsDown(68)) {//D
-                this.speed --//= Math.random();
+                this.speed =-10//-= Math.random();
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
@@ -37,8 +37,8 @@ class GameEngine implements Visual {
             if ([65, 68, 87].indexOf(keyCode) === -1) {
                 this.die();
             }
+            this.walk();
         }
-        this.walk();
     }
     draw(): void {
         for (const e of this.entities) {
