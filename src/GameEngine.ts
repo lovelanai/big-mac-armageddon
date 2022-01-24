@@ -23,17 +23,20 @@ class GameEngine implements Visual {
         }
         this.detectCollisions();
 
-        if(keyIsDown(65)){//A
-            this.speed += Math.random();
-        }
-        if(keyIsDown(68)){//D
-            this.speed -= Math.random();
-        }
-        if(keyIsDown(87)){//W
-            this.player.jump();
-        }
-        if([65,68,87].indexOf(keyCode)!==-1){
-            this.die();
+        if (keyIsPressed) {
+
+            if (keyIsDown(65)) {//A
+                this.speed ++//= Math.random();
+            }
+            if (keyIsDown(68)) {//D
+                this.speed --//= Math.random();
+            }
+            if (keyIsDown(87)) {//W
+                this.player.jump();
+            }
+            if ([65, 68, 87].indexOf(keyCode) === -1) {
+                this.die();
+            }
         }
         this.walk();
     }
