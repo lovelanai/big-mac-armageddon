@@ -47,8 +47,8 @@ class Generator {
         // x*50 = x
         // y*50 = y
         
-        let xpos = parseInt(x)*50
-        let ypos = parseInt(y)*50
+        let xpos = parseInt(x)*80
+        let ypos = parseInt(y)*80
 
 
         const position = createVector(xpos,ypos); //behöver fixas
