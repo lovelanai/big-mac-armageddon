@@ -59,6 +59,7 @@ class GameEngine implements Visual {
     }
     die(): void {
         console.log('You died');
+        this.player.isDead = true;
     }
 
     private detectCollisions() {
