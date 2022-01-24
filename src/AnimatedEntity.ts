@@ -40,4 +40,7 @@ class AnimatedEntity extends Entity {
             }
         }
     }
+    getVelocity(): p5.Vector {
+        return this.velocity;
+    }
 }

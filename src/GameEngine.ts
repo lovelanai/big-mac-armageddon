@@ -18,18 +18,14 @@ class GameEngine implements Visual {
     }
 
     update(): void {
-        for (const e of this.entities) {
-            e.update();
-        }
-        this.detectCollisions();
-
         if (keyIsPressed) {
 
             if (keyIsDown(65)) {//A
-                this.speed =10//+= Math.random();
+                this.speed = -15//-= Math.random();
             }
             if (keyIsDown(68)) {//D
-                this.speed =-10//-= Math.random();
+                this.speed = 15//+= Math.random();
+
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
@@ -39,17 +35,27 @@ class GameEngine implements Visual {
             }
             this.walk();
         }
+
+        else {
+            this.speed = 0;
+        }
+
+        this.player.setSpeed(this.speed);
+        for (const e of this.entities) {
+            e.update();
+        }
+        this.detectCollisions();
+        this.pan();
     }
     draw(): void {
         for (const e of this.entities) {
             e.draw();
         }
     }
-    walk(): void {
+    pan(): void {
+        const offset = width / 2 - this.player.position.x;
         for (const e of this.entities) {
-            if (e !== this.player) {
-                e.position.x += this.speed;
-            }
+            e.position.x += offset;
         }
     }
     die(): void {
@@ -62,6 +68,8 @@ class GameEngine implements Visual {
             const e0 = entities.pop(); //Remove from entities so it won't be checked more than once
             if (e0?.position === undefined) throw new ReferenceError('Undefined entity position. You\'ve screwed up pretty bad.'); //Apparently TS needs this in order to not freak out
             for (const e1 of entities) {
+                let relVel = p5.Vector.sub(e0.getVelocity(), e1.getVelocity())
+
                 let box0 = {
                     left: e0.position.x,
                     right: e0.position.x + e0.size.x,
@@ -77,10 +85,10 @@ class GameEngine implements Visual {
 
 
                 const overlap0 = {
-                    left: Tools.isBetween(box0.left, box1.left, box1.right) ? box1.right - box0.left : Infinity,
-                    right: Tools.isBetween(box0.right, box1.left, box1.right) ? box0.right - box1.left : Infinity,
-                    top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom : Infinity,
-                    bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top : Infinity
+                    left: Tools.isBetween(box0.left, box1.left, box1.right) ? (box1.right - box0.left) - relVel.x : Infinity,
+                    right: Tools.isBetween(box0.right, box1.left, box1.right) ? box0.right - box1.left - relVel.x : Infinity,
+                    top: Tools.isBetween(box0.top, box1.top, box1.bottom) ? box0.top - box1.bottom - relVel.y : Infinity,
+                    bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) ? box0.bottom - box1.top - relVel.y : Infinity
                 }
 
                 if (

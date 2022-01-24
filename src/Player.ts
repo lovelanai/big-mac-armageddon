@@ -47,9 +47,12 @@ class Player extends AnimatedEntity {
 
 
     jump(): void {
-        if(this.isOnGround){
+        if (this.isOnGround) {
             this.velocity.y = -20;
         }
+    }
+    setSpeed(speed: number): void {
+        this.velocity.x = speed;
     }
 }
 
