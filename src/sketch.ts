@@ -143,7 +143,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    startMenu = new Menu('Press Enter to start!')    
+    game = new Game(new Menu('Press Enter to start!'));
 }
 
 
@@ -154,10 +154,10 @@ function setup() {
  */
 function draw() {
     background('white');
-    
-    startMenu.draw();
-    startMenu.update();
-    
+
+    game.draw();
+    game.update();
+
 
     text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 
