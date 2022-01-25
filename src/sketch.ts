@@ -33,6 +33,7 @@ function preload() {
     images = {
 
         enemyAsset: loadImage('./assets/images/enemy/bk-hat.png'),
+        ballpit: loadImage('./assets/images/map/wooden-block.png')
     }
 
     sequences = {
