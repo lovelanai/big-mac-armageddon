@@ -1,10 +1,6 @@
 /// <reference path ="AnimatedEntity.ts"/>
 
 
-
-
-
-
 class Player extends AnimatedEntity {
     private timeToChangeFrame: number;
     private sequenceIndex: number;

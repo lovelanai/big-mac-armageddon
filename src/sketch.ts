@@ -1,3 +1,4 @@
+/// <reference path ="GameEngine.ts"/>
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 //sprite-sheet (player)
