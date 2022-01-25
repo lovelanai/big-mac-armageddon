@@ -6,9 +6,9 @@ class Entity implements Visual {
     protected damage: boolean;
     protected imageTransform: undefined | {
         sx: number,
-        sy:number,
-        dWidth:number,
-        dHeight:number
+        sy: number,
+        dWidth: number,
+        dHeight: number
     }
 
     /** Skapar en entity / placeras sedan ut i LevelGenerator.ts */
@@ -32,9 +32,16 @@ class Entity implements Visual {
             rect(this.position.x, this.position.y, this.size.x, this.size.y)
         }
 
-        else if (this.fill.constructor === p5.Image && this.imageTransform !== undefined) {
-            image(this.fill,  this.position.x, this.position.y, this.imageTransform.dWidth, this.imageTransform.dHeight, this.imageTransform.sx, this.imageTransform.sy)
-            
+        else if (this.fill.constructor === p5.Image) {
+            push();
+            translate(this.position.x - (this.fill.width - this.size.x) / 2, 0);
+            image(this.fill, 0, this.position.y, this.fill.width, this.fill.height)
+            pop();
+
+            push();
+            noFill();
+            rect(this.position.x, this.position.y, this.size.x, this.size.y)
+            pop();
         }
     }
 
@@ -49,7 +56,7 @@ class Entity implements Visual {
     getDamage(): boolean {
         return this.damage;
     }
-    getVelocity():p5.Vector{
+    getVelocity(): p5.Vector {
         return createVector();
     }
 }

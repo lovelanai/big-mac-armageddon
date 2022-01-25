@@ -3,6 +3,7 @@ class GameEngine implements Visual {
     entities: Set<Entity>;
     speed = 0;
     player: Player;
+    private allowedKeys: Set<number>
 
     constructor(livesNumber: number) {
         this.livesNumber = livesNumber;
@@ -15,6 +16,8 @@ class GameEngine implements Visual {
 
         this.player = new Player();
         this.entities.add(this.player);
+
+        this.allowedKeys = new Set<number>([65, 68, 87, ENTER]);
     }
 
     update(): void {
@@ -30,14 +33,16 @@ class GameEngine implements Visual {
             if (keyIsDown(87)) {//W
                 this.player.jump();
             }
-            if ([65, 68, 87].indexOf(keyCode) === -1) {
+            if (!this.allowedKeys.has(keyCode)) {
                 this.die();
             }
         }
 
         else {
             this.speed = 0;
+            this.allowedKeys.delete(ENTER);
         }
+
 
         this.player.setSpeed(this.speed);
         for (const e of this.entities) {
@@ -59,6 +64,7 @@ class GameEngine implements Visual {
     }
     die(): void {
         console.log('You died');
+        this.player.isDead = true;
     }
 
     private detectCollisions() {

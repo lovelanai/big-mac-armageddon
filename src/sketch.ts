@@ -9,6 +9,11 @@ let sequences: Sequences;
 let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
 
+//Menus
+let startMenu: Menu;
+let gameOverMenu: Menu;
+let fonts: Fonts;
+
 
 
 /**
@@ -17,15 +22,24 @@ let enemyAsset: p5.Image;
  * sound files, images etc...
  */
 function preload() {
+
+    /** Fonts */
+    fonts = {
+        roboto: loadFont('./assets/fonts/Roboto-Regular.ttf'),
+        mcLawsuit: loadFont('./assets/fonts/mclawsui.ttf'),
+        pressStart2p: loadFont('./assets/fonts/PressStart2P-Regular.ttf')
+    }
+
     /** sprite sheet (player) */
     images = {
 
         enemyAsset: loadImage('./assets/images/enemy/bk-hat.png'),
+        ballpit: loadImage('./assets/images/map/wooden-block.png')
     }
 
     sequences = {
 
-        idleLeft: [
+        idle: [
             loadImage('./assets/images/ronald/idle-left/0.png'),
             loadImage('./assets/images/ronald/idle-left/1.png'),
             loadImage('./assets/images/ronald/idle-left/2.png'),
@@ -37,17 +51,17 @@ function preload() {
             loadImage('./assets/images/ronald/idle-left/8.png')
         ],
 
-        idleRight: [
-            loadImage('./assets/images/ronald/idle-right/0.png'),
-            loadImage('./assets/images/ronald/idle-right/1.png'),
-            loadImage('./assets/images/ronald/idle-right/2.png'),
-            loadImage('./assets/images/ronald/idle-right/3.png'),
-            loadImage('./assets/images/ronald/idle-right/4.png'),
-            loadImage('./assets/images/ronald/idle-right/5.png'),
-            loadImage('./assets/images/ronald/idle-right/6.png'),
-            loadImage('./assets/images/ronald/idle-right/7.png'),
-            loadImage('./assets/images/ronald/idle-right/8.png')
-        ],
+        // idleRight: [
+        //     loadImage('./assets/images/ronald/idle-right/0.png'),
+        //     loadImage('./assets/images/ronald/idle-right/1.png'),
+        //     loadImage('./assets/images/ronald/idle-right/2.png'),
+        //     loadImage('./assets/images/ronald/idle-right/3.png'),
+        //     loadImage('./assets/images/ronald/idle-right/4.png'),
+        //     loadImage('./assets/images/ronald/idle-right/5.png'),
+        //     loadImage('./assets/images/ronald/idle-right/6.png'),
+        //     loadImage('./assets/images/ronald/idle-right/7.png'),
+        //     loadImage('./assets/images/ronald/idle-right/8.png')
+        // ],
 
 
         walkLeft: [
@@ -73,10 +87,6 @@ function preload() {
             loadImage('./assets/images/ronald/jump-left/1.png'),
             loadImage('./assets/images/ronald/jump-left/2.png'),
             loadImage('./assets/images/ronald/jump-left/3.png'),
-            loadImage('./assets/images/ronald/jump-left/4.png'),
-            loadImage('./assets/images/ronald/jump-left/5.png'),
-            loadImage('./assets/images/ronald/jump-left/6.png'),
-            loadImage('./assets/images/ronald/jump-left/7.png')
         ],
 
         jumpRight: [
@@ -84,13 +94,9 @@ function preload() {
             loadImage('./assets/images/ronald/jump-right/1.png'),
             loadImage('./assets/images/ronald/jump-right/2.png'),
             loadImage('./assets/images/ronald/jump-right/3.png'),
-            loadImage('./assets/images/ronald/jump-right/4.png'),
-            loadImage('./assets/images/ronald/jump-right/5.png'),
-            loadImage('./assets/images/ronald/jump-right/6.png'),
-            loadImage('./assets/images/ronald/jump-right/7.png')
         ],
 
-        dieLeft: [
+        die: [
             loadImage('./assets/images/ronald/die-left/0.png'),
             loadImage('./assets/images/ronald/die-left/1.png'),
             loadImage('./assets/images/ronald/die-left/2.png'),
@@ -101,23 +107,27 @@ function preload() {
             loadImage('./assets/images/ronald/die-left/7.png')
         ],
 
-        dieRight: [
-            loadImage('./assets/images/ronald/die-right/0.png'),
-            loadImage('./assets/images/ronald/die-right/1.png'),
-            loadImage('./assets/images/ronald/die-right/2.png'),
-            loadImage('./assets/images/ronald/die-right/3.png'),
-            loadImage('./assets/images/ronald/die-right/4.png'),
-            loadImage('./assets/images/ronald/die-right/5.png'),
-            loadImage('./assets/images/ronald/die-right/6.png'),
-            loadImage('./assets/images/ronald/die-right/7.png')
-        ],
+        // dieRight: [
+        //     loadImage('./assets/images/ronald/die-right/0.png'),
+        //     loadImage('./assets/images/ronald/die-right/1.png'),
+        //     loadImage('./assets/images/ronald/die-right/2.png'),
+        //     loadImage('./assets/images/ronald/die-right/3.png'),
+        //     loadImage('./assets/images/ronald/die-right/4.png'),
+        //     loadImage('./assets/images/ronald/die-right/5.png'),
+        //     loadImage('./assets/images/ronald/die-right/6.png'),
+        //     loadImage('./assets/images/ronald/die-right/7.png')
+        // ],
 
 
     }
 
 
-
-    // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', '..\audioFiles\soundtrack.mp3');
+    audioElement.load();
+    audioElement.addEventListener("load", function(){
+        audioElement.play();
+    }, true);
 }
 
 /**
@@ -127,13 +137,11 @@ function preload() {
  * in the draw function below
  */
 function setup() {
-    createCanvas(1280, 550);
+    createCanvas(1280, 880);
     frameRate(60);
     // noCursor();
 
-
-    const dummyEngine = new GameEngine(5);
-    game = new Game(dummyEngine);
+    game = new Game(new Menu('Press Enter to start!'));
 }
 
 
@@ -144,8 +152,11 @@ function setup() {
  */
 function draw() {
     background('white');
-    game.update();
+
     game.draw();
+    game.update();
+
+
     text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 
     // game.draw();
