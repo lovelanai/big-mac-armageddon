@@ -1,5 +1,6 @@
 interface Images {
   enemyAsset: p5.Image;
+  ballpit: p5.Image;
 }
 
 interface Sequences {
