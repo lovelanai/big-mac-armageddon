@@ -18,8 +18,8 @@ let enemyAsset: p5.Image;
 function preload() {
     /** sprite sheet (player) */
     images = {
-
-        enemyAsset: loadImage('./assets/images/enemy/bk-hat.png'),
+        bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
+        bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
     }
 
     sequences = {

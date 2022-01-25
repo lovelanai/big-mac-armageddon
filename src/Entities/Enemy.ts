@@ -1,5 +1,6 @@
 /// <reference path ="../AnimatedEntity.ts"/>
 
+
 class Enemy extends AnimatedEntity {
     private direction: string;
     constructor(position: p5.Vector, direction: string) {
@@ -12,17 +13,16 @@ class Enemy extends AnimatedEntity {
             acceleration = createVector(0, 0.8)
         } else {
             isSolid = false
-            velocity = createVector(0, 3)
-            acceleration = createVector(0, 0.8)
+            velocity = createVector(0, 4)
+            acceleration = createVector(0, 0)
         }
-
-        super(position, createVector(80, 80), velocity, acceleration, images.enemyAsset, isSolid, true);
+        super(position, createVector(80, 92), velocity, acceleration, images.bkFries, isSolid, true);
         this.direction = direction;
     }
 
     handleCollision(entity: Entity, direction: string): void {
         super.handleCollision(entity, direction)
-        if (this.direction === "horizontal") {
+        if (this.direction == "horizontal") {
             switch (direction) {
                 case 'left':
                     this.velocity.x = Math.abs(this.velocity.x)
@@ -49,17 +49,17 @@ class Enemy extends AnimatedEntity {
     }
 
     update(): void {
-        super.update()
-        if (this.direction === "vertical") {
+        if (this.direction == "vertical") {
             if (this.position.y <= 0) {
-                this.velocity.y = 3
-                this.acceleration.y = 0.8
+                this.velocity.y = 4
+                this.acceleration.y = 0
             }
             if (this.position.y >= height - this.size.y) {
-                this.velocity.y = -3
-                this.acceleration.y = -0.8
+                this.velocity.y = -4
+                this.acceleration.y = 0
             }
         }
+        super.update()
     }
 
 
