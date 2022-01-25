@@ -63,7 +63,7 @@ class Generator {
             break;
 
           case 3:
-            entities.add(new Block(position, "green", true, false));
+            entities.add(new Block(position, images.ballpit, true, false));
             break;
 
           case 4:

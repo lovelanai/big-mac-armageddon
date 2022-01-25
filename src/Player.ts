@@ -1,17 +1,13 @@
 /// <reference path ="AnimatedEntity.ts"/>
 
 
-
-
-
-
 class Player extends AnimatedEntity {
     private timeToChangeFrame: number;
     private sequenceIndex: number;
     private activeSequence: p5.Image[];
     public isDead: boolean;
     constructor() {
-        super(createVector(1050,0), createVector(80,125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        super(createVector(11400,0), createVector(80,125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
         this.imageTransform = {
             sx:0,
             sy:0,
