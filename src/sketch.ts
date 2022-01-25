@@ -8,6 +8,11 @@ let sequences: Sequences;
 let enemyAsset: p5.Image;
 // let sound: p5.SoundFile
 
+//Menus
+let startMenu: Menu;
+let gameOverMenu: Menu;
+let fonts: Fonts;
+
 
 
 /**
@@ -16,6 +21,14 @@ let enemyAsset: p5.Image;
  * sound files, images etc...
  */
 function preload() {
+
+    /** Fonts */
+    fonts = {
+        roboto: loadFont('./assets/fonts/Roboto-Regular.ttf'),
+        mcLawsuit: loadFont('./assets/fonts/mclawsui.ttf'),
+        pressStart2p: loadFont('./assets/fonts/PressStart2P-Regular.ttf')
+    }
+
     /** sprite sheet (player) */
     images = {
 
@@ -122,9 +135,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-
-    const dummyEngine = new GameEngine(5);
-    game = new Game(dummyEngine);
+    game = new Game(new Menu('Press Enter to start!'));
 }
 
 
@@ -135,8 +146,11 @@ function setup() {
  */
 function draw() {
     background('white');
-    game.update();
+
     game.draw();
+    game.update();
+
+
     text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 
     // game.draw();
