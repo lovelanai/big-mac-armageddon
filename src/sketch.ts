@@ -32,8 +32,8 @@ function preload() {
 
     /** sprite sheet (player) */
     images = {
-
-        enemyAsset: loadImage('./assets/images/enemy/bk-hat.png'),
+        bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
+        bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
         ballpit: loadImage('./assets/images/map/wooden-block.png')
     }
 
