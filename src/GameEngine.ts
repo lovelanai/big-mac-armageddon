@@ -90,13 +90,12 @@ class GameEngine implements Visual {
                         bottom: e1.position.y + e1.size.y
                     };
 
-
                     const overlap0 = {
                         left: Tools.isBetween(box0.left, box1.left, box1.right),
                         right: Tools.isBetween(box0.right, box1.left, box1.right),
                         top: Tools.isBetween(box0.top, box1.top, box1.bottom),
                         bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom)
-                    }
+                    };
 
                     //There must be overlap in both x and y
                     if (
