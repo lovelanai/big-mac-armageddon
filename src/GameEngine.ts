@@ -104,9 +104,20 @@ class GameEngine implements Visual {
                             relVel.x > 0 ? box1.left : box1.right,
                             relVel.y >= 0 ? box1.top : box1.bottom
                         );
-                        
 
-
+                        let backTrackFactor = p5.Vector.sub(edges0, edges1);
+                        backTrackFactor.x /= relVel.x;
+                        backTrackFactor.y /= relVel.y;
+                        let direction0: string;
+                        if (Math.abs(backTrackFactor.x) < Math.abs(backTrackFactor.y)) {
+                            direction0 = relVel.x > 0 ? 'right' : 'left';
+                        } else {
+                            direction0 = relVel.y >= 0 ? 'bottom' : 'top';
+                        }
+                        e0.handleCollision(e1, direction0);
+                        let direction1 = Tools.swap(direction0, 'left', 'right');
+                        direction1 = Tools.swap(direction1, 'top', 'bottom');
+                        e1.handleCollision(e0, direction1);
                     }
                 }
             }
