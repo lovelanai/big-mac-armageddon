@@ -32,6 +32,9 @@ class GameEngine implements Visual {
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
+               
+          
+                
             }
             if (!this.allowedKeys.has(keyCode)) {
                 this.die();
