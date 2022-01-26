@@ -12,6 +12,8 @@ class Menu implements Visual {
         if (keyCode === ENTER) {
             console.log('game init')
             game.setState(new GameEngine(3));
+            sound.backGroundMusic.loop();
+            sound.deathScream.stop();
         }
     }
 
@@ -43,3 +45,4 @@ class Menu implements Visual {
         }
     }
 }
+

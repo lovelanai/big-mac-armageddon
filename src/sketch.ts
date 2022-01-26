@@ -7,7 +7,9 @@ let images: Images;
 let sequences: Sequences;
 // Assets for enemy
 let enemyAsset: p5.Image;
-// let sound: p5.SoundFile
+
+// soundfiles
+let sound: sound;
 
 //Menus
 let startMenu: Menu;
@@ -52,19 +54,6 @@ function preload() {
             loadImage('./assets/images/ronald/idle-left/8.png')
         ],
 
-        // idleRight: [
-        //     loadImage('./assets/images/ronald/idle-right/0.png'),
-        //     loadImage('./assets/images/ronald/idle-right/1.png'),
-        //     loadImage('./assets/images/ronald/idle-right/2.png'),
-        //     loadImage('./assets/images/ronald/idle-right/3.png'),
-        //     loadImage('./assets/images/ronald/idle-right/4.png'),
-        //     loadImage('./assets/images/ronald/idle-right/5.png'),
-        //     loadImage('./assets/images/ronald/idle-right/6.png'),
-        //     loadImage('./assets/images/ronald/idle-right/7.png'),
-        //     loadImage('./assets/images/ronald/idle-right/8.png')
-        // ],
-
-
         walkLeft: [
             loadImage('./assets/images/ronald/walk-left/0.png'),
             loadImage('./assets/images/ronald/walk-left/1.png'),
@@ -108,27 +97,21 @@ function preload() {
             loadImage('./assets/images/ronald/die-left/7.png')
         ],
 
-        // dieRight: [
-        //     loadImage('./assets/images/ronald/die-right/0.png'),
-        //     loadImage('./assets/images/ronald/die-right/1.png'),
-        //     loadImage('./assets/images/ronald/die-right/2.png'),
-        //     loadImage('./assets/images/ronald/die-right/3.png'),
-        //     loadImage('./assets/images/ronald/die-right/4.png'),
-        //     loadImage('./assets/images/ronald/die-right/5.png'),
-        //     loadImage('./assets/images/ronald/die-right/6.png'),
-        //     loadImage('./assets/images/ronald/die-right/7.png')
-        // ],
+    }
 
-
+    sound = {
+        backGroundMusic: new p5.SoundFile ('./audioFiles/soundtrack.mp3'),
+        jump: new p5.SoundFile('./audiofiles/jump.wav'),
+        deathScream: new p5.SoundFile('/audiofiles/game-over.mp3')
     }
 
 
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', '..\audioFiles\soundtrack.mp3');
-    audioElement.load();
-    audioElement.addEventListener("load", function(){
-        audioElement.play();
-    }, true);
+    // var audioElement = document.createElement('audio');
+    // audioElement.setAttribute('src', '..\audioFiles\soundtrack.mp3');
+    // audioElement.load();
+    // audioElement.addEventListener("load", function(){
+    //     audioElement.play();
+    // }, true);
 }
 
 /**

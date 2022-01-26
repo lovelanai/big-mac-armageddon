@@ -32,6 +32,9 @@ class GameEngine implements Visual {
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
+               
+          
+                
             }
             if (!this.allowedKeys.has(keyCode)) {
                 this.die();
@@ -65,6 +68,10 @@ class GameEngine implements Visual {
     die(): void {
         console.log('You died');
         this.player.isDead = true;
+        
+        sound.backGroundMusic.stop();
+        sound.deathScream.stop();
+        sound.deathScream.play();
     }
 
     private detectCollisions() {
