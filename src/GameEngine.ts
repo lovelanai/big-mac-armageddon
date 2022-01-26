@@ -120,11 +120,24 @@ class GameEngine implements Visual {
                         let backTrackFactor = p5.Vector.sub(edges0, edges1);
                         backTrackFactor.x /= relVel.x;
                         backTrackFactor.y /= relVel.y;
-                        let direction0: string;
-                        if (Math.abs(backTrackFactor.x) < Math.abs(backTrackFactor.y)) {
-                            direction0 = relVel.x > 0 ? 'right' : 'left';
-                        } else {
-                            direction0 = relVel.y >= 0 ? 'bottom' : 'top';
+                        let direction0 = 'none';
+
+                        let xDir0 = relVel.x > 0 ? 'right' : 'left';
+                        let yDir0 = relVel.y >= 0 ? 'bottom' : 'top';
+                        let collidable = { x: true, y: true };
+                        if (e0 instanceof Block && e0?.collisionSides !== undefined) {
+                            collidable.x = e0.collisionSides[xDir0 === 'left' ? 'left' : 'right'];
+                            collidable.y = e0.collisionSides[yDir0 === 'bottom' ? 'bottom' : 'top'];
+                        }
+                        if (e1 instanceof Block && e1?.collisionSides !== undefined) {
+                            collidable.x &&= e1.collisionSides[xDir0 === 'left' ? 'right' : 'left'];
+                            collidable.y &&= e1.collisionSides[yDir0 === 'bottom' ? 'top' : 'bottom'];
+                        }
+
+                        if (collidable.x && Math.abs(backTrackFactor.x) < Math.abs(backTrackFactor.y)) {
+                            direction0 = xDir0;
+                        } else if (collidable.y) {
+                            direction0 = yDir0;
                         }
                         e0.handleCollision(e1, direction0);
                         let direction1 = Tools.swap(direction0, 'left', 'right');

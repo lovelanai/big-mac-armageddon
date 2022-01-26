@@ -20,7 +20,7 @@ class Menu implements Visual {
     draw(): void {
         //Menu text
         background(222, 6, 18)
-        image(images.ronaldMenu, 750, 485)
+        image(images.ronaldMenu, 785, 485)
         fill(241, 163, 10)
         textAlign(CENTER)
         textSize(130)
