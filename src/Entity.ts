@@ -1,3 +1,5 @@
+let entityList = new Array<Entity>(); //For debugging
+
 class Entity implements Visual {
     position: p5.Vector;
     size: p5.Vector;
@@ -11,6 +13,8 @@ class Entity implements Visual {
         dHeight: number
     }
 
+    protected id: number; //For debugging
+
     /** Skapar en entity / placeras sedan ut i LevelGenerator.ts */
     constructor(position: p5.Vector, size: p5.Vector, fill: p5.Image | string, isSolid: boolean, damage: boolean) {
         this.position = position;
@@ -18,6 +22,9 @@ class Entity implements Visual {
         this.fill = fill;
         this.isSolid = isSolid;
         this.damage = damage;
+
+        this.id = entityList.length;
+        entityList.push(this);
     }
 
     /** Uppdaterar spelet */
@@ -43,6 +50,10 @@ class Entity implements Visual {
             rect(this.position.x, this.position.y, this.size.x, this.size.y)
             pop();
         }
+        push();
+        textSize(16);
+        text(this.id, this.position.x, this.position.y);
+        pop();
     }
 
     /** Hanterar kollisionen av entities */
