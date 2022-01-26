@@ -50,10 +50,10 @@ class Entity implements Visual {
             rect(this.position.x, this.position.y, this.size.x, this.size.y)
             pop();
         }
-        push();
+        /* push();
         textSize(16);
         text(this.id, this.position.x, this.position.y);
-        pop();
+        pop(); */
     }
 
     /** Hanterar kollisionen av entities */
