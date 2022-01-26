@@ -44,3 +44,4 @@ class Menu implements Visual {
         }
     }
 }
+

@@ -102,7 +102,7 @@ function preload() {
     sound = {
         backGroundMusic: new p5.SoundFile ('./audioFiles/soundtrack.mp3'),
         jump: new p5.SoundFile('./audiofiles/jump.wav'),
-        deathScream: new p5.SoundFile('/audiofiles/mario.mp3')
+        deathScream: new p5.SoundFile('/audiofiles/game-over.mp3')
     }
 
 

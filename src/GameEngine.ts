@@ -70,7 +70,8 @@ class GameEngine implements Visual {
         this.player.isDead = true;
         
         sound.backGroundMusic.stop();
-        sound.deathScream.play(undefined, undefined, 0.5);
+        sound.deathScream.stop();
+        sound.deathScream.play();
     }
 
     private detectCollisions() {
