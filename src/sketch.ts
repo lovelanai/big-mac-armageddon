@@ -37,7 +37,10 @@ function preload() {
         bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
         bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
         ballpit: loadImage('./assets/images/map/wooden-block.png'),
-        ronaldMenu: loadImage('./assets/images/menu/ronald-start.png')
+        ronaldMenu: loadImage('./assets/images/menu/ronald-start.png'),
+        ronaldDead: loadImage('/assets/images/menu/ronald-dead.png'),
+        graveyard: loadImage('/assets/images/menu/graveyard.png'),
+        hell: loadImage('/assets/images/menu/hell.jpg')
     }
 
     sequences = {
