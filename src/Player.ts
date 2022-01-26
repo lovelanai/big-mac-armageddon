@@ -26,7 +26,10 @@ class Player extends AnimatedEntity {
         if (this.isDead){
             this.activeSequence = sequences.die;
             this.isSolid = false;
-            this.acceleration.set(0, -0.09);
+            this.acceleration.set(0, -0.03);
+            if (this.position.y <= -this.size.y){
+                game.setState(new Menu('PRESS ENTER TO RESTART'))
+            }
         }
 
         else if (!this.isOnGround){

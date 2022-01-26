@@ -13,6 +13,7 @@ class Menu implements Visual {
             console.log('game init')
             game.setState(new GameEngine(3));
             sound.backGroundMusic.loop();
+            sound.deathScream.stop();
         }
     }
 
