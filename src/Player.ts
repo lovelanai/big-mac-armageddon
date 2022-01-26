@@ -66,7 +66,7 @@ class Player extends AnimatedEntity {
     jump(): void {
         if (this.isOnGround) {
             this.velocity.y = -20;
-            sound.jump.play(undefined, undefined, .4);
+            sound.jump.play(undefined, undefined, .3);
         }
 
     }

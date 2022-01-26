@@ -68,6 +68,9 @@ class GameEngine implements Visual {
     die(): void {
         console.log('You died');
         this.player.isDead = true;
+        
+        sound.backGroundMusic.stop();
+        sound.deathScream.play(undefined, undefined, 0.5);
     }
 
     private detectCollisions() {
