@@ -15,4 +15,7 @@ class Game implements Visual {
     setState(state: Visual) {
         this.currentState = state;
     }
+    getCurrentState():Visual{
+        return this.currentState;
+    }
 }

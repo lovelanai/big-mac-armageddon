@@ -19,23 +19,25 @@ class AnimatedEntity extends Entity {
     handleCollision(entity: Entity, direction: string): void {
         super.handleCollision(entity, direction);
         if (this.isSolid && entity.isSolid) {
+            let newPos: p5.Vector;
             switch (direction) {
                 case 'bottom':
+                    newPos = createVector()
+                    this.velocity.y = 0;
                     this.position.y = entity.position.y - this.size.y;
-                    this.velocity.y = Math.min(0, this.velocity.y);
                     this.isOnGround = true;
                     break;
                 case 'top':
                     this.position.y = entity.position.y + entity.size.y;
-                    this.velocity.y = Math.max(0, this.velocity.y);
+                    this.velocity.y = 0;
                     break;
                 case 'left':
                     this.position.x = entity.position.x + entity.size.x;
-                    this.velocity.x = Math.max(0, this.velocity.x);
+                    this.velocity.x = 0;
                     break;
                 case 'right':
                     this.position.x = entity.position.x - this.size.x;
-                    this.velocity.x = Math.min(0, this.velocity.x);
+                    this.velocity.x = 0;
 
             }
         }
