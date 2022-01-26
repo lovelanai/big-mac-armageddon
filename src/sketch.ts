@@ -34,7 +34,8 @@ function preload() {
     images = {
         bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
         bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
-        ballpit: loadImage('./assets/images/map/wooden-block.png')
+        ballpit: loadImage('./assets/images/map/wooden-block.png'),
+        ronaldMenu: loadImage('./assets/images/menu/ronald-start.png')
     }
 
     sequences = {

@@ -2,6 +2,7 @@ interface Images {
   bkFries: p5.Image;
   bkHat: p5.Image;
   ballpit: p5.Image;
+  ronaldMenu: p5.Image;
 }
 
 interface Sequences {
