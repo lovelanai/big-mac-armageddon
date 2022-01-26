@@ -16,7 +16,7 @@ class Border {
 class Tools {
 
     static isBetween(value: number, min: number, max: number): boolean {
-        return value >= min && value <= max;
+        return value >= min && value < max;
     }
     static overlap(interv0: [number, number], interv1: [number, number]): boolean {
         return false;
