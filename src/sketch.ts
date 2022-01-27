@@ -11,9 +11,7 @@ let enemyAsset: p5.Image;
 // soundfiles
 let sound: sound;
 
-//Menus
-let startMenu: Menu;
-let gameOverMenu: Menu;
+//Font
 let fonts: Fonts;
 
 
@@ -128,7 +126,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    game = new Game(new Menu('Press Enter to start!'));
+    game = new Game(new StartMenu('Press Enter to start!'));
 }
 
 
