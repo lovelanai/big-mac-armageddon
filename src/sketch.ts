@@ -11,9 +11,7 @@ let enemyAsset: p5.Image;
 // soundfiles
 let sound: sound;
 
-//Menus
-let startMenu: Menu;
-let gameOverMenu: Menu;
+//Font
 let fonts: Fonts;
 
 
@@ -37,7 +35,10 @@ function preload() {
         bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
         bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
         ballpit: loadImage('./assets/images/map/wooden-block.png'),
-        ronaldMenu: loadImage('./assets/images/menu/ronald-start.png')
+        ronaldMenu: loadImage('./assets/images/menu/ronald-start.png'),
+        ronaldDead: loadImage('/assets/images/menu/ronald-dead.png'),
+        graveyard: loadImage('/assets/images/menu/graveyard.png'),
+        hell: loadImage('/assets/images/menu/hell.jpg')
     }
 
     sequences = {
@@ -125,7 +126,7 @@ function setup() {
     frameRate(60);
     // noCursor();
 
-    game = new Game(new Menu('Press Enter to start!'));
+    game = new Game(new StartMenu('Press Enter to start!'));
 }
 
 

@@ -28,7 +28,7 @@ class Player extends AnimatedEntity {
             this.isSolid = false;
             this.acceleration.set(0, -0.03);
             if (this.position.y <= -this.size.y){
-                game.setState(new Menu('PRESS ENTER TO RESTART'))
+                game.setState(new GameOverMenu('Press enter to try again :('))
             }
         }
 

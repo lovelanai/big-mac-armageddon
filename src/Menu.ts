@@ -18,6 +18,20 @@ class Menu implements Visual {
     }
 
     draw(): void {
+        // Blinking text
+        if (frameCount % 100 < 30) {
+            fill(241, 163, 10, 0)
+        } else {
+            fill(241, 163, 10)
+            textSize(40)
+            text(`${this.message}`, 640, 460);
+        }
+    }
+}
+
+class StartMenu extends Menu {
+
+    draw(): void {
         //Menu text
         background(222, 6, 18)
         image(images.ronaldMenu, 785, 485)
@@ -35,14 +49,33 @@ class Menu implements Visual {
         text('Armageddon', 648, 300)
         fill(241, 163, 10)
         text('Armageddon', 640, 300)
+        super.draw();
 
-        if (frameCount % 100 < 30) {
-            fill(241, 163, 10, 0)
-        } else {
-            fill(241, 163, 10)
-            textSize(40)
-            text(`${this.message}`, 640, 460);
-        }
+    }
+
+}
+
+
+//GAME OVER MENU
+
+class GameOverMenu extends Menu {
+    //insert parameters necessary for both menus
+
+    draw(): void {
+        //Menu text
+        image(images.hell, 0, 0)
+        image(images.graveyard, 0, 200)
+        image(images.ronaldDead, 450, 300)
+        fill(241, 163, 10)
+        textAlign(CENTER)
+        textSize(70)
+        textFont(fonts.pressStart2p)
+        fill(43, 69, 147)
+        text('YOU DIED', 648, 300)
+        fill(241, 163, 10)
+        text('YOU DIED', 640, 300)
+
+        super.draw();
     }
 }
 
