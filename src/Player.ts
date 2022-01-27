@@ -9,7 +9,7 @@ class Player extends AnimatedEntity {
     private _deathHeight: number;
     constructor() {
 
-        super(createVector(11400, 0), createVector(60, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        super(createVector(11400, 0), createVector(40, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
         this.imageTransform = {
             sx: 0,
             sy: 0,
@@ -102,7 +102,7 @@ class Player extends AnimatedEntity {
 
     jump(): void {
         if (this.isOnGround) {
-            this.velocity.y = -20;
+            this.velocity.y = -20.5;
             sound.jump.play(undefined, undefined, .3);
         }
 

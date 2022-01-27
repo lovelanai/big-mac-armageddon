@@ -35,10 +35,13 @@ function preload() {
         bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
         bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
         ballpit: loadImage('./assets/images/map/wooden-block.png'),
+        gameBackground: loadImage('./assets/images/map/mcdonalds.png'),
         ronaldMenu: loadImage('./assets/images/menu/ronald-start.png'),
         ronaldDead: loadImage('/assets/images/menu/ronald-dead.png'),
         graveyard: loadImage('/assets/images/menu/graveyard.png'),
-        hell: loadImage('/assets/images/menu/hell.jpg')
+        hell: loadImage('./assets/images/menu/hell.jpg'),
+        deathBalloon: loadImage('./assets/images/menu/gameoverballoon.png'),
+        bloodBackground: loadImage('./assets/images/menu/background.jpg')
     }
 
     sequences = {
@@ -136,7 +139,7 @@ function setup() {
  * you created in the setup function above
  */
 function draw() {
-    background('white');
+    image(images.gameBackground, 0, 0);
 
     game.draw();
     game.update();

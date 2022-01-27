@@ -1,5 +1,6 @@
 //Menu class used to create the start menu and game over menu.
 
+
 class Menu implements Visual {
     //insert parameters necessary for both menus
     message: string;
@@ -33,7 +34,8 @@ class StartMenu extends Menu {
 
     draw(): void {
         //Menu text
-        background(222, 6, 18)
+        // background(222, 6, 18)
+        image(images.bloodBackground, 0, 0)
         image(images.ronaldMenu, 785, 485)
         fill(241, 163, 10)
         textAlign(CENTER)
@@ -46,9 +48,9 @@ class StartMenu extends Menu {
         textSize(70)
         textFont(fonts.pressStart2p)
         fill(43, 69, 147)
-        text('Armageddon', 648, 300)
+        text('ARMAGEDDON', 648, 300)
         fill(241, 163, 10)
-        text('Armageddon', 640, 300)
+        text('ARMAGEDDON', 640, 300)
         super.draw();
 
     }
@@ -60,22 +62,39 @@ class StartMenu extends Menu {
 
 class GameOverMenu extends Menu {
     //insert parameters necessary for both menus
-
+    private deathBalloony = 600;
+    private deathBalloonx = 50;
+    
     draw(): void {
+      
         //Menu text
         image(images.hell, 0, 0)
         image(images.graveyard, 0, 200)
-        image(images.ronaldDead, 450, 300)
-        fill(241, 163, 10)
+        image(images.ronaldDead, 450, 400)
+        image(images.deathBalloon, this.deathBalloonx, this.deathBalloony);
+        // images.deathBalloon: 50 = 50-1;
+        
+        fill(241, 163, 10, 40)
         textAlign(CENTER)
+        textSize(15)
+        textFont(fonts.roboto)
+        text('try  A, G, L', 55, 20)
         textSize(70)
         textFont(fonts.pressStart2p)
-        fill(43, 69, 147)
+        fill(184, 6, 0)
         text('YOU DIED', 648, 300)
         fill(241, 163, 10)
         text('YOU DIED', 640, 300)
-
         super.draw();
     }
+    
+    update(): void {
+        
+        this.deathBalloony-=2;
+        this.deathBalloonx = 30 * Math.sin(this.deathBalloony * 0.03) + 100;
+        super.update();
+    }
+
+
 }
 
