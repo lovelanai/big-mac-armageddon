@@ -10,7 +10,25 @@
                 justify-content: center;
                 align-items: center;
             }
+            canvas {
+
+                animation-name: rotate;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
+
+                @keyframes rotate{
+                    0% {transform: rotate(-2deg);}
+                    20% {transform: rotate(-4deg);}
+                    40% {transform: rotate(-6deg);}
+                    60% {transform: rotate(-8deg);}
+                    80% {transform: rotate(-10deg);}
+                    100% {transform: rotate(-12deg);}
+                }
+                
+            }
+
         </style>
+        
 
         <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/addons/p5.sound.js"></script>

@@ -62,7 +62,6 @@ class GameEngine implements Visual {
         if (this.player.isDead) {
             const y = this.player.position.y
             let alpha = max(0, min(norm(y, this.player.deathHeight, 0), 1));
-            console.log(alpha)
             push()
             fill(color(`rgba(0,0,0,${alpha})`));
             rect(0, 0, width, height)

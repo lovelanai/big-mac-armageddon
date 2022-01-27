@@ -2,10 +2,13 @@ interface Images {
   bkFries: p5.Image;
   bkHat: p5.Image;
   ballpit: p5.Image;
+  gameBackground: p5.Image;
   ronaldMenu: p5.Image;
   ronaldDead: p5.Image;
   graveyard: p5.Image;
   hell: p5.Image;
+  deathBalloon: p5.Image;
+  bloodBackground: p5.Image;
 }
 
 interface Sequences {
