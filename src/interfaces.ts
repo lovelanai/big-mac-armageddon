@@ -26,5 +26,5 @@ interface Fonts {
 interface sound {
   backGroundMusic: p5.SoundFile;
   jump: p5.SoundFile;
-  deathScream: p5.SoundFile;
+  deathSong: p5.SoundFile;
 }
