@@ -9,6 +9,11 @@ interface Images {
   hell: p5.Image;
   deathBalloon: p5.Image;
   bloodBackground: p5.Image;
+  dirtBlock: p5.Image;
+  grassBlock: p5.Image;
+  invisBlock: p5.Image;
+  spikeBlock: p5.Image;
+  spikeVerticalBlock: p5.Image:
 }
 
 interface Sequences {

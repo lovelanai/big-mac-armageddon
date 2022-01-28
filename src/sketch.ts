@@ -41,7 +41,12 @@ function preload() {
         graveyard: loadImage('/assets/images/menu/graveyard.png'),
         hell: loadImage('./assets/images/menu/hell.jpg'),
         deathBalloon: loadImage('./assets/images/menu/gameoverballoon.png'),
-        bloodBackground: loadImage('./assets/images/menu/background.jpg')
+        bloodBackground: loadImage('./assets/images/menu/background.jpg'),
+        dirtBlock: loadImage('./assets/images/map/dirtblock.jpg'),
+        grassBlock: loadImage('./assets/images/map/grassblock.jpg'),
+        invisBlock: loadImage('./assets/images/map/invis.png'),
+        spikeBlock: loadImage('./assets/images/map/Spike.png'),
+        spikeVerticalBlock: loadImage('./assets/images/map/spikevertical.png')
     }
 
     sequences = {
