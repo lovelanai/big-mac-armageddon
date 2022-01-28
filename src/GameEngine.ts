@@ -71,7 +71,7 @@ class GameEngine implements Visual {
             e.draw();
         }
 
-        if (this.player.isDead) {
+        if (this.player.getIsDead()) {
             const y = this.player.position.y
             let alpha = max(0, min(norm(y, this.player.deathHeight, 0), 1));
             push()
@@ -88,12 +88,7 @@ class GameEngine implements Visual {
         }
     }
     die(): void {
-        console.log('You died');
-        this.player.isDead = true;
-        
-        sound.backGroundMusic.stop();
-        sound.deathSong.stop();
-        sound.deathSong.loop();
+        this.player.die();
     }
 
     private detectCollisions() {
