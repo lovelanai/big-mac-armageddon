@@ -5,7 +5,7 @@ class Player extends AnimatedEntity {
     private timeToChangeFrame: number;
     private sequenceIndex: number;
     private activeSequence: p5.Image[];
-    private _isDead: boolean;
+    private isDead: boolean;
     private _deathHeight: number;
     constructor() {
         // 11400
@@ -19,7 +19,7 @@ class Player extends AnimatedEntity {
         this.timeToChangeFrame = 100;
         this.sequenceIndex = 0;
         this.activeSequence = sequences.walkLeft;
-        this._isDead = false;
+        this.isDead = false;
         this._deathHeight = 0;
         //image(this.fill, this.position.x, this.position.y, this.size.x, this.size.y, this.imageTransform.sx, this.imageTransform.sy, this.imageTransform.sWidth, this.imageTransform.sHeight)
     }
@@ -28,32 +28,32 @@ class Player extends AnimatedEntity {
         return this._deathHeight;
     }
 
-    public get isDead() {
-        return this._isDead;
+    public getIsDead() {
+        return this.isDead;
     }
 
-    public set isDead(value: boolean) {
-        if (value) {
-            this.acceleration = createVector(0,0);
+    public die() {
+        if (!this.getIsDead()) {
+            this.isDead=true;
+            this.acceleration.set(0, -0.03);
             this.velocity = createVector(0,0);
             this._deathHeight = this.position.y
+
+            sound.backGroundMusic.stop();
+            sound.deathSong.play();
+            sound.deathSong.loop();
         }
-        this._isDead = value;
     }
 
     public update(): void {
 
-        if (this.position.y >= height && !this.isDead){
-            this.isDead = true;
-            sound.backGroundMusic.stop();
-            sound.deathSong.stop();
-            sound.deathSong.play();
+        if (this.position.y >= height && !this.getIsDead()){
+            this.die()
         }
 
-        if (this.isDead) {
+        if (this.getIsDead()) {
             this.activeSequence = sequences.die;
             this.isSolid = false;
-            this.acceleration.set(0, -0.03);
             if (this.position.y <= -this.size.y) {
                 game.setState(new GameOverMenu('Press enter to try again :('))
             }
@@ -72,8 +72,6 @@ class Player extends AnimatedEntity {
 
         else if (keyIsDown(65)) {
             this.activeSequence = sequences.walkLeft
-            
-
         }
 
         else {
@@ -95,7 +93,7 @@ class Player extends AnimatedEntity {
     }
     handleCollision(entity: Entity, direction: string): void {
         if (entity.getDamage()) {
-            console.log('You should be dead now');//this.isDead = true;
+            this.die();
         }
         console.log(direction);
         super.handleCollision(entity, direction);
