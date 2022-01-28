@@ -13,7 +13,7 @@ interface Images {
   grassBlock: p5.Image;
   invisBlock: p5.Image;
   spikeBlock: p5.Image;
-  spikeVerticalBlock: p5.Image:
+  spikeVerticalBlock: p5.Image;
 }
 
 interface Sequences {

@@ -110,7 +110,7 @@ class Generator {
             entities.add(new Block(position, images.dirtBlock, true, true));
             break;
 
-          case 14 
+          case 14: 
             entities.add(new Spike(position, images.spikeVerticalBlock, true, true));
             break;
 
