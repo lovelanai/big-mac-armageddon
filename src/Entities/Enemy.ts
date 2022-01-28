@@ -25,12 +25,13 @@ class Enemy extends AnimatedEntity {
         if (this.direction == "horizontal") {
             switch (direction) {
                 case 'left':
+
                     this.velocity.x = Math.abs(this.velocity.x)
-                    this.acceleration.x = Math.abs(this.acceleration.x)
+                    // this.acceleration.x = Math.abs(this.acceleration.x)
                     break;
                 case 'right':
                     this.velocity.x = -Math.abs(this.velocity.x)
-                    this.acceleration.x = -Math.abs(this.acceleration.x)
+                    // this.acceleration.x = -Math.abs(this.acceleration.x)
                     break;
             }
         } else {
