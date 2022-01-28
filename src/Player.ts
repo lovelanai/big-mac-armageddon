@@ -8,8 +8,8 @@ class Player extends AnimatedEntity {
     private _isDead: boolean;
     private _deathHeight: number;
     constructor() {
-
-        super(createVector(11400, 0), createVector(40, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        // 11400
+        super(createVector(1000, 0), createVector(40, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
         this.imageTransform = {
             sx: 0,
             sy: 0,
@@ -72,6 +72,7 @@ class Player extends AnimatedEntity {
 
         else if (keyIsDown(65)) {
             this.activeSequence = sequences.walkLeft
+            
 
         }
 

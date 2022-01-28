@@ -35,7 +35,7 @@ function preload() {
         bkFries: loadImage('./assets/images/enemy/bk-fries.png'),
         bkHat: loadImage('./assets/images/enemy/bk-hat.png'),
         ballpit: loadImage('./assets/images/map/wooden-block.png'),
-        gameBackground: loadImage('./assets/images/map/mcdonalds.png'),
+        gameBackground: loadImage('./assets/images/map/repeatingbackground.png'),
         ronaldMenu: loadImage('./assets/images/menu/ronald-start.png'),
         ronaldDead: loadImage('/assets/images/menu/ronald-dead.png'),
         graveyard: loadImage('/assets/images/menu/graveyard.png'),
@@ -130,6 +130,9 @@ function setup() {
     // noCursor();
 
     game = new Game(new StartMenu('Press Enter to start!'));
+
+
+    
 }
 
 
@@ -138,18 +141,15 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
-function draw() {
-    image(images.gameBackground, 0, 0);
 
+let backGroundx = -17000;
+// let backGroundxPos = backGroundx + 15 * frameCount;
+function draw() {
+    background('white')
+    image(images.gameBackground, backGroundx, 0)
     game.draw();
     game.update();
-
-
     text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
-
     // game.draw();
 }
-
-
-
 
