@@ -71,7 +71,7 @@ class Generator {
             break;
 
           case 4:
-            entities.add(new Block(position, images.invisBlock, true, true, Tools.neighborsFree(this.worldGrid, index, blockNums)));
+            entities.add(new Block(position, images.invisBlock, true, false, Tools.neighborsFree(this.worldGrid, index, blockNums)));
             break;
 
           case 5:
