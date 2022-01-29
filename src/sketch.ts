@@ -46,7 +46,9 @@ function preload() {
         grassBlock: loadImage('./assets/images/map/grassblock.jpg'),
         invisBlock: loadImage('./assets/images/map/invis.png'),
         spikeBlock: loadImage('./assets/images/map/Spike.png'),
-        spikeVerticalBlock: loadImage('./assets/images/map/spikevertical.png')
+        spikeVerticalBlock: loadImage('./assets/images/map/spikevertical.png'),
+        finalTopBlock: loadImage('./assets/images/map/topimage.jpg'),
+        finalBottomBlock: loadImage('./assets/images/map/bottomimg.jpg')
     }
 
     sequences = {
