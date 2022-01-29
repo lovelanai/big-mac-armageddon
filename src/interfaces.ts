@@ -16,6 +16,7 @@ interface Images {
   spikeVerticalBlock: p5.Image;
   finalTopBlock: p5.Image;
   finalBottomBlock: p5.Image;
+  checkPointBlock: p5.Image;
 }
 
 interface Sequences {

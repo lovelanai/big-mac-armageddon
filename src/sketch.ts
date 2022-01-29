@@ -48,7 +48,8 @@ function preload() {
         spikeBlock: loadImage('./assets/images/map/Spike.png'),
         spikeVerticalBlock: loadImage('./assets/images/map/spikevertical.png'),
         finalTopBlock: loadImage('./assets/images/map/topimage.jpg'),
-        finalBottomBlock: loadImage('./assets/images/map/bottomimg.jpg')
+        finalBottomBlock: loadImage('./assets/images/map/bottomimg.jpg'),
+        checkPointBlock: loadImage('/assets/images/map/checkpoint.png')
     }
 
     sequences = {
