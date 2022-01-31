@@ -12,7 +12,7 @@ class Enemy extends AnimatedEntity {
             velocity = createVector(3, 0)
             acceleration = createVector(0, 0.8)
             //Horizontal enemies need just a bit more space in order to not fall through the floor
-            position.y -= 10
+            position.y -= 20
         } else {
             isSolid = false
             velocity = createVector(0, 4)
@@ -27,12 +27,10 @@ class Enemy extends AnimatedEntity {
         if (this.direction == "horizontal") {
             switch (direction) {
                 case 'left':
-                    if (this.id === 264) debugger;
                     this.velocity.x = Math.abs(this.velocity.x)
                     // this.acceleration.x = Math.abs(this.acceleration.x)
                     break;
                 case 'right':
-                    if (this.id === 264) debugger;
                     this.velocity.x = -Math.abs(this.velocity.x)
                     // this.acceleration.x = -Math.abs(this.acceleration.x)
                     break;
