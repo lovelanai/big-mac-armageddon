@@ -14,6 +14,10 @@ let sound: sound;
 //Font
 let fonts: Fonts;
 
+//deathcounter
+let deathCounter: DeathCounter;
+let nrOfLives = 3;
+
 
 
 /**
@@ -139,7 +143,6 @@ function setup() {
 
     game = new Game(new StartMenu('Press Enter to start!'));
 
-
     
 }
 
@@ -157,7 +160,7 @@ function draw() {
     image(images.gameBackground, backGroundx, 0)
     game.draw();
     game.update();
-    text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
+    //text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
     // game.draw();
 }
 

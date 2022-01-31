@@ -1,6 +1,4 @@
 //Menu class used to create the start menu and game over menu.
-
-
 class Menu implements Visual {
     //insert parameters necessary for both menus
     message: string;
@@ -34,7 +32,6 @@ class StartMenu extends Menu {
 
     draw(): void {
         //Menu text
-        // background(222, 6, 18)
         image(images.bloodBackground, 0, 0)
         image(images.ronaldMenu, 785, 485)
         fill(241, 163, 10)
@@ -54,26 +51,23 @@ class StartMenu extends Menu {
         super.draw();
 
     }
-
 }
 
 
 //GAME OVER MENU
 
 class GameOverMenu extends Menu {
-    //insert parameters necessary for both menus
     private deathBalloony = 600;
     private deathBalloonx = 50;
-    
+
     draw(): void {
-      
+
         //Menu text
         image(images.hell, 0, 0)
         image(images.graveyard, 0, 200)
         image(images.ronaldDead, 450, 400)
         image(images.deathBalloon, this.deathBalloonx, this.deathBalloony);
-        // images.deathBalloon: 50 = 50-1;
-        
+
         fill(241, 163, 10, 40)
         textAlign(CENTER)
         textSize(15)
@@ -86,15 +80,13 @@ class GameOverMenu extends Menu {
         fill(241, 163, 10)
         text('YOU DIED', 640, 300)
         super.draw();
+        deathCounter.draw();
     }
-    
+
     update(): void {
-        
-        this.deathBalloony-=2;
+
+        this.deathBalloony -= 2;
         this.deathBalloonx = 30 * Math.sin(this.deathBalloony * 0.03) + 100;
         super.update();
     }
-
-
 }
-

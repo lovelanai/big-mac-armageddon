@@ -80,6 +80,9 @@ class GameEngine implements Visual {
             pop()
             this.player.draw();
         }
+//DEAAAAAAATHCOUNTER
+        deathCounter = new DeathCounter(nrOfLives);
+        deathCounter.draw();
     }
     pan(): void {
         const offset = width / 2 - this.player.position.x;

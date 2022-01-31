@@ -36,6 +36,7 @@ class Player extends AnimatedEntity {
 
     public die() {
         if (!this.getIsDead()) {
+            nrOfLives--
             this.isDead=true;
             this.acceleration.set(0, -0.03);
             this.velocity = createVector(0,0);
