@@ -33,10 +33,17 @@ class Entity implements Visual {
 
     /** Ritar ut entities */
     draw(): void {
+        //Don't draw if it won't be visible anyway
+        if (
+            this.position.x > width ||
+            this.position.x < -this.size.x ||
+            this.position.y > height ||
+            this.position.y < -this.size.y
+        ) return;
         if (typeof this.fill === 'string') {
             fill(this.fill)
 
-            rect(this.position.x, this.position.y, this.size.x, this.size.y)
+
         }
 
         else if (this.fill.constructor === p5.Image) {
@@ -44,12 +51,12 @@ class Entity implements Visual {
             translate(this.position.x - (this.fill.width - this.size.x) / 2, 0);
             image(this.fill, 0, this.position.y, this.fill.width, this.fill.height)
             pop();
-
-            push();
-            noFill();
-            rect(this.position.x, this.position.y, this.size.x, this.size.y)
-            pop();
         }
+        push();
+        noFill();
+        stroke(this.getDamage() ? 'red' : 'black');
+        rect(this.position.x, this.position.y, this.size.x, this.size.y)
+        pop();
         /* push();
         textSize(16);
         text(this.id, this.position.x, this.position.y);
