@@ -155,9 +155,12 @@ class GameEngine implements Visual {
                             collidable.y &&= e1.collisionSides[yDir0 === 'bottom' ? 'top' : 'bottom'];
                         }
 
-                        if (collidable.x && Math.abs(backTrackFactor.x) < Math.abs(backTrackFactor.y)) {
+                        if (
+                            collidable.x &&
+                            abs(backTrackFactor.x) < min(abs(backTrackFactor.y), 1.1)
+                        ) {
                             direction0 = xDir0;
-                        } else if (collidable.y) {
+                        } else if (collidable.y && abs(backTrackFactor.y) < 1.1) {
                             direction0 = yDir0;
                         }
                         e0.handleCollision(e1, direction0);

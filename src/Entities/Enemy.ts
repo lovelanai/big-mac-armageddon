@@ -11,6 +11,8 @@ class Enemy extends AnimatedEntity {
             isSolid = true
             velocity = createVector(3, 0)
             acceleration = createVector(0, 0.8)
+            //Horizontal enemies need just a bit more space in order to not fall through the floor
+            position.y -= 10
         } else {
             isSolid = false
             velocity = createVector(0, 4)
