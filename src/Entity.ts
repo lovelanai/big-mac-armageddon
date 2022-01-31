@@ -13,7 +13,7 @@ class Entity implements Visual {
         dHeight: number
     }
 
-    protected id: number; //For debugging
+    public id: number; //For debugging
 
     /** Skapar en entity / placeras sedan ut i LevelGenerator.ts */
     constructor(position: p5.Vector, size: p5.Vector, fill: p5.Image | string, isSolid: boolean, damage: boolean) {

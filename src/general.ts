@@ -19,7 +19,10 @@ class Tools {
         return value >= min && value < max;
     }
     static overlap(interv0: [number, number], interv1: [number, number]): boolean {
-        return false;
+        return this.isBetween(interv0[0], ...interv1) ||
+            this.isBetween(interv0[1], ...interv1) ||
+            this.isBetween(interv1[0], ...interv0) ||
+            this.isBetween(interv1[1], ...interv0);
     }
 
     static swap(value: any, match0: any, match1: any): any {
