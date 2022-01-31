@@ -22,7 +22,7 @@ class GameEngine implements Visual {
 
     update(): void {
         if (keyIsPressed) {
-            
+
             if (keyIsDown(65)) {//A
                 this.speed = -15//-= Math.random();
                 backGroundx += 3
@@ -30,23 +30,23 @@ class GameEngine implements Visual {
             if (keyIsDown(68)) {//D
                 this.speed = 15//+= Math.random();
                 backGroundx -= 3
-                
+
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
-                if ( this.speed > 0){
+                if (this.speed > 0) {
                     backGroundx -= 3
                 }
-                
-                if (this.speed < 0){
-                    backGroundx +=3
+
+                if (this.speed < 0) {
+                    backGroundx += 3
                 }
-                
+
                 // Prevents player from moving while only pressing 'W'
-                if (!keyIsDown(65) && !keyIsDown(68)){
+                if (!keyIsDown(65) && !keyIsDown(68)) {
                     this.speed = 0
                 }
-               
+
             }
             if (!this.allowedKeys.has(keyCode)) {
                 this.die();
@@ -103,6 +103,8 @@ class GameEngine implements Visual {
             if (e0?.position === undefined) throw new ReferenceError('Undefined entity position. You\'ve screwed up pretty bad.'); //Apparently TS needs this in order to not freak out
             for (const e1 of entities) {
                 let relVel = p5.Vector.sub(e0.getVelocity(), e1.getVelocity());
+
+
                 //Entities can't collide if they're moving at the same velocity (note: velocity not speed)
                 if (relVel.x !== 0 || relVel.y !== 0) {
 
@@ -127,8 +129,10 @@ class GameEngine implements Visual {
                     };
 
                     //There must be overlap in both x and y
-                    if (
-                        (overlap0.left || overlap0.right) && (overlap0.top || overlap0.bottom)) {
+                    if ((overlap0.left || overlap0.right) && (overlap0.top || overlap0.bottom)) {
+                        if ([e0.id, e1.id].indexOf(192) !== -1) {
+                            debugger;
+                        }
                         //If e0 is moving right and down relative to e1, it must be its right or bottom side that's colliding, etc
                         let edges0 = createVector(
                             relVel.x > 0 ? box0.right : box0.left,
