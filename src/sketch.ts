@@ -116,7 +116,7 @@ function preload() {
     }
 
     sound = {
-        backGroundMusic: new p5.SoundFile ('./audioFiles/soundtrack.mp3'),
+        backGroundMusic: new p5.SoundFile('./audioFiles/soundtrack.mp3'),
         jump: new p5.SoundFile('./audiofiles/jump.wav'),
         deathSong: new p5.SoundFile('/audiofiles/game-over.mp3')
     }
@@ -143,7 +143,7 @@ function setup() {
 
     game = new Game(new StartMenu('Press Enter to start!'));
 
-    
+
 }
 
 
@@ -162,5 +162,12 @@ function draw() {
     game.update();
     //text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
     // game.draw();
+
+    //Show framerate
+    push();
+    textSize(16);
+    textAlign(LEFT)
+    text(1000 / deltaTime, 0, height);
+    pop();
 }
 
