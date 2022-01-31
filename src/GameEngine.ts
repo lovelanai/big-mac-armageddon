@@ -25,22 +25,12 @@ class GameEngine implements Visual {
 
             if (keyIsDown(65)) {//A
                 this.speed = -15//-= Math.random();
-                backGroundx += 3
             }
             if (keyIsDown(68)) {//D
                 this.speed = 15//+= Math.random();
-                backGroundx -= 3
-
             }
             if (keyIsDown(87)) {//W
                 this.player.jump();
-                if (this.speed > 0) {
-                    backGroundx -= 3
-                }
-
-                if (this.speed < 0) {
-                    backGroundx += 3
-                }
 
                 // Prevents player from moving while only pressing 'W'
                 if (!keyIsDown(65) && !keyIsDown(68)) {
@@ -80,7 +70,7 @@ class GameEngine implements Visual {
             pop()
             this.player.draw();
         }
-//DEAAAAAAATHCOUNTER
+        //DEAAAAAAATHCOUNTER
         deathCounter = new DeathCounter(nrOfLives);
         deathCounter.draw();
     }
@@ -89,6 +79,7 @@ class GameEngine implements Visual {
         for (const e of this.entities) {
             e.position.x += offset;
         }
+        backGroundx += offset / 5;
     }
     die(): void {
         this.player.die();
@@ -180,7 +171,7 @@ class GameEngine implements Visual {
     }
 }
 
-function muteDeath(){
+function muteDeath() {
     sound.backGroundMusic.setVolume(3);
     sound.backGroundMusic.pan(-1, 10);
 
