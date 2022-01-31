@@ -80,6 +80,7 @@ class GameOverMenu extends Menu {
         fill(241, 163, 10)
         text('YOU DIED', 640, 300)
         super.draw();
+        deathCounter.draw();
     }
 
     update(): void {
@@ -89,4 +90,3 @@ class GameOverMenu extends Menu {
         super.update();
     }
 }
-
