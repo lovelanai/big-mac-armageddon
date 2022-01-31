@@ -33,6 +33,12 @@ class Entity implements Visual {
 
     /** Ritar ut entities */
     draw(): void {
+        if (
+            this.position.x > width ||
+            this.position.x < -this.size.x ||
+            this.position.y > height ||
+            this.position.y < -this.size.y
+        ) return;
         if (typeof this.fill === 'string') {
             fill(this.fill)
 

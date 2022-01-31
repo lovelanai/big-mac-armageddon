@@ -1,6 +1,7 @@
 class GameEngine implements Visual {
     livesNumber: number;
     entities: Set<Entity>;
+    private collidableEntities: Set<Entity>;
     speed = 0;
     player: Player;
     private allowedKeys: Set<number>
@@ -16,6 +17,13 @@ class GameEngine implements Visual {
 
         this.player = new Player();
         this.entities.add(this.player);
+        this.collidableEntities = new Set<Entity>();
+        for (const e of this.entities) {
+            if (e.isSolid || e.getDamage()) {
+                this.collidableEntities.add(e);
+            }
+        }
+
 
         this.allowedKeys = new Set<number>([65, 68, 87, ENTER]);
     }
@@ -86,7 +94,8 @@ class GameEngine implements Visual {
     }
 
     private detectCollisions() {
-        const entities = Array.from(this.entities);
+
+        const entities = Array.from(this.collidableEntities);
         while (entities.length >= 2) {
             const e0 = entities.pop(); //Remove from entities so it won't be checked more than once
             if (e0?.position === undefined) throw new ReferenceError('Undefined entity position. You\'ve screwed up pretty bad.'); //Apparently TS needs this in order to not freak out
