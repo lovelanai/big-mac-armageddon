@@ -33,11 +33,11 @@ class AnimatedEntity extends Entity {
                     break;
                 case 'left':
                     this.position.x = entity.position.x + entity.size.x;
-                    this.velocity.x = 0;
+                    //this.velocity.x = 0;
                     break;
                 case 'right':
                     this.position.x = entity.position.x - this.size.x;
-                    this.velocity.x = 0;
+                    //this.velocity.x = 0;
 
             }
         }
