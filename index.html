@@ -10,31 +10,46 @@
                 justify-content: center;
                 align-items: center;
             }
-            canvas {
 
-                animation-name: rotate;
-                animation-duration: 5s;
-                animation-iteration-count: infinite;
 
-                @keyframes rotate{
-                    0% {transform: rotate(-2deg);}
-                    20% {transform: rotate(-4deg);}
-                    40% {transform: rotate(-6deg);}
-                    60% {transform: rotate(-8deg);}
-                    80% {transform: rotate(-10deg);}
-                    100% {transform: rotate(-12deg);}
-                }
-                
+
+            #volumeBtn{
+                position: absolute;
+                bottom:3rem;
+                right:19rem;
+                color: red;
+                font-size: 3rem;
+                cursor: pointer;
             }
-
         </style>
-        
+
+        <script>
+            // function muteDeath(){
+            //     // sketch.sound.volume(0.2);
+            //     // sketch.sound.backgroundMusic.stop();
+            //     // sketch.sound.backgroundMusic.loop(0, 0, 0, 2)
+
+            //     sketch.sound.backgroundMusic.stop();
+            //     sketch.sound.backgroundMusic.setVolume(0, 0, 0)
+            //     sketch.sound.backgroundMusic.play();
+            // }
+        </script>
+     
 
         <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/addons/p5.sound.js"></script>
         <script src="build/bundle.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/caac8701c4.js" crossorigin="anonymous"></script>
     </head>
     <body>
+
+        <i onclick="muteDeath()" id="volumeBtn" class="fas fa-volume-up"></i>
+        <!-- <i id="volumeBtn" class="fas fa-volume-off"></i> -->
+
+
+
+       
         <!-- Code injected via JavaScript -->
     </body>
 </html>

@@ -166,3 +166,9 @@ class GameEngine implements Visual {
         }
     }
 }
+
+function muteDeath(){
+    sound.backGroundMusic.setVolume(3);
+    sound.backGroundMusic.pan(-1, 10);
+
+}
