@@ -90,7 +90,7 @@ class GameEngine implements Visual {
     die(): void {
         console.log('You died');
         this.player.isDead = true;
-        
+
         sound.backGroundMusic.stop();
         sound.deathSong.stop();
         sound.deathSong.loop();
@@ -122,17 +122,23 @@ class GameEngine implements Visual {
                     };
 
                     const overlap0 = {
-                        left: Tools.isBetween(box0.left, box1.left, box1.right),
+                        x: Tools.overlap([box0.left, box0.right], [box1.left, box1.right]),
+                        y: Tools.overlap([box0.top, box0.bottom], [box1.top, box1.bottom]),
+                        /* left: Tools.isBetween(box0.left, box1.left, box1.right),
                         right: Tools.isBetween(box0.right, box1.left, box1.right),
                         top: Tools.isBetween(box0.top, box1.top, box1.bottom),
-                        bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom)
+                        bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) */
                     };
 
+                    if (
+                        [e0.id, e1.id].indexOf(192) !== -1 &&
+                        [e0.id, e1.id].indexOf(432) !== -1 &&
+                        this.player.position.x > 640
+                    ) {
+                        debugger;
+                    }
                     //There must be overlap in both x and y
-                    if ((overlap0.left || overlap0.right) && (overlap0.top || overlap0.bottom)) {
-                        if ([e0.id, e1.id].indexOf(192) !== -1) {
-                            debugger;
-                        }
+                    if (overlap0.x && overlap0.y) {
                         //If e0 is moving right and down relative to e1, it must be its right or bottom side that's colliding, etc
                         let edges0 = createVector(
                             relVel.x > 0 ? box0.right : box0.left,
