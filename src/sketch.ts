@@ -155,6 +155,9 @@ function setup() {
 
 let backGroundx = -17000;
 // let backGroundxPos = backGroundx + 15 * frameCount;
+let minFR = 100
+let fr = 60
+let minFRCountdown = 0;
 function draw() {
     background('white')
     image(images.gameBackground, backGroundx, 0)
@@ -164,10 +167,14 @@ function draw() {
     // game.draw();
 
     //Show framerate
+    minFRCountdown = (minFRCountdown + 1) % 60;
+    fr = 1000 / deltaTime
+    minFR = minFRCountdown === 0 ? 100 : min(minFR, fr);
     push();
     textSize(16);
     textAlign(LEFT)
-    text(1000 / deltaTime, 0, height);
+    text(fr, 0, 16);
+    text(minFR, 0, 32);
     pop();
 }
 
