@@ -111,7 +111,7 @@ class Generator {
             break;
 
           case 14:
-            entities.add(new Spike(position, images.spikeVerticalBlock, true, true));
+            entities.add(new MovingSpike(position, images.spikeVerticalBlock, false, true));
             break;
 
           case 15:
