@@ -8,7 +8,7 @@ class GameEngine implements Visual {
     speed = 0;
     player: Player;
     private allowedKeys: Set<number>
-    private backgroundX: number;
+    backgroundX: number;
     constructor(livesNumber: number) {
         this.livesNumber = livesNumber;
 
@@ -37,7 +37,7 @@ class GameEngine implements Visual {
 
 
         this.allowedKeys = new Set<number>([65, 68, 87, ENTER]);
-        this.backgroundX = -4802;
+        this.backgroundX = -17000;
     }
 
     update(): void {
@@ -97,10 +97,10 @@ class GameEngine implements Visual {
     }
     pan(): void {
         const offset = width / 2 - this.player.position.x;
-        this.backgroundX += offset / 5;
         for (const e of this.entities) {
             e.position.x += offset;
         }
+        this.backgroundX += offset / 5;
     }
     die(): void {
         this.player.die();
