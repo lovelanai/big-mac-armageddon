@@ -66,7 +66,8 @@ class Entity implements Visual {
     /** Hanterar kollisionen av entities */
     handleCollision(entity: Entity, direction: string) {
         if (this.isSolid) {
-
+            entity;
+            direction;
         }
     }
 
