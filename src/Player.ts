@@ -9,7 +9,6 @@ class Player extends AnimatedEntity {
     private _deathHeight: number;
     constructor() {
         // 11400
-
         super(createVector(11400, 0), createVector(30, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
 
         this.imageTransform = {
@@ -23,7 +22,7 @@ class Player extends AnimatedEntity {
         this.activeSequence = sequences.walkLeft;
         this.isDead = false;
         this._deathHeight = 0;
-        //image(this.fill, this.position.x, this.position.y, this.size.x, this.size.y, this.imageTransform.sx, this.imageTransform.sy, this.imageTransform.sWidth, this.imageTransform.sHeight)
+
     }
 
     public get deathHeight() {
@@ -37,9 +36,10 @@ class Player extends AnimatedEntity {
     public die() {
         if (!this.getIsDead()) {
             nrOfLives--
-            this.isDead=true;
+            localStorage.setItem('lives', '' + nrOfLives)
+            this.isDead = true;
             this.acceleration.set(0, -0.03);
-            this.velocity = createVector(0,0);
+            this.velocity = createVector(0, 0);
             this._deathHeight = this.position.y
 
             sound.backGroundMusic.stop();
@@ -50,7 +50,7 @@ class Player extends AnimatedEntity {
 
     public update(): void {
 
-        if (this.position.y >= height && !this.getIsDead()){
+        if (this.position.y >= height && !this.getIsDead()) {
             this.die()
         }
 

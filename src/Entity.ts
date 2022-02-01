@@ -1,10 +1,10 @@
 let entityList = new Array<Entity>(); //For debugging
 
 class Entity implements Visual {
-    position: p5.Vector;
-    size: p5.Vector;
+    public position: p5.Vector;
+    public size: p5.Vector;
     protected fill: p5.Image | string;
-    isSolid: boolean;
+    public isSolid: boolean;
     protected damage: boolean;
     protected imageTransform: undefined | {
         sx: number,

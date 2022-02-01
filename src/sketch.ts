@@ -16,7 +16,7 @@ let fonts: Fonts;
 
 //deathcounter
 let deathCounter: DeathCounter;
-let nrOfLives = 3;
+let nrOfLives = parseInt(localStorage.getItem('lives') || '3');
 
 
 
@@ -111,7 +111,7 @@ function preload() {
             loadImage('./assets/images/ronald/die-left/5.png'),
             loadImage('./assets/images/ronald/die-left/6.png'),
             loadImage('./assets/images/ronald/die-left/7.png')
-        ],
+        ]
 
     }
 
@@ -140,10 +140,7 @@ function setup() {
     createCanvas(1280, 880);
     frameRate(60);
     // noCursor();
-
     game = new Game(new StartMenu('Press Enter to start!'));
-
-
 }
 
 
@@ -152,15 +149,12 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
-
-let backGroundx = -17000;
-// let backGroundxPos = backGroundx + 15 * frameCount;
 let minFR = 100
 let fr = 60
 let minFRCountdown = 0;
 function draw() {
     background('white')
-    image(images.gameBackground, backGroundx, 0)
+
     game.draw();
     game.update();
     //text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
