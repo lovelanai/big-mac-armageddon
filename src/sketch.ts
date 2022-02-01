@@ -152,15 +152,12 @@ function setup() {
  * This is a good place to call public methods of the object
  * you created in the setup function above
  */
-
-let backGroundx = -17000;
-// let backGroundxPos = backGroundx + 15 * frameCount;
 let minFR = 100
 let fr = 60
 let minFRCountdown = 0;
 function draw() {
     background('white')
-    image(images.gameBackground, backGroundx, 0)
+    
     game.draw();
     game.update();
     //text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
