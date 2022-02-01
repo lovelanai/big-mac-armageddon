@@ -90,3 +90,27 @@ class GameOverMenu extends Menu {
         super.update();
     }
 }
+
+class WinMenu extends Menu {
+
+    draw(): void {
+
+        //Menu text
+        background(0)
+        fill(241, 163, 10, 40)
+        textAlign(CENTER)
+        textSize(70)
+        textFont(fonts.pressStart2p)
+        fill(43, 69, 147)
+        text('YOU WON!', 648, 300)
+        fill(241, 163, 10)
+        text('YOU WON!', 640, 300)
+        text('Congratulations...', 640, 400)
+        super.draw();
+        deathCounter.draw();
+    }
+
+    update(): void {
+        super.update();
+    }
+}

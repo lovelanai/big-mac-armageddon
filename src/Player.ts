@@ -10,7 +10,7 @@ class Player extends AnimatedEntity {
     constructor() {
         // 11400
 
-        super(createVector(11400, 0), createVector(30, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        super(createVector(200, 0), createVector(30, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
 
         this.imageTransform = {
             sx: 0,
@@ -97,6 +97,9 @@ class Player extends AnimatedEntity {
     handleCollision(entity: Entity, direction: string): void {
         if (entity.getDamage()) {
             this.die();
+        }
+        if(entity instanceof FinishBlock){
+            game.setState(new WinMenu('Press Enter to play again?'))
         }
         console.log(direction);
         super.handleCollision(entity, direction);
