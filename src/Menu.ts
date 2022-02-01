@@ -1,7 +1,7 @@
 //Menu class used to create the start menu and game over menu.
 class Menu implements Visual {
     //insert parameters necessary for both menus
-    message: string;
+    protected message: string;
 
     constructor(message: string) {
         this.message = message;

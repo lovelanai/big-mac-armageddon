@@ -1,6 +1,6 @@
 class GameEngine implements Visual {
     livesNumber: number;
-    entities: Set<Entity>;
+    private entities: Set<Entity>;
     private collidableEntities: {
         static: Set<Entity>,
         animated: Set<AnimatedEntity>

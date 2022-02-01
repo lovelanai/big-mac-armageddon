@@ -16,7 +16,7 @@ let fonts: Fonts;
 
 //deathcounter
 let deathCounter: DeathCounter;
-let nrOfLives = 3;
+let nrOfLives = parseInt(localStorage.getItem('lives') || '3');
 
 
 
@@ -111,7 +111,7 @@ function preload() {
             loadImage('./assets/images/ronald/die-left/5.png'),
             loadImage('./assets/images/ronald/die-left/6.png'),
             loadImage('./assets/images/ronald/die-left/7.png')
-        ],
+        ]
 
     }
 
@@ -140,10 +140,7 @@ function setup() {
     createCanvas(1280, 880);
     frameRate(60);
     // noCursor();
-
     game = new Game(new StartMenu('Press Enter to start!'));
-
-
 }
 
 
@@ -157,7 +154,7 @@ let fr = 60
 let minFRCountdown = 0;
 function draw() {
     background('white')
-    
+
     game.draw();
     game.update();
     //text(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
