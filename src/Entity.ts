@@ -52,11 +52,11 @@ class Entity implements Visual {
             image(this.fill, 0, this.position.y, this.fill.width, this.fill.height)
             pop();
         }
-        push();
+/*         push();
         noFill();
         stroke(this.getDamage() ? 'red' : 'black');
         rect(this.position.x, this.position.y, this.size.x, this.size.y)
-        pop();
+        pop(); */
         /* push();
         textSize(16);
         text(this.id, this.position.x, this.position.y);
