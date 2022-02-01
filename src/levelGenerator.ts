@@ -55,7 +55,7 @@ class Generator {
         // x*50 = x
         // y*50 = y
         const index = createVector(parseInt(x), parseInt(y));
-        const position = p5.Vector.mult(index, 80); //behöver fixas
+        const position = p5.Vector.mult(index, 80);
 
         switch (this.worldGrid[y][x]) {
           case 1 /* new x(position, fill, isSolid, damage,) (SPIKE)*/:
