@@ -169,7 +169,20 @@ class WinMenu extends Menu {
         text('YOU WON!', 640, 200)
 
         //splosion gif
-        
+
+        let splosion;
+        let splosion2;
+
+        if (this.timer >= 30) {
+            //for fps
+            splosion = 0;
+            splosion2 = 0;
+        } else {
+            splosion = createImg("./assets/images/menu/splosion.gif");
+            splosion.position(225, 725)
+            splosion2 = createImg("./assets/images/menu/splosion.gif");
+            splosion2.position(925, 725)
+        }
 
         //play again text
         if (this.timer >= 1770) {
