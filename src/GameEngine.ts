@@ -30,7 +30,7 @@ class GameEngine implements Visual {
         }
 
 
-        this.allowedKeys = new Set<number>([65, 68, 87, ENTER]);
+        this.allowedKeys = new Set<number>([65, 71, 76, ENTER]);
         this.backgroundX = -17000;
     }
 
