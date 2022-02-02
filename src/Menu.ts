@@ -8,7 +8,8 @@ class Menu implements Visual {
     }
 
     update(): void {
-        if (keyCode === ENTER) {
+        if (keyIsDown(ENTER)) {
+            console.log('game init')
             game.setState(new GameEngine());
             sound.backGroundMusic.loop();
             sound.deathSong.stop();

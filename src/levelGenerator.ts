@@ -68,11 +68,11 @@ class Generator {
             break;
 
           case 4: //invis + solid + safe
-            entities.add(new Block(position, images.invisBlock, true, false, Tools.neighborsFree(this.worldGrid, index, blockNums)));
+            entities.add(new Block(position, 'invis', true, false, Tools.neighborsFree(this.worldGrid, index, blockNums)));
             break;
 
           case 5:
-            entities.add(new Block(position, images.invisBlock, true, true));
+            entities.add(new Block(position, 'invis', true, true));
             break;
 
           case 6:
