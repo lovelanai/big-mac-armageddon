@@ -41,9 +41,16 @@ class Entity implements Visual {
             this.position.y < -this.size.y
         ) return;
         if (typeof this.fill === 'string') {
-            fill(this.fill)
-
-
+            if (this.fill === 'invis') {
+                fill(50, 150, 255,
+                    map(this.position.x, 300, -80, 0, 255, true)
+                    )
+            }
+            else {
+                fill(this.fill);
+            }
+            noStroke();
+            rect(this.position.x, this.position.y, this.size.x, this.size.y)
         }
 
         else if (this.fill.constructor === p5.Image) {
@@ -52,11 +59,11 @@ class Entity implements Visual {
             image(this.fill, 0, this.position.y, this.fill.width, this.fill.height)
             pop();
         }
-/*         push();
-        noFill();
-        stroke(this.getDamage() ? 'red' : 'black');
-        rect(this.position.x, this.position.y, this.size.x, this.size.y)
-        pop(); */
+        /*         push();
+                noFill();
+                stroke(this.getDamage() ? 'red' : 'black');
+                rect(this.position.x, this.position.y, this.size.x, this.size.y)
+                pop(); */
         /* push();
         textSize(16);
         text(this.id, this.position.x, this.position.y);
