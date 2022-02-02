@@ -179,9 +179,9 @@ class WinMenu extends Menu {
             splosion2 = 0;
         } else {
             splosion = createImg("./assets/images/menu/splosion.gif");
-            splosion.position(225, 725)
+            splosion.position(240, 725)
             splosion2 = createImg("./assets/images/menu/splosion.gif");
-            splosion2.position(925, 725)
+            splosion2.position(910, 725)
         }
 
         //play again text
