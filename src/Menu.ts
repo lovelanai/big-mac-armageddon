@@ -211,6 +211,9 @@ class WinMenu extends Menu {
         if (this.timer >= 1770) {
             this.Ronaldy += 5
         }
+        if (this.timer >= 1970 && this.Balloony <= -600){
+            this.Balloony = -500
+        }
         sound.backGroundMusic.stop();
         document.getElementById('volumeBtn').style.display = 'none';
         this.textScrolly -= 1.5;
