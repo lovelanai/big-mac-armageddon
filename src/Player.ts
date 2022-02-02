@@ -69,11 +69,11 @@ class Player extends AnimatedEntity {
             else { this.activeSequence = sequences.jumpRight }
         }
 
-        else if (keyIsDown(68)) {
+        else if (keyIsDown(68)) { // A
             this.activeSequence = sequences.walkRight;
         }
 
-        else if (keyIsDown(65)) {
+        else if (keyIsDown(65)) { // W
             this.activeSequence = sequences.walkLeft
         }
 
