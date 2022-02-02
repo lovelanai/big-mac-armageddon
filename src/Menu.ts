@@ -90,3 +90,109 @@ class GameOverMenu extends Menu {
         super.update();
     }
 }
+
+class WinMenu extends Menu {
+    private textScrolly = 1100;
+    private timer = 0;
+
+    draw(): void {
+
+
+        //Menu text
+        background(0)
+
+        // Moving end credits
+        textFont(fonts.pressStart2p)
+
+        // Categories
+
+        textSize(40)
+
+        fill(241, 163, 10)
+        text('GAME CREATED BY', 640, this.textScrolly)
+        // 150
+        text('LEVEL GENERATOR & DESIGN', 640, this.textScrolly + 500)
+
+        text('MENUS AND SMÅPILL', 640, this.textScrolly + 800)
+
+        text('PLAYER MOVEMENT + MUSIC', 640, this.textScrolly + 1050)
+
+        text('GAME ENGINE + COLLISION', 640, this.textScrolly + 1300)
+
+        textSize(50)
+        text('Credits', 640, this.textScrolly + 1550)
+
+        // text('test-endcredits 2', 640, this.textScrolly)
+
+        // Names
+        fill(241, 163, 10)
+        textSize(30)
+
+        // Game created by
+        text('LOVE LANAI', 640, this.textScrolly + 100)
+        text('ADRIAN RYDIN', 640, this.textScrolly + 150)
+        text('PHILIP RISBERG', 640, this.textScrolly + 200)
+        text('SIMON ERIKSSON', 640, this.textScrolly + 250)
+        text('JOSEF KARLSSON', 640, this.textScrolly + 300)
+        text('ISAAQ GULEED', 640, this.textScrolly + 350)
+        // 150
+
+        // Level generator & design
+        text('ADRIAN RYDIN', 640, this.textScrolly + 600)
+        text('SIMON ERIKSSON', 640, this.textScrolly + 650)
+
+        // Menu and småpill
+        text('PHILIP RISBERG', 640, this.textScrolly + 900)
+
+        // Player movement + music
+        text('LOVE LANAI', 640, this.textScrolly + 1150)
+
+        // Game engine + collision
+        text('JOSEF KARLSSON', 640, this.textScrolly + 1400)
+
+        // credits
+        textSize(40)
+        text('CHARACTER DESIGN', 640, this.textScrolly + 1650)
+        textSize(25)
+        text('Treasure Co. Ltd', 640, this.textScrolly + 1750)
+
+        // You won text + box
+        fill(0)
+        rect(0, 0, width, 230)
+        fill(241, 163, 10, 40)
+        textAlign(CENTER)
+        textSize(70)
+        textFont(fonts.pressStart2p)
+        fill(43, 69, 147)
+        text('YOU WON!', 648, 200)
+        fill(241, 163, 10)
+        text('YOU WON!', 640, 200)
+
+        //play again text
+        if (this.timer >= 1770) {
+            textSize(40)
+            fill(241, 163, 10);
+            text('Congratulations...', 640, 350);
+            if (frameCount % 100 < 30) {
+                fill(241, 163, 10, 0);
+            } else {
+                fill(241, 163, 10);
+                text(`${this.message}`, 640, 465);
+            }
+        } else {
+            console.log(this.timer)
+            textSize(40)
+            text(`Congratulations...`, 640, this.textScrolly + 1900);
+        }
+        // deathCounter.draw();
+    }
+
+    update(): void {
+        this.timer++
+
+        sound.backGroundMusic.stop();
+        document.getElementById('volumeBtn').style.display = 'none';
+        this.textScrolly -= 1.5;
+        super.update();
+    }
+}
