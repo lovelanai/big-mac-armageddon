@@ -111,7 +111,7 @@ class WinMenu extends Menu {
         // 150
         text('LEVEL GENERATOR & DESIGN', 640, this.textScrolly + 500)
 
-        text('MENU AND SMÅPILL', 640, this.textScrolly + 800)
+        text('MENUS AND SMÅPILL', 640, this.textScrolly + 800)
 
         text('PLAYER MOVEMENT + MUSIC', 640, this.textScrolly + 1050)
 
