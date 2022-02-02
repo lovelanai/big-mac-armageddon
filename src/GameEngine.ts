@@ -1,20 +1,14 @@
 class GameEngine implements Visual {
-    livesNumber: number;
     private entities: Set<Entity>;
     private collidableEntities: {
         static: Set<Entity>,
         animated: Set<AnimatedEntity>
     };
-    speed = 0;
-    player: Player;
+    private speed = 0;
+    private player: Player;
     private allowedKeys: Set<number>
     backgroundX: number;
-    constructor(livesNumber: number) {
-        this.livesNumber = livesNumber;
-
-        /* this.entities = new Set<Entity>();
-        this.entities.add(new Entity(new p5.Vector(160, 400), new p5.Vector(1100, 50), 'green', true, false));
-        this.entities.add(new AnimatedEntity(new p5.Vector(1060, -300), new p5.Vector(100, 50), new p5.Vector(0, 16), new p5.Vector(0, .8), 'blue', true, false)); */
+    constructor() {
         const generator = new Generator();
         this.entities = generator.getNextLevelEntities()
 
@@ -95,14 +89,14 @@ class GameEngine implements Visual {
         deathCounter = new DeathCounter(nrOfLives);
         deathCounter.draw();
     }
-    pan(): void {
+    private pan(): void {
         const offset = width / 2 - this.player.position.x;
         for (const e of this.entities) {
             e.position.x += offset;
         }
         this.backgroundX += offset / 5;
     }
-    die(): void {
+    private die(): void {
         this.player.die();
     }
 

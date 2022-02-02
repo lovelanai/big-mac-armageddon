@@ -1,3 +1,8 @@
+interface Visual {
+  update(): void;
+  draw(): void;
+}
+
 interface Images {
   bkFries: p5.Image;
   bkHat: p5.Image;

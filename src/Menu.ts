@@ -10,7 +10,7 @@ class Menu implements Visual {
     update(): void {
         if (keyCode === ENTER) {
             console.log('game init')
-            game.setState(new GameEngine(3));
+            game.setState(new GameEngine());
             sound.backGroundMusic.loop();
             sound.deathSong.stop();
         }

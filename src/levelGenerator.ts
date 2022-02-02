@@ -39,8 +39,7 @@ class Generator {
   }
 
   public getWorldLength() {
-    const worldLength = this.worldGrid[0].length
-    return worldLength
+    return this.worldGrid[0].length;
   }
 
   public getNextLevelEntities(): Set<Entity> {
@@ -52,8 +51,6 @@ class Generator {
 
     for (let y in this.worldGrid) {
       for (let x in this.worldGrid[y]) {
-        // x*50 = x
-        // y*50 = y
         const index = createVector(parseInt(x), parseInt(y));
         const position = p5.Vector.mult(index, 80); //behöver fixas
 
@@ -70,8 +67,8 @@ class Generator {
             entities.add(new Block(position, images.grassBlock, true, false, Tools.neighborsFree(this.worldGrid, index, blockNums)));
             break;
 
-          case 4:
-            entities.add(new Block(position, images.invisBlock, true, false, Tools.neighborsFree(this.worldGrid, index, blockNums)));
+          case 4: //invis + solid + safe
+            entities.add(new Block(position, images.grassBlock, true, false, Tools.neighborsFree(this.worldGrid, index, blockNums)));
             break;
 
           case 5:
