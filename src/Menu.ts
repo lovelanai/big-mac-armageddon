@@ -157,9 +157,9 @@ class WinMenu extends Menu {
 
         // credits
         textSize(40)
-        text('CHARACTER DESIGN', 640, this.textScrolly + 1900)
+        text('CHARACTER DESIGN', 640, this.textScrolly + 1950)
         textSize(25)
-        text('Treasure Co. Ltd', 640, this.textScrolly + 1950)
+        text('Treasure Co. Ltd', 640, this.textScrolly + 2000)
 
         // You won text + box
         fill(0)
