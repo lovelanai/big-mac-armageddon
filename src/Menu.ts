@@ -174,7 +174,7 @@ class WinMenu extends Menu {
         text('YOU WON!', 640, 200)
 
         //play again text
-        if (this.timer >= 1770) {
+        if (this.timer >= 1970) {
             textSize(40)
             fill(241, 163, 10);
             text('Congratulations...', 640, 350);
@@ -187,7 +187,7 @@ class WinMenu extends Menu {
         } else {
             console.log(this.timer)
             textSize(40)
-            text(`Congratulations...`, 640, this.textScrolly + 1900);
+            text(`Congratulations...`, 640, this.textScrolly + 2200);
         }
         // deathCounter.draw();
     }
