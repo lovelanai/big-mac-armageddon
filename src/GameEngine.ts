@@ -52,16 +52,19 @@ class GameEngine implements Visual {
                 }
 
             }
+            //If you press any other key than those needed to play, you die.
             if (!this.allowedKeys.has(keyCode)) {
                 this.die();
             }
         }
-
         else {
             this.speed = 0;
             this.allowedKeys.delete(ENTER);
         }
 
+        if (mouseIsPressed && mouseButton !== LEFT) {
+            this.die();
+        }
 
         this.player.setSpeed(this.speed);
         for (const e of this.entities) {
