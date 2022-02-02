@@ -37,13 +37,13 @@ class GameEngine implements Visual {
     update(): void {
         if (keyIsPressed) {
 
-            if (keyIsDown(76)) {//L
+            if (keyIsDown(65)) {//L
                 this.speed = -15//-= Math.random();
             }
-            if (keyIsDown(71)) {//G
+            if (keyIsDown(76)) {//G
                 this.speed = 15//+= Math.random();
             }
-            if (keyIsDown(65)) {//A
+            if (keyIsDown(71)) {//A
                 this.player.jump();
 
                 // Prevents player from moving while only pressing 'W'
