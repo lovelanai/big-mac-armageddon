@@ -123,7 +123,7 @@ class GameEngine implements Visual {
 
         //Entities can't collide if they're moving at the same velocity (note: velocity not speed)
         if (relVel.x !== 0 || relVel.y !== 0) {
-
+            //box0 and box1 represent x and y ranges spanned by e0 and e1 respectively
             let box0 = {
                 left: e0.position.x,
                 right: e0.position.x + e0.size.x,
@@ -137,25 +137,14 @@ class GameEngine implements Visual {
                 bottom: e1.position.y + e1.size.y
             };
 
-            const overlap0 = {
+            const overlap = {
                 x: Tools.overlap([box0.left, box0.right], [box1.left, box1.right]),
-                y: Tools.overlap([box0.top, box0.bottom], [box1.top, box1.bottom]),
-                /* left: Tools.isBetween(box0.left, box1.left, box1.right),
-                right: Tools.isBetween(box0.right, box1.left, box1.right),
-                top: Tools.isBetween(box0.top, box1.top, box1.bottom),
-                bottom: Tools.isBetween(box0.bottom, box1.top, box1.bottom) */
+                y: Tools.overlap([box0.top, box0.bottom], [box1.top, box1.bottom])
             };
 
-            if (
-                [e0.id, e1.id].indexOf(192) !== -1 &&
-                [e0.id, e1.id].indexOf(432) !== -1 &&
-                this.player.position.x > 640
-            ) {
-                debugger;
-            }
             //There must be overlap in both x and y
-            if (overlap0.x && overlap0.y) {
-                //If e0 is moving right and down relative to e1, it must be its right or bottom side that's colliding, etc
+            if (overlap.x && overlap.y) {
+                //If e0 is moving right and down relative to e1, it must be its right or bottom side that's colliding, etc. edges0 and edges1 will represent the edges of e0 and e1 respectively that might be colliding with the other.
                 let edges0 = createVector(
                     relVel.x > 0 ? box0.right : box0.left,
                     relVel.y >= 0 ? box0.bottom : box0.top
@@ -165,13 +154,16 @@ class GameEngine implements Visual {
                     relVel.y >= 0 ? box1.top : box1.bottom
                 );
 
-                let backTrackFactor = p5.Vector.sub(edges0, edges1);
-                backTrackFactor.x /= relVel.x;
-                backTrackFactor.y /= relVel.y;
+                //backtrackFactor represents how much to reverse relative to the relative velocity.
+                let backtrackFactor = p5.Vector.sub(edges0, edges1);
+                backtrackFactor.x /= relVel.x;
+                backtrackFactor.y /= relVel.y;
+                //The direction where e0 "feels" the collision.
                 let direction0 = 'none';
-
+                //Two candidates for direction0.
                 let xDir0 = relVel.x > 0 ? 'right' : 'left';
                 let yDir0 = relVel.y >= 0 ? 'bottom' : 'top';
+                //Make sure both entities allow collisions in the directions we're looking for.
                 let collidable = { x: true, y: true };
                 if (e0 instanceof Block && e0?.collisionSides !== undefined) {
                     collidable.x = e0.collisionSides[xDir0 === 'left' ? 'left' : 'right'];
@@ -181,16 +173,20 @@ class GameEngine implements Visual {
                     collidable.x &&= e1.collisionSides[xDir0 === 'left' ? 'right' : 'left'];
                     collidable.y &&= e1.collisionSides[yDir0 === 'bottom' ? 'top' : 'bottom'];
                 }
+                //Infinity represents impossibility since infinite backtracking will never be allowed.
+                if (!collidable.x) backtrackFactor.x = Infinity;
+                if (!collidable.y) backtrackFactor.y = Infinity;
 
-                if (
-                    collidable.x &&
-                    abs(backTrackFactor.x) < min(abs(backTrackFactor.y), 1.1)
+                //If x requires less backtracking than y and this won't reverse far beyond previous frame: go for x. Otherwise, similar conditions for y. If neither is applicable, direction0 will remain 'none', indicating that there's no obvious direction to the collision.
+                if (abs(backtrackFactor.x) < min(abs(backtrackFactor.y), 1.1)
                 ) {
                     direction0 = xDir0;
-                } else if (collidable.y && abs(backTrackFactor.y) < 1.1) {
+                } else if (abs(backtrackFactor.y) < 1.1) {
                     direction0 = yDir0;
                 }
                 e0.handleCollision(e1, direction0);
+
+                //If e0 "feels" the collision to the left, e1 must feel it to the right etc.
                 let direction1 = Tools.swap(direction0, 'left', 'right');
                 direction1 = Tools.swap(direction1, 'top', 'bottom');
                 e1.handleCollision(e0, direction1);
