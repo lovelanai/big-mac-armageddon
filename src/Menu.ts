@@ -95,11 +95,22 @@ class WinMenu extends Menu {
     private textScrolly = 1100;
     private timer = 0;
 
-    draw(): void {
 
+    private Balloonx = 50;
+    private Balloony = 900;
+
+
+    private Ronaldx = 0;
+    private Ronaldy = 300;
+
+    draw(): void {
 
         //Menu text
         background(0)
+
+        // Ronald
+        image(images.happyronald, this.Ronaldx + 900, this.Ronaldy)
+        image(images.happyronaldRight, this.Ronaldx, this.Ronaldy)
 
         // Moving end credits
         textFont(fonts.pressStart2p)
@@ -108,7 +119,7 @@ class WinMenu extends Menu {
 
         textSize(40)
 
-        fill(241, 163, 10)
+        fill(255)
         text('GAME CREATED BY', 640, this.textScrolly)
         // 150
         text('LEVEL GENERATOR & DESIGN', 640, this.textScrolly + 500)
@@ -127,7 +138,7 @@ class WinMenu extends Menu {
         // text('test-endcredits 2', 640, this.textScrolly)
 
         // Names
-        fill(241, 163, 10)
+        fill(255)
         textSize(30)
 
         // Game created by
@@ -173,6 +184,10 @@ class WinMenu extends Menu {
         fill(241, 163, 10)
         text('YOU WON!', 640, 200)
 
+        // Balloons
+        image(images.balloons, this.Balloonx, this.Balloony)
+        image(images.balloonbear, this.Balloonx + 900, this.Balloony + 100)
+
         //play again text
         if (this.timer >= 1970) {
             textSize(40)
@@ -193,10 +208,17 @@ class WinMenu extends Menu {
 
     update(): void {
         this.timer++
-
+        if (this.timer >= 1770) {
+            this.Ronaldy += 5
+        }
         sound.backGroundMusic.stop();
         document.getElementById('volumeBtn').style.display = 'none';
         this.textScrolly -= 1.5;
+        this.Balloony -= 2;
+        this.Balloonx = 30 * Math.sin(this.Balloony * 0.03) + 100;
+        if(this.Balloony < -600){
+            this.Balloony = 900
+        }
         super.update();
     }
 }
