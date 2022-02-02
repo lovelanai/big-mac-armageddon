@@ -22,6 +22,10 @@ interface Images {
   finalTopBlock: p5.Image;
   finalBottomBlock: p5.Image;
   checkPointBlock: p5.Image;
+  balloons: p5.Image;
+  balloonbear: p5.Image;
+  happyronald: p5.Image;
+  happyronaldRight: p5.Image;
 }
 
 interface Sequences {
