@@ -47,4 +47,5 @@ interface sound {
   backGroundMusic: p5.SoundFile;
   jump: p5.SoundFile;
   deathSong: p5.SoundFile;
+  winSong: p5.SoundFile;
 }

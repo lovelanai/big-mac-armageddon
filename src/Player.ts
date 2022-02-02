@@ -19,7 +19,7 @@ class Player extends AnimatedEntity {
         }
         this.timeToChangeFrame = 100;
         this.sequenceIndex = 0;
-        this.activeSequence = sequences.walkLeft;
+        this.activeSequence = sequences.idle;
         this.isDead = false;
         this._deathHeight = 0;
 
@@ -69,11 +69,11 @@ class Player extends AnimatedEntity {
             else { this.activeSequence = sequences.jumpRight }
         }
 
-        else if (keyIsDown(68)) { // A
+        else if (keyIsDown(76)) { // L
             this.activeSequence = sequences.walkRight;
         }
 
-        else if (keyIsDown(65)) { // W
+        else if (keyIsDown(65)) { // A
             this.activeSequence = sequences.walkLeft
         }
 
