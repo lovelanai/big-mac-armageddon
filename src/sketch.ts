@@ -164,11 +164,12 @@ function draw() {
     minFRCountdown = (minFRCountdown + 1) % 60;
     fr = 1000 / deltaTime
     minFR = minFRCountdown === 0 ? 100 : min(minFR, fr);
-    push();
+
+    /* push();
     textSize(16);
     textAlign(LEFT)
     text(fr, 0, 16);
     text(minFR, 0, 32);
-    pop();
-}
+    pop(); */
 
+}
