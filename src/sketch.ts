@@ -53,7 +53,11 @@ function preload() {
         spikeVerticalBlock: loadImage('./assets/images/map/spikevertical.png'),
         finalTopBlock: loadImage('./assets/images/map/topimage.jpg'),
         finalBottomBlock: loadImage('./assets/images/map/bottomimg.jpg'),
-        checkPointBlock: loadImage('/assets/images/map/checkpoint.png')
+        checkPointBlock: loadImage('./assets/images/map/checkpoint.png'),
+        balloons: loadImage('./assets/images/menu/balloons.png'),
+        happyronald: loadImage('./assets/images/menu/ronaldwin.png'),
+        happyronaldRight: loadImage('./assets/images/menu/ronaldwin-right.png'),
+        balloonbear: loadImage('./assets/images/menu/balloonbear.png'),
     }
 
     sequences = {
