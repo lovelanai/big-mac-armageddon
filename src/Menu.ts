@@ -93,17 +93,19 @@ class GameOverMenu extends Menu {
 
 class WinMenu extends Menu {
     private textScrolly = 1100;
-    
+    private timer = 0;
+
     draw(): void {
-        
+
 
         //Menu text
         background(0)
+
         // Moving end credits
         textFont(fonts.pressStart2p)
 
         // Categories
-       
+
         textSize(40)
 
         fill(241, 163, 10)
@@ -111,7 +113,7 @@ class WinMenu extends Menu {
         // 150
         text('LEVEL GENERATOR & DESIGN', 640, this.textScrolly + 500)
 
-        text('MENU AND SMÅPILL', 640, this.textScrolly + 800)
+        text('MENUS AND SMÅPILL', 640, this.textScrolly + 800)
 
         text('PLAYER MOVEMENT + MUSIC', 640, this.textScrolly + 1050)
 
@@ -129,9 +131,9 @@ class WinMenu extends Menu {
         textSize(30)
 
         // Game created by
-        text('PHILIP RISBERG', 640, this.textScrolly + 100)
-        text('LOVE LANAI', 640, this.textScrolly + 150)
-        text('ADRIAN RYDIN', 640, this.textScrolly + 200)
+        text('LOVE LANAI', 640, this.textScrolly + 100)
+        text('ADRIAN RYDIN', 640, this.textScrolly + 150)
+        text('PHILIP RISBERG', 640, this.textScrolly + 200)
         text('SIMON ERIKSSON', 640, this.textScrolly + 250)
         text('JOSEF KARLSSON', 640, this.textScrolly + 300)
         text('ISAAQ GULEED', 640, this.textScrolly + 350)
@@ -161,7 +163,7 @@ class WinMenu extends Menu {
 
         // You won text + box
         fill(0)
-        rect(0, 0, width, 200)
+        rect(0, 0, width, 230)
         fill(241, 163, 10, 40)
         textAlign(CENTER)
         textSize(70)
@@ -171,17 +173,31 @@ class WinMenu extends Menu {
         fill(241, 163, 10)
         text('YOU WON!', 640, 200)
 
-        // text('Congratulations...', 640, 400)
-        
-        super.draw();
+        //play again text
+        if (this.timer >= 1770) {
+            textSize(40)
+            fill(241, 163, 10);
+            text('Congratulations...', 640, 350);
+            if (frameCount % 100 < 30) {
+                fill(241, 163, 10, 0);
+            } else {
+                fill(241, 163, 10);
+                text(`${this.message}`, 640, 465);
+            }
+        } else {
+            console.log(this.timer)
+            textSize(40)
+            text(`Congratulations...`, 640, this.textScrolly + 1900);
+        }
         // deathCounter.draw();
     }
 
     update(): void {
+        this.timer++
+
         sound.backGroundMusic.stop();
         document.getElementById('volumeBtn').style.display = 'none';
         this.textScrolly -= 1.5;
         super.update();
-
     }
 }
