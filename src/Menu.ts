@@ -168,28 +168,21 @@ class WinMenu extends Menu {
         text('YOU WON!', 640, 200)
 
         //play again text
-
-        if (this.timer >= 1690) {
+        if (this.timer >= 1770) {
+            textSize(40)
+            fill(241, 163, 10);
+            text('Congratulations...', 640, 350);
             if (frameCount % 100 < 30) {
                 fill(241, 163, 10, 0);
             } else {
                 fill(241, 163, 10);
-                textSize(40);
-                text(`${this.message}`, 640, 460);
+                text(`${this.message}`, 640, 465);
             }
         } else {
-            if (frameCount % 100 < 30) {
-                fill(241, 163, 10, 0);
-            } else {
-                fill(241, 163, 10);
-                textSize(40);
-                text(`${this.message}`, 640, this.textScrolly + 1900);
-
-            }
+            console.log(this.timer)
+            textSize(40)
+            text(`Congratulations...`, 640, this.textScrolly + 1900);
         }
-
-
-
         // deathCounter.draw();
     }
 
