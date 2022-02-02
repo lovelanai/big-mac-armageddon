@@ -101,7 +101,6 @@ class Player extends AnimatedEntity {
         if(entity instanceof FinishBlock){
             game.setState(new WinMenu('Press Enter to play again? :)'))
         }
-        console.log(direction);
         super.handleCollision(entity, direction);
     }
 
