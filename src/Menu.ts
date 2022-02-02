@@ -9,7 +9,6 @@ class Menu implements Visual {
 
     update(): void {
         if (keyCode === ENTER) {
-            console.log('game init')
             game.setState(new GameEngine());
             sound.backGroundMusic.loop();
             sound.deathSong.stop();
@@ -185,7 +184,6 @@ class WinMenu extends Menu {
                 text(`${this.message}`, 640, 465);
             }
         } else {
-            console.log(this.timer)
             textSize(40)
             text(`Congratulations...`, 640, this.textScrolly + 2200);
         }
