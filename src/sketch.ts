@@ -123,7 +123,7 @@ function preload() {
         backGroundMusic: new p5.SoundFile('./audioFiles/soundtrack.mp3'),
         jump: new p5.SoundFile('./audiofiles/jump.wav'),
         deathSong: new p5.SoundFile('./audiofiles/game-over.mp3'),
-        winSong: new p5.SoundFile('./audiofiles/game-over.mp3')
+        winSong: new p5.SoundFile('./audiofiles/winning.wav')
     }
 
 

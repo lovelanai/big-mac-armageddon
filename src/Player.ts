@@ -9,7 +9,7 @@ class Player extends AnimatedEntity {
     private _deathHeight: number;
     constructor() {
         // 11400
-        super(createVector(11400, 0), createVector(30, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
+        super(createVector(0, 0), createVector(30, 125), createVector(0, 5), createVector(0, 0.8), sequences.jumpRight[0], true, false)
 
         this.imageTransform = {
             sx: 0,
@@ -100,6 +100,7 @@ class Player extends AnimatedEntity {
         }
         if(entity instanceof FinishBlock){
             game.setState(new WinMenu('Press Enter to play again? :)'))
+            sound.winSong.loop();
         }
         super.handleCollision(entity, direction);
     }
