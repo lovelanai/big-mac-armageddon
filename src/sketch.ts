@@ -92,14 +92,14 @@ function preload() {
             loadImage('./assets/images/ronald/jump-left/0.png'),
             loadImage('./assets/images/ronald/jump-left/1.png'),
             loadImage('./assets/images/ronald/jump-left/2.png'),
-            loadImage('./assets/images/ronald/jump-left/3.png'),
+            loadImage('./assets/images/ronald/jump-left/3.png')
         ],
 
         jumpRight: [
             loadImage('./assets/images/ronald/jump-right/0.png'),
             loadImage('./assets/images/ronald/jump-right/1.png'),
             loadImage('./assets/images/ronald/jump-right/2.png'),
-            loadImage('./assets/images/ronald/jump-right/3.png'),
+            loadImage('./assets/images/ronald/jump-right/3.png')
         ],
 
         die: [
