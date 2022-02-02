@@ -112,11 +112,11 @@ class Generator {
             break;
 
           case 15:
-            entities.add(new Block(position, images.finalTopBlock, true, false));
+            entities.add(new FinishBlock(position, images.finalTopBlock, true, false));
             break;
 
           case 16:
-            entities.add(new Block(position, images.finalBottomBlock, true, false));
+            entities.add(new FinishBlock(position, images.finalBottomBlock, true, false));
             break;
 
           case 17:
