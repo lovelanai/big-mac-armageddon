@@ -42,9 +42,7 @@ class Entity implements Visual {
         ) return;
         if (typeof this.fill === 'string') {
             if (this.fill === 'invis') {
-                fill(50, 150, 255,
-                    map(this.position.x, 300, -80, 0, 255, true)
-                    )
+                fill(50, 150, 255, map(this.position.x, 250, -80, 0, 255, true))
             }
             else {
                 fill(this.fill);
