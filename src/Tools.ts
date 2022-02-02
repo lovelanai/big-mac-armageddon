@@ -16,10 +16,10 @@ class Tools {
         return value;
     }
     /**
-     * Figures out which neighbors are not certain values.
+     * Checks which neighbors are not certain values.
      * @param grid 2d array in which to check neighbors.
      * @param index Position to check neighbors around.
-     * @param nums If neighbor is a member of nums it is not free.
+     * @param nums If neighbor is a member of nums it won't be considered not free.
      * @returns Object representing which directions are free.
      */
     static neighborsFree(grid: number[][], index: p5.Vector, nums: Set<number>): { left: boolean, right: boolean, top: boolean, bottom: boolean } {
