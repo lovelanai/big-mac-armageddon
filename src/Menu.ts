@@ -93,9 +93,10 @@ class GameOverMenu extends Menu {
 
 class WinMenu extends Menu {
     private textScrolly = 1100;
-    
+    private timer = 0;
+
     draw(): void {
-        
+
 
         //Menu text
         background(0)
@@ -103,7 +104,7 @@ class WinMenu extends Menu {
         textFont(fonts.pressStart2p)
 
         // Categories
-       
+
         textSize(40)
 
         fill(241, 163, 10)
@@ -156,7 +157,7 @@ class WinMenu extends Menu {
 
         // You won text + box
         fill(0)
-        rect(0, 0, width, 200)
+        rect(0, 0, width, 230)
         fill(241, 163, 10, 40)
         textAlign(CENTER)
         textSize(70)
@@ -166,17 +167,38 @@ class WinMenu extends Menu {
         fill(241, 163, 10)
         text('YOU WON!', 640, 200)
 
-        // text('Congratulations...', 640, 400)
-        
-        super.draw();
+        //play again text
+
+        if (this.timer >= 1690) {
+            if (frameCount % 100 < 30) {
+                fill(241, 163, 10, 0);
+            } else {
+                fill(241, 163, 10);
+                textSize(40);
+                text(`${this.message}`, 640, 460);
+            }
+        } else {
+            if (frameCount % 100 < 30) {
+                fill(241, 163, 10, 0);
+            } else {
+                fill(241, 163, 10);
+                textSize(40);
+                text(`${this.message}`, 640, this.textScrolly + 1900);
+
+            }
+        }
+
+
+
         // deathCounter.draw();
     }
 
     update(): void {
+        this.timer++
+
         sound.backGroundMusic.stop();
         document.getElementById('volumeBtn').style.display = 'none';
         this.textScrolly -= 1.5;
         super.update();
-
     }
 }
