@@ -100,6 +100,7 @@ class WinMenu extends Menu {
 
         //Menu text
         background(0)
+
         // Moving end credits
         textFont(fonts.pressStart2p)
 
@@ -128,9 +129,9 @@ class WinMenu extends Menu {
         textSize(30)
 
         // Game created by
-        text('PHILIP RISBERG', 640, this.textScrolly + 100)
-        text('LOVE LANAI', 640, this.textScrolly + 150)
-        text('ADRIAN RYDIN', 640, this.textScrolly + 200)
+        text('LOVE LANAI', 640, this.textScrolly + 100)
+        text('ADRIAN RYDIN', 640, this.textScrolly + 150)
+        text('PHILIP RISBERG', 640, this.textScrolly + 200)
         text('SIMON ERIKSSON', 640, this.textScrolly + 250)
         text('JOSEF KARLSSON', 640, this.textScrolly + 300)
         text('ISAAQ GULEED', 640, this.textScrolly + 350)
@@ -166,6 +167,9 @@ class WinMenu extends Menu {
         text('YOU WON!', 648, 200)
         fill(241, 163, 10)
         text('YOU WON!', 640, 200)
+
+        //splosion gif
+        
 
         //play again text
         if (this.timer >= 1770) {

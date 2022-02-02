@@ -8,10 +8,12 @@ class DeathCounter implements Visual {
     update(): void {}
 
     draw(): void {
-        fill(241, 163, 10)
         textAlign(RIGHT)
         textSize(100)
         textFont(fonts.mcLawsuit)
+        fill(184, 6, 0)
         text(`${this.livesNumber}`, 1240, 120)
+        fill(241, 163, 10)
+        text(`${this.livesNumber}`, 1235, 120)
     }
 }
