@@ -117,8 +117,10 @@ class WinMenu extends Menu {
 
         text('GAME ENGINE + COLLISION', 640, this.textScrolly + 1300)
 
+        text('ENEMIES', 640, this.textScrolly + 1550)
+
         textSize(50)
-        text('Credits', 640, this.textScrolly + 1550)
+        text('Credits', 640, this.textScrolly + 1850)
 
         // text('test-endcredits 2', 640, this.textScrolly)
 
@@ -148,11 +150,14 @@ class WinMenu extends Menu {
         // Game engine + collision
         text('JOSEF KARLSSON', 640, this.textScrolly + 1400)
 
+        // Enemies
+        text('ISAAQ GULEED', 640, this.textScrolly + 1650)
+
         // credits
         textSize(40)
-        text('CHARACTER DESIGN', 640, this.textScrolly + 1650)
+        text('CHARACTER DESIGN', 640, this.textScrolly + 1900)
         textSize(25)
-        text('Treasure Co. Ltd', 640, this.textScrolly + 1750)
+        text('Treasure Co. Ltd', 640, this.textScrolly + 1950)
 
         // You won text + box
         fill(0)
