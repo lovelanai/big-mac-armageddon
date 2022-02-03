@@ -216,7 +216,7 @@ class WinMenu extends Menu {
             this.Balloony = -500
         }
         sound.backGroundMusic.stop();
-        document.getElementById('volumeBtn').style.display = 'none';
+        document.getElementById('volumeBtn')!.style.display = 'none';
         this.textScrolly -= 1.5;
         this.Balloony -= 2;
         this.Balloonx = 30 * Math.sin(this.Balloony * 0.03) + 100;
