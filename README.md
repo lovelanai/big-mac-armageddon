@@ -6,3 +6,11 @@ Målet med spelet är att gå från höger till vänster och överleva en hel ba
 
 ## Spela spelet här!!
 [Demo](https://bigmacarmageddon.netlify.app/)
+
+## License
+
+De flesta, om inte alla bilder som använts i spelet är ej skapade eller ägda av oss. Använd därför inte detta spel för kommersiellt bruk.
+
+## Credits
+
+Ronald Mcdonald Sprite Sheet: Treasure Co. Ltd
