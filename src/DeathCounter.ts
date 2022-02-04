@@ -1,7 +1,7 @@
 //Question: livesNumber in gameEngine necessary? GameEngine does not display lives on gameOverMenu
 
 class DeathCounter implements Visual {
-    livesNumber : number;
+    private livesNumber : number;
     constructor (livesNumber : number) {
         this.livesNumber = livesNumber
     }
